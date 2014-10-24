@@ -117,6 +117,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if vertical {
             node.color = SKColor.greenColor()
         }
+        var image = vertical ? AngyWordsStyleKit.imageOfCanvasWoodBlockVertical : AngyWordsStyleKit.imageOfCanvasWoodBlockHorizontal
+        node.texture = SKTexture(image: image )
+        
+        let red = CGFloat(random()%1000)/3000;
+        let green = CGFloat(0);
+        let blue = CGFloat(random()%1000)/2000;
+        node.color = SKColor(red: red, green: green, blue: blue, alpha: 1)
+        node.colorBlendFactor = 0.5
         node.name = "block"
         node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: w, height: h))
         node.position = pos
