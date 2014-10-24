@@ -61,7 +61,7 @@ class TerrainNode: SKShapeNode {
         
         self.fillColor = SKColor(red: 0.9, green: 0.87, blue: 0.6, alpha: 1)
         self.strokeColor = SKColor(red: 0.5, green: 0.45, blue: 0.1, alpha: 1)
-//        self.lineWidth = 20
+        self.lineWidth = 2
         self.physicsBody = SKPhysicsBody(edgeChainFromPath: path.CGPath)
         
         makeTexture()

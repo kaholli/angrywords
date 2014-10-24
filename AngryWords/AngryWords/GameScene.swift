@@ -63,6 +63,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         babbelworm = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasBabbelFigure))
         mapNode.addChild(babbelworm);
         babbelworm.zPosition = 15
+        
+        
+        setCameraPosition(CGPointMake(-terrain.length, 0))
+        camera.runAction(SKAction.sequence([SKAction.waitForDuration(1),SKAction.moveTo(CGPointZero, duration: 1)]));
+
     }
     
     func createClouds(){
@@ -202,12 +207,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        slingDrawer.size = CGSizeMake(10, 10)
 //        slingDrawer.color = SKColor.redColor()
 //        slingDrawer.colorBlendFactor = 1
+
+        slingpos1 = CGPointMake(slingBase.position.x-slingBase.size.width/2+13, slingBase.position.y+slingBase.size.height/2-13)
+        slingpos2 = CGPointMake(slingBase.position.x-slingBase.size.width/2+65, slingBase.position.y+slingBase.size.height/2-15)
+        
         slingDrawer.zPosition = 100;
-        slingDrawer.position = CGPoint(x: slingBase.position.x, y: slingBase.position.y+slingBase.size.height/2)
+        var vec = Helper.CGPointSub(slingpos1, b: slingpos2)
+        var l = Helper.CGPointLength(vec)
+        vec = Helper.CGPointNorm(vec)
+        slingDrawer.position = CGPointMake(slingpos2.x+vec.x*l/2, slingpos2.y+vec.y*l/2)
         initialDrawerPos = slingDrawer.position
         
-        slingpos1 = CGPointMake(slingBase.position.x-slingBase.size.width/2, slingBase.position.y+slingBase.size.height/2)
-        slingpos2 = CGPointMake(slingBase.position.x+slingBase.size.width/2, slingBase.position.y+slingBase.size.height/2)
         
 //        var dummy = SKSpriteNode(color: SKColor.redColor(), size: CGSizeMake(10, 10))
 //        dummy.zPosition = 100
@@ -231,6 +241,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slingback.colorBlendFactor = 1;
         slingback.zPosition = 9
         mapNode.addChild(slingback);
+
+        babbelworm.position = CGPointMake(slingDrawer.position.x+babbelworm.size.width/2, slingDrawer.position.y);
 
     }
     
@@ -442,6 +454,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letter.removeFromParent()
         letter.position = self.convertPoint(letter.position, fromNode: mapNode)
         self.addChild(letter)
-        letter.runAction(SKAction.group([SKAction .scaleTo(1, duration: 0.5), SKAction .moveTo(location, duration: 0.5)]))
+        letter.runAction(SKAction.group([SKAction .scaleTo(1, duration: 0.5), SKAction .moveTo(location, duration: 0.5), SKAction.colorizeWithColor(SKColor(red: 0, green: 0.45, blue: 0.52, alpha: 1), colorBlendFactor: 1, duration: 0.5)]))
     }
 }
