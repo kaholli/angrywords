@@ -101,6 +101,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for var i=0; i<numBlocks;i++ {
                 let x = CGFloat(xRange.location)+xoff+CGFloat(i)*blockLength + blockLength/2;
                 createBlock(CGPoint(x: x, y: y+blockLength + 8), length: blockLength, vertical: false)
+                
+                createBird(CGPointMake(x, y-16))
+                
             }
             
             numBlocks--;
@@ -108,6 +111,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
+    }
+    
+    func createBird(position: CGPoint){
+        var bird = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasEule))
+        bird.size = CGSizeMake(30, 30)
+        bird.name = "owl"
+        bird.position = CGPointMake(position.x, position.y+bird.size.height);
+        bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size);
+        bird.physicsBody?.dynamic = true;
+        bird.physicsBody?.contactTestBitMask = 1
+        mapNode.addChild(bird)
     }
     
     func createBlock(pos: CGPoint, length:CGFloat, vertical:Bool){
@@ -127,6 +141,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.colorBlendFactor = 0.5
         node.name = "block"
         node.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: w, height: h))
+        node.physicsBody?.dynamic = true
+        node.physicsBody?.contactTestBitMask = 1;
         node.position = pos
         node.zPosition = 10
         mapNode.addChild(node)
@@ -234,8 +250,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var l = Helper.CGPointLength(p21);
 
             babbelworm.physicsBody = SKPhysicsBody(rectangleOfSize: babbelworm.size)
+            babbelworm.physicsBody?.dynamic = true
             babbelworm.physicsBody?.applyImpulse(CGVectorMake(p21.x/2, p21.y/2))
-            
+            babbelworm.physicsBody?.contactTestBitMask = 1
             slingDrawer.runAction(SKAction.moveTo(initialDrawerPos, duration: 0.4))
         }
     }
@@ -313,8 +330,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         camera.position = CGPointMake(x, camera.position.y);
     }
  
-    func didBeginContact(contact: SKPhysicsContact) {
+     func didBeginContact(contact: SKPhysicsContact) {
+        let impulse = contact.collisionImpulse
         
+        if(impulse>5){
+            if let node = contact.bodyA.node {
+                if node.name == "owl" {
+                    node.runAction(SKAction.removeFromParent())
+                }
+            }
+            
+            if let node = contact.bodyB.node {
+                if node.name == "owl" {
+                    node.runAction(SKAction.removeFromParent())
+                }
+            }
+        }
     }
     
 }
