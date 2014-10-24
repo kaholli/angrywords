@@ -28,6 +28,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touchStartPoint :CGPoint = CGPointZero
     
     var mapNode = SKNode()
+    var backNode1 = SKNode()
+    var backNode2 = SKNode()
+
     
     var isDraggingSwing :(Bool)  = false
     
@@ -44,6 +47,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
         restart()
         self.addChild(camera)
+        
+        createBackground()
     }
     
     func restart(){
@@ -68,6 +73,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setCameraPosition(CGPointMake(-terrain.length, 0))
         camera.runAction(SKAction.sequence([SKAction.waitForDuration(1),SKAction.moveTo(CGPointZero, duration: 1)]));
 
+    }
+    
+    func createBackground(){
+        var x = CGFloat(0);
+        
+        while x<terrain.length*2 {
+            
+            var node = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfBlueMountainDark))
+            node.xScale = 3;
+            node.yScale = 3;
+            node.position = CGPointMake(x, node.size.height-100)
+            
+            node.zPosition = 0
+            backNode1.addChild(node);
+            x += node.size.width
+        }
+        
+        backNode1.zPosition = 0
+        self.addChild(backNode1)
+        
+        x = CGFloat(0);
+        while x<terrain.length*4 {
+            
+            var node = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfBlueMountain))
+            node.xScale = 5;
+            node.yScale = 5;
+            node.position = CGPointMake(x, node.size.height-200)
+            
+            node.zPosition = -1
+            backNode2.addChild(node);
+            x += node.size.width
+        }
+        
+        backNode2.zPosition = 0
+        self.addChild(backNode2)
     }
     
     func createClouds(){
@@ -376,13 +416,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         if babbelworm.physicsBody != nil {
-            setCameraPosition(CGPointMake(-babbelworm.position.x, camera.position.y))
+            setCameraPosition(CGPointMake(-babbelworm.position.x+100, camera.position.y))
         }else{
             updateSling()
         }
         
         mapNode.position = CGPointMake(camera.position.x, 0)
-    }
+        backNode1.position = CGPointMake(camera.position.x/2, 0)
+        backNode2.position = CGPointMake(camera.position.x/4, 0)
+}
     
     func setCameraPosition(pos : CGPoint){
         var x = pos.x

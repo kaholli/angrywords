@@ -179,10 +179,11 @@
 				TargetAttributes = {
 					E1C151A619FA431B00149DF5 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = Q2RNLK73HV;
+						DevelopmentTeam = 7248DZM5YC;
 					};
 					E1C151BF19FA431B00149DF5 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 7248DZM5YC;
 						TestTargetID = E1C151A619FA431B00149DF5;
 					};
 				};
