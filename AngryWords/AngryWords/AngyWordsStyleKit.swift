@@ -53,6 +53,16 @@ public class AngyWordsStyleKit : NSObject {
         static var babbelFontGray: UIColor = UIColor(red: 0.447, green: 0.447, blue: 0.404, alpha: 1.000)
         static var imageOfCanvasCloud: UIImage?
         static var canvasCloudTargets: [AnyObject]?
+        static var imageOfCanvasCactus: UIImage?
+        static var canvasCactusTargets: [AnyObject]?
+        static var imageOfCanvasStamm: UIImage?
+        static var canvasStammTargets: [AnyObject]?
+        static var imageOfCanvasSchleuderVorne: UIImage?
+        static var canvasSchleuderVorneTargets: [AnyObject]?
+        static var imageOfCanvasSchleuderHinten: UIImage?
+        static var canvasSchleuderHintenTargets: [AnyObject]?
+        static var imageOfCanvasEule: UIImage?
+        static var canvasEuleTargets: [AnyObject]?
     }
 
     //// Colors
@@ -281,6 +291,76 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasCloud!
     }
 
+    public class var imageOfCanvasCactus: UIImage {
+        if Cache.imageOfCanvasCactus != nil {
+            return Cache.imageOfCanvasCactus!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(217, 362), false, 0)
+            AngyWordsStyleKit.drawCanvasCactus()
+
+        Cache.imageOfCanvasCactus = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasCactus!
+    }
+
+    public class var imageOfCanvasStamm: UIImage {
+        if Cache.imageOfCanvasStamm != nil {
+            return Cache.imageOfCanvasStamm!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 69), false, 0)
+            AngyWordsStyleKit.drawCanvasStamm()
+
+        Cache.imageOfCanvasStamm = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasStamm!
+    }
+
+    public class var imageOfCanvasSchleuderVorne: UIImage {
+        if Cache.imageOfCanvasSchleuderVorne != nil {
+            return Cache.imageOfCanvasSchleuderVorne!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 69), false, 0)
+            AngyWordsStyleKit.drawCanvasSchleuderVorne()
+
+        Cache.imageOfCanvasSchleuderVorne = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasSchleuderVorne!
+    }
+
+    public class var imageOfCanvasSchleuderHinten: UIImage {
+        if Cache.imageOfCanvasSchleuderHinten != nil {
+            return Cache.imageOfCanvasSchleuderHinten!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(30, 69), false, 0)
+            AngyWordsStyleKit.drawCanvasSchleuderHinten()
+
+        Cache.imageOfCanvasSchleuderHinten = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasSchleuderHinten!
+    }
+
+    public class var imageOfCanvasEule: UIImage {
+        if Cache.imageOfCanvasEule != nil {
+            return Cache.imageOfCanvasEule!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(500, 500), false, 0)
+            AngyWordsStyleKit.drawCanvasEule()
+
+        Cache.imageOfCanvasEule = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasEule!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var canvasCloudTargets: [AnyObject]! {
@@ -289,6 +369,56 @@ public class AngyWordsStyleKit : NSObject {
             Cache.canvasCloudTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfCanvasCloud)
+            }
+        }
+    }
+
+    @IBOutlet var canvasCactusTargets: [AnyObject]! {
+        get { return Cache.canvasCactusTargets }
+        set {
+            Cache.canvasCactusTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasCactus)
+            }
+        }
+    }
+
+    @IBOutlet var canvasStammTargets: [AnyObject]! {
+        get { return Cache.canvasStammTargets }
+        set {
+            Cache.canvasStammTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasStamm)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSchleuderVorneTargets: [AnyObject]! {
+        get { return Cache.canvasSchleuderVorneTargets }
+        set {
+            Cache.canvasSchleuderVorneTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSchleuderVorne)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSchleuderHintenTargets: [AnyObject]! {
+        get { return Cache.canvasSchleuderHintenTargets }
+        set {
+            Cache.canvasSchleuderHintenTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSchleuderHinten)
+            }
+        }
+    }
+
+    @IBOutlet var canvasEuleTargets: [AnyObject]! {
+        get { return Cache.canvasEuleTargets }
+        set {
+            Cache.canvasEuleTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasEule)
             }
         }
     }
