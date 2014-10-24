@@ -800,7 +800,7 @@ public class AngyWordsStyleKit : NSObject {
         rectanglePath.addCurveToPoint(CGPointMake(0, 5.22), controlPoint1: CGPointMake(1.9, 8.35), controlPoint2: CGPointMake(0, 5.22))
         rectanglePath.addLineToPoint(CGPointMake(0, 18.78))
         rectanglePath.closePath()
-        AngyWordsStyleKit.babbelFontGray.setFill()
+        AngyWordsStyleKit.babbelRed.setFill()
         rectanglePath.fill()
     }
 
@@ -2645,6 +2645,9 @@ public class AngyWordsStyleKit : NSObject {
         CGContextClipToRect(context, text2Rect);
         text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
         CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvas1() {
     }
 
     //// Generated Images
