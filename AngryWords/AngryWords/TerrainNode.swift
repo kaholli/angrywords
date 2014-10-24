@@ -14,9 +14,10 @@ class TerrainNode: SKShapeNode {
     var startAreaY = CGFloat(0)
     var targetAreaXRange = NSMakeRange(0, 0)
     var startAreaXRange = NSMakeRange(0, 0)
+    var length :CGFloat = 0;
 
     func createTerrain(fromX: CGFloat, length: CGFloat , miny:CGFloat, maxY:CGFloat, initialFlatLength: CGFloat , endFlatRange: CGFloat){
-        
+        self.length = length
         var path = UIBezierPath()
         
         var x = fromX;
