@@ -33,6 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var babbelworm : SKSpriteNode = SKSpriteNode(color: SKColor.orangeColor(), size: CGSizeMake(50, 50))
     
+    var word: [String] = ["B","a","b","b","e","l","-","H","a","c","k","d","a","y","2"]
+    var currentWordIndex = 0
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
        
@@ -57,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         mapNode.addChild(terrain)
         createTarget()
         createSling()
-        
+
         babbelworm = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasBabbelFigure))
         mapNode.addChild(babbelworm);
         babbelworm.zPosition = 15
@@ -135,7 +137,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size);
         bird.physicsBody?.dynamic = true;
         bird.physicsBody?.contactTestBitMask = 1
+        bird.zPosition = 30
         mapNode.addChild(bird)
+        
+        let l = word[currentWordIndex]
+        var letter = LetterNode()
+        letter.setLetter(l, index: currentWordIndex, bird: bird)
+        letter.zPosition = 50
+        mapNode.addChild(letter)
+        
+        currentWordIndex++;
     }
     
     func createBlock(pos: CGPoint, length:CGFloat, vertical:Bool){
@@ -344,6 +355,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didSimulatePhysics() {
+        
+        mapNode.enumerateChildNodesWithName("letter", usingBlock: {
+            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            
+            let letter = node as LetterNode            
+                letter.updatePosition()
+        })
+
+        
         if babbelworm.physicsBody != nil {
             setCameraPosition(CGPointMake(-babbelworm.position.x, camera.position.y))
         }else{
@@ -403,5 +423,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         emitter.runAction(SKAction.sequence([SKAction.waitForDuration(4),SKAction.removeFromParent()]))
         mapNode.addChild(emitter)
         
+        mapNode.enumerateChildNodesWithName("letter", usingBlock: {
+            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            
+            let letter = node as LetterNode
+            
+            if(letter.bird==bird){
+                self.moveLetterUp(letter)
+            }
+            
+        })
+    }
+    
+    func moveLetterUp(letter: LetterNode){
+        let letterWidth = CGFloat(40)
+        let wordWidth = CGFloat(CGFloat(word.count)*letterWidth)
+        let offset = CGFloat((self.size.width-wordWidth)/2)
+        let location = CGPointMake(offset + CGFloat(letter.index)*letterWidth, 600)
+        letter.removeFromParent()
+        letter.position = self.convertPoint(letter.position, fromNode: mapNode)
+        self.addChild(letter)
+        letter.runAction(SKAction.group([SKAction .scaleTo(1, duration: 0.5), SKAction .moveTo(location, duration: 0.5)]))
     }
 }
