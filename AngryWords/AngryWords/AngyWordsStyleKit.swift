@@ -101,10 +101,6 @@ public class AngyWordsStyleKit : NSObject {
         static var blueMountainTargets: [AnyObject]?
         static var imageOfBlueMountainDark: UIImage?
         static var blueMountainDarkTargets: [AnyObject]?
-        static var imageOfCanvasCactusBlue: UIImage?
-        static var canvasCactusBlueTargets: [AnyObject]?
-        static var imageOfCanvasCactusBlueDark: UIImage?
-        static var canvasCactusBlueDarkTargets: [AnyObject]?
     }
 
     //// Colors
@@ -2705,10 +2701,11 @@ public class AngyWordsStyleKit : NSObject {
         var ovalPath = UIBezierPath()
         ovalPath.moveToPoint(CGPointMake(127, 122))
         ovalPath.addCurveToPoint(CGPointMake(136, 99), controlPoint1: CGPointMake(158.64, 119.32), controlPoint2: CGPointMake(161, 105))
-        ovalPath.addCurveToPoint(CGPointMake(89, 52), controlPoint1: CGPointMake(114.39, 93.81), controlPoint2: CGPointMake(96, 58))
-        ovalPath.addCurveToPoint(CGPointMake(28, 38), controlPoint1: CGPointMake(73.9, 39.06), controlPoint2: CGPointMake(45.16, 28.46))
-        ovalPath.addCurveToPoint(CGPointMake(-7, 69), controlPoint1: CGPointMake(19, 43), controlPoint2: CGPointMake(1.82, 49.98))
-        ovalPath.addCurveToPoint(CGPointMake(-7, 122), controlPoint1: CGPointMake(-15, 86.26), controlPoint2: CGPointMake(-13.32, 116.61))
+        ovalPath.addCurveToPoint(CGPointMake(97, 56), controlPoint1: CGPointMake(114.39, 93.81), controlPoint2: CGPointMake(104, 62))
+        ovalPath.addCurveToPoint(CGPointMake(40, 41), controlPoint1: CGPointMake(81.9, 43.06), controlPoint2: CGPointMake(57.16, 31.46))
+        ovalPath.addCurveToPoint(CGPointMake(0.21, 73.24), controlPoint1: CGPointMake(33.07, 44.85), controlPoint2: CGPointMake(22, 65))
+        ovalPath.addCurveToPoint(CGPointMake(-7, 87), controlPoint1: CGPointMake(-6.3, 75.7), controlPoint2: CGPointMake(-4.97, 82.62))
+        ovalPath.addCurveToPoint(CGPointMake(-7, 122), controlPoint1: CGPointMake(-15, 104.26), controlPoint2: CGPointMake(-13.32, 116.61))
         ovalPath.addCurveToPoint(CGPointMake(127, 122), controlPoint1: CGPointMake(6.28, 133.33), controlPoint2: CGPointMake(68, 127))
         ovalPath.closePath()
         babbelBlueS5.setFill()
@@ -2718,14 +2715,62 @@ public class AngyWordsStyleKit : NSObject {
         //// Oval 2 Drawing
         var oval2Path = UIBezierPath()
         oval2Path.moveToPoint(CGPointMake(224.91, 132.67))
-        oval2Path.addCurveToPoint(CGPointMake(250.43, 103), controlPoint1: CGPointMake(247.5, 114.9), controlPoint2: CGPointMake(255.78, 144))
-        oval2Path.addCurveToPoint(CGPointMake(207.58, 61), controlPoint1: CGPointMake(245.07, 62), controlPoint2: CGPointMake(230.17, 43.23))
+        oval2Path.addCurveToPoint(CGPointMake(246, 103), controlPoint1: CGPointMake(247.5, 114.9), controlPoint2: CGPointMake(251.36, 144))
+        oval2Path.addCurveToPoint(CGPointMake(239.96, 73.54), controlPoint1: CGPointMake(244.46, 91.24), controlPoint2: CGPointMake(245.98, 77.38))
+        oval2Path.addCurveToPoint(CGPointMake(207.58, 61), controlPoint1: CGPointMake(225, 64), controlPoint2: CGPointMake(223.69, 48.33))
         oval2Path.addCurveToPoint(CGPointMake(164, 97), controlPoint1: CGPointMake(196.54, 69.68), controlPoint2: CGPointMake(191.69, 89.36))
         oval2Path.addCurveToPoint(CGPointMake(109.03, 103), controlPoint1: CGPointMake(135, 105), controlPoint2: CGPointMake(112.96, 93.96))
         oval2Path.addCurveToPoint(CGPointMake(224.91, 132.67), controlPoint1: CGPointMake(101.33, 120.67), controlPoint2: CGPointMake(202.32, 150.44))
         oval2Path.closePath()
         babbelBlueS5.setFill()
         oval2Path.fill()
+
+
+        //// Group
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(rect: CGRectMake(129, 62, 16, 47))
+        babbelBlueS5.setFill()
+        rectanglePath.fill()
+
+
+        //// Oval 3 Drawing
+        var oval3Path = UIBezierPath(ovalInRect: CGRectMake(129, 54, 16, 15))
+        babbelBlueS5.setFill()
+        oval3Path.fill()
+
+
+        //// Bezier Drawing
+        var bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPointMake(149.54, 69.5))
+        bezierPath.addCurveToPoint(CGPointMake(149.54, 69.53), controlPoint1: CGPointMake(149.54, 69.5), controlPoint2: CGPointMake(149.54, 69.51))
+        bezierPath.addCurveToPoint(CGPointMake(152.1, 70.63), controlPoint1: CGPointMake(150.45, 69.39), controlPoint2: CGPointMake(151.4, 69.76))
+        bezierPath.addCurveToPoint(CGPointMake(152.1, 76.11), controlPoint1: CGPointMake(153.3, 72.15), controlPoint2: CGPointMake(153.3, 74.6))
+        bezierPath.addCurveToPoint(CGPointMake(149.54, 77.22), controlPoint1: CGPointMake(151.4, 76.99), controlPoint2: CGPointMake(150.45, 77.36))
+        bezierPath.addCurveToPoint(CGPointMake(149.54, 77.25), controlPoint1: CGPointMake(149.54, 77.24), controlPoint2: CGPointMake(149.54, 77.25))
+        bezierPath.addLineToPoint(CGPointMake(140.9, 77.25))
+        bezierPath.addLineToPoint(CGPointMake(140.9, 69.5))
+        bezierPath.addLineToPoint(CGPointMake(149.54, 69.5))
+        bezierPath.addLineToPoint(CGPointMake(149.54, 69.5))
+        bezierPath.closePath()
+        babbelBlueS5.setFill()
+        bezierPath.fill()
+
+
+        //// Bezier 2 Drawing
+        var bezier2Path = UIBezierPath()
+        bezier2Path.moveToPoint(CGPointMake(137.12, 80.44))
+        bezier2Path.addLineToPoint(CGPointMake(137.12, 88.19))
+        bezier2Path.addLineToPoint(CGPointMake(126.32, 88.19))
+        bezier2Path.addCurveToPoint(CGPointMake(126.32, 88.16), controlPoint1: CGPointMake(126.32, 88.19), controlPoint2: CGPointMake(126.32, 88.18))
+        bezier2Path.addCurveToPoint(CGPointMake(123.13, 87.05), controlPoint1: CGPointMake(125.19, 88.29), controlPoint2: CGPointMake(124, 87.93))
+        bezier2Path.addCurveToPoint(CGPointMake(123.13, 81.57), controlPoint1: CGPointMake(121.62, 85.54), controlPoint2: CGPointMake(121.62, 83.08))
+        bezier2Path.addCurveToPoint(CGPointMake(126.32, 80.46), controlPoint1: CGPointMake(124, 80.7), controlPoint2: CGPointMake(125.19, 80.33))
+        bezier2Path.addCurveToPoint(CGPointMake(126.32, 80.44), controlPoint1: CGPointMake(126.32, 80.45), controlPoint2: CGPointMake(126.32, 80.44))
+        bezier2Path.addLineToPoint(CGPointMake(137.12, 80.44))
+        bezier2Path.addLineToPoint(CGPointMake(137.12, 80.44))
+        bezier2Path.closePath()
+        babbelBlueS5.setFill()
+        bezier2Path.fill()
     }
 
     public class func drawBlueMountainDark() {
@@ -2737,8 +2782,9 @@ public class AngyWordsStyleKit : NSObject {
         oval3Path.moveToPoint(CGPointMake(113.61, 122.87))
         oval3Path.addCurveToPoint(CGPointMake(100, 94), controlPoint1: CGPointMake(81.97, 120.18), controlPoint2: CGPointMake(60.67, 83.59))
         oval3Path.addCurveToPoint(CGPointMake(221, 15), controlPoint1: CGPointMake(134, 103), controlPoint2: CGPointMake(184, -6))
-        oval3Path.addCurveToPoint(CGPointMake(260, 123), controlPoint1: CGPointMake(240.4, 26.01), controlPoint2: CGPointMake(266.32, 117.61))
-        oval3Path.addCurveToPoint(CGPointMake(113.61, 122.87), controlPoint1: CGPointMake(246.72, 134.33), controlPoint2: CGPointMake(172.61, 127.87))
+        oval3Path.addCurveToPoint(CGPointMake(239.78, 68.65), controlPoint1: CGPointMake(229.31, 19.72), controlPoint2: CGPointMake(215, 50))
+        oval3Path.addCurveToPoint(CGPointMake(243, 144), controlPoint1: CGPointMake(272.87, 93.54), controlPoint2: CGPointMake(246.61, 140.92))
+        oval3Path.addCurveToPoint(CGPointMake(113.61, 122.87), controlPoint1: CGPointMake(229.72, 155.33), controlPoint2: CGPointMake(172.61, 127.87))
         oval3Path.closePath()
         babbelBlueS10.setFill()
         oval3Path.fill()
@@ -2748,94 +2794,41 @@ public class AngyWordsStyleKit : NSObject {
         var oval4Path = UIBezierPath()
         oval4Path.moveToPoint(CGPointMake(15.7, 133.54))
         oval4Path.addCurveToPoint(CGPointMake(-9.81, 103.87), controlPoint1: CGPointMake(-6.89, 115.77), controlPoint2: CGPointMake(-15.17, 144.87))
-        oval4Path.addCurveToPoint(CGPointMake(33.04, 61.87), controlPoint1: CGPointMake(-4.46, 62.87), controlPoint2: CGPointMake(10.45, 44.1))
+        oval4Path.addCurveToPoint(CGPointMake(-0.11, 68.34), controlPoint1: CGPointMake(-7.84, 88.78), controlPoint2: CGPointMake(-12.41, 69.13))
+        oval4Path.addCurveToPoint(CGPointMake(33.04, 61.87), controlPoint1: CGPointMake(21, 67), controlPoint2: CGPointMake(18.76, 50.64))
         oval4Path.addCurveToPoint(CGPointMake(86, 89), controlPoint1: CGPointMake(44.07, 70.54), controlPoint2: CGPointMake(58.31, 81.36))
         oval4Path.addCurveToPoint(CGPointMake(140, 89), controlPoint1: CGPointMake(115, 97), controlPoint2: CGPointMake(136.06, 79.96))
         oval4Path.addCurveToPoint(CGPointMake(15.7, 133.54), controlPoint1: CGPointMake(147.7, 106.67), controlPoint2: CGPointMake(38.29, 151.31))
         oval4Path.closePath()
         babbelBlueS10.setFill()
         oval4Path.fill()
-    }
 
-    public class func drawCanvasCactusBlue() {
-        //// Color Declarations
-        let babbelBlueS5 = AngyWordsStyleKit.babbelBlue.colorWithShadow(0.052)
-
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRectMake(27, 22, 39, 128))
-        babbelBlueS5.setFill()
-        rectanglePath.fill()
-
-
-        //// Oval Drawing
-        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(27, 0, 39, 42))
-        babbelBlueS5.setFill()
-        ovalPath.fill()
-
-
-        //// Bezier Drawing
-        var bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(87.1, 42.27))
-        bezierPath.addCurveToPoint(CGPointMake(87.1, 42.34), controlPoint1: CGPointMake(87.1, 42.27), controlPoint2: CGPointMake(87.1, 42.29))
-        bezierPath.addCurveToPoint(CGPointMake(96.63, 45.36), controlPoint1: CGPointMake(90.49, 41.97), controlPoint2: CGPointMake(94.02, 42.97))
-        bezierPath.addCurveToPoint(CGPointMake(96.63, 60.3), controlPoint1: CGPointMake(101.12, 49.49), controlPoint2: CGPointMake(101.12, 56.18))
-        bezierPath.addCurveToPoint(CGPointMake(87.1, 63.32), controlPoint1: CGPointMake(94.02, 62.69), controlPoint2: CGPointMake(90.49, 63.7))
-        bezierPath.addCurveToPoint(CGPointMake(87.1, 63.4), controlPoint1: CGPointMake(87.1, 63.37), controlPoint2: CGPointMake(87.1, 63.4))
-        bezierPath.addLineToPoint(CGPointMake(54.84, 63.4))
-        bezierPath.addLineToPoint(CGPointMake(54.84, 42.27))
-        bezierPath.addLineToPoint(CGPointMake(87.1, 42.27))
-        bezierPath.addLineToPoint(CGPointMake(87.1, 42.27))
-        bezierPath.closePath()
-        babbelBlueS5.setFill()
-        bezierPath.fill()
-
-
-        //// Bezier 2 Drawing
-        var bezier2Path = UIBezierPath()
-        bezier2Path.moveToPoint(CGPointMake(46.16, 72.1))
-        bezier2Path.addLineToPoint(CGPointMake(46.16, 93.23))
-        bezier2Path.addLineToPoint(CGPointMake(13.9, 93.23))
-        bezier2Path.addCurveToPoint(CGPointMake(13.9, 93.16), controlPoint1: CGPointMake(13.9, 93.23), controlPoint2: CGPointMake(13.9, 93.21))
-        bezier2Path.addCurveToPoint(CGPointMake(4.37, 90.14), controlPoint1: CGPointMake(10.51, 93.53), controlPoint2: CGPointMake(6.98, 92.52))
-        bezier2Path.addCurveToPoint(CGPointMake(4.37, 75.19), controlPoint1: CGPointMake(-0.12, 86.01), controlPoint2: CGPointMake(-0.12, 79.32))
-        bezier2Path.addCurveToPoint(CGPointMake(13.9, 72.18), controlPoint1: CGPointMake(6.98, 72.81), controlPoint2: CGPointMake(10.51, 71.8))
-        bezier2Path.addCurveToPoint(CGPointMake(13.9, 72.1), controlPoint1: CGPointMake(13.9, 72.13), controlPoint2: CGPointMake(13.9, 72.1))
-        bezier2Path.addLineToPoint(CGPointMake(46.16, 72.1))
-        bezier2Path.addLineToPoint(CGPointMake(46.16, 72.1))
-        bezier2Path.closePath()
-        babbelBlueS5.setFill()
-        bezier2Path.fill()
-    }
-
-    public class func drawCanvasCactusBlueDark() {
-        //// Color Declarations
-        let babbelBlueS10 = AngyWordsStyleKit.babbelBlue.colorWithShadow(0.2)
 
         //// Group
         //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRectMake(27, 22, 39, 128))
+        let rectangle2Path = UIBezierPath(rect: CGRectMake(69, 52, 11, 47))
         babbelBlueS10.setFill()
         rectangle2Path.fill()
 
 
         //// Oval 2 Drawing
-        var oval2Path = UIBezierPath(ovalInRect: CGRectMake(27, 0, 39, 42))
+        var oval2Path = UIBezierPath(ovalInRect: CGRectMake(69, 43, 11, 16))
         babbelBlueS10.setFill()
         oval2Path.fill()
 
 
         //// Bezier 3 Drawing
         var bezier3Path = UIBezierPath()
-        bezier3Path.moveToPoint(CGPointMake(87.1, 85.27))
-        bezier3Path.addCurveToPoint(CGPointMake(87.1, 85.34), controlPoint1: CGPointMake(87.1, 85.27), controlPoint2: CGPointMake(87.1, 85.29))
-        bezier3Path.addCurveToPoint(CGPointMake(96.63, 88.36), controlPoint1: CGPointMake(90.49, 84.97), controlPoint2: CGPointMake(94.02, 85.97))
-        bezier3Path.addCurveToPoint(CGPointMake(96.63, 103.3), controlPoint1: CGPointMake(101.12, 92.49), controlPoint2: CGPointMake(101.12, 99.18))
-        bezier3Path.addCurveToPoint(CGPointMake(87.1, 106.32), controlPoint1: CGPointMake(94.02, 105.69), controlPoint2: CGPointMake(90.49, 106.7))
-        bezier3Path.addCurveToPoint(CGPointMake(87.1, 106.4), controlPoint1: CGPointMake(87.1, 106.37), controlPoint2: CGPointMake(87.1, 106.4))
-        bezier3Path.addLineToPoint(CGPointMake(54.84, 106.4))
-        bezier3Path.addLineToPoint(CGPointMake(54.84, 85.27))
-        bezier3Path.addLineToPoint(CGPointMake(87.1, 85.27))
-        bezier3Path.addLineToPoint(CGPointMake(87.1, 85.27))
+        bezier3Path.moveToPoint(CGPointMake(85.48, 74.83))
+        bezier3Path.addCurveToPoint(CGPointMake(85.48, 74.86), controlPoint1: CGPointMake(85.48, 74.83), controlPoint2: CGPointMake(85.48, 74.84))
+        bezier3Path.addCurveToPoint(CGPointMake(88.08, 75.99), controlPoint1: CGPointMake(86.41, 74.72), controlPoint2: CGPointMake(87.37, 75.1))
+        bezier3Path.addCurveToPoint(CGPointMake(88.08, 81.57), controlPoint1: CGPointMake(89.31, 77.53), controlPoint2: CGPointMake(89.31, 80.03))
+        bezier3Path.addCurveToPoint(CGPointMake(85.48, 82.69), controlPoint1: CGPointMake(87.37, 82.46), controlPoint2: CGPointMake(86.41, 82.83))
+        bezier3Path.addCurveToPoint(CGPointMake(85.48, 82.72), controlPoint1: CGPointMake(85.48, 82.71), controlPoint2: CGPointMake(85.48, 82.72))
+        bezier3Path.addLineToPoint(CGPointMake(76.68, 82.72))
+        bezier3Path.addLineToPoint(CGPointMake(76.68, 74.83))
+        bezier3Path.addLineToPoint(CGPointMake(85.48, 74.83))
+        bezier3Path.addLineToPoint(CGPointMake(85.48, 74.83))
         bezier3Path.closePath()
         babbelBlueS10.setFill()
         bezier3Path.fill()
@@ -2843,16 +2836,16 @@ public class AngyWordsStyleKit : NSObject {
 
         //// Bezier 4 Drawing
         var bezier4Path = UIBezierPath()
-        bezier4Path.moveToPoint(CGPointMake(52.16, 55.1))
-        bezier4Path.addLineToPoint(CGPointMake(52.16, 76.23))
-        bezier4Path.addLineToPoint(CGPointMake(15.62, 76.23))
-        bezier4Path.addCurveToPoint(CGPointMake(15.62, 76.16), controlPoint1: CGPointMake(15.62, 76.23), controlPoint2: CGPointMake(15.62, 76.21))
-        bezier4Path.addCurveToPoint(CGPointMake(4.82, 73.14), controlPoint1: CGPointMake(11.78, 76.53), controlPoint2: CGPointMake(7.77, 75.52))
-        bezier4Path.addCurveToPoint(CGPointMake(4.82, 58.19), controlPoint1: CGPointMake(-0.27, 69.01), controlPoint2: CGPointMake(-0.27, 62.32))
-        bezier4Path.addCurveToPoint(CGPointMake(15.62, 55.18), controlPoint1: CGPointMake(7.77, 55.81), controlPoint2: CGPointMake(11.78, 54.8))
-        bezier4Path.addCurveToPoint(CGPointMake(15.62, 55.1), controlPoint1: CGPointMake(15.62, 55.13), controlPoint2: CGPointMake(15.62, 55.1))
-        bezier4Path.addLineToPoint(CGPointMake(52.16, 55.1))
-        bezier4Path.addLineToPoint(CGPointMake(52.16, 55.1))
+        bezier4Path.moveToPoint(CGPointMake(75.95, 63.57))
+        bezier4Path.addLineToPoint(CGPointMake(75.95, 71.46))
+        bezier4Path.addLineToPoint(CGPointMake(65.99, 71.46))
+        bezier4Path.addCurveToPoint(CGPointMake(65.99, 71.43), controlPoint1: CGPointMake(65.99, 71.46), controlPoint2: CGPointMake(65.99, 71.45))
+        bezier4Path.addCurveToPoint(CGPointMake(63.04, 70.3), controlPoint1: CGPointMake(64.94, 71.57), controlPoint2: CGPointMake(63.85, 71.2))
+        bezier4Path.addCurveToPoint(CGPointMake(63.04, 64.73), controlPoint1: CGPointMake(61.65, 68.76), controlPoint2: CGPointMake(61.65, 66.27))
+        bezier4Path.addCurveToPoint(CGPointMake(65.99, 63.6), controlPoint1: CGPointMake(63.85, 63.83), controlPoint2: CGPointMake(64.94, 63.46))
+        bezier4Path.addCurveToPoint(CGPointMake(65.99, 63.57), controlPoint1: CGPointMake(65.99, 63.58), controlPoint2: CGPointMake(65.99, 63.57))
+        bezier4Path.addLineToPoint(CGPointMake(75.95, 63.57))
+        bezier4Path.addLineToPoint(CGPointMake(75.95, 63.57))
         bezier4Path.closePath()
         babbelBlueS10.setFill()
         bezier4Path.fill()
@@ -2860,16 +2853,16 @@ public class AngyWordsStyleKit : NSObject {
 
         //// Bezier Drawing
         var bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(71.1, 22.27))
-        bezierPath.addCurveToPoint(CGPointMake(71.1, 22.34), controlPoint1: CGPointMake(71.1, 22.27), controlPoint2: CGPointMake(71.1, 22.29))
-        bezierPath.addCurveToPoint(CGPointMake(80.63, 25.36), controlPoint1: CGPointMake(74.49, 21.97), controlPoint2: CGPointMake(78.02, 22.97))
-        bezierPath.addCurveToPoint(CGPointMake(80.63, 40.3), controlPoint1: CGPointMake(85.12, 29.49), controlPoint2: CGPointMake(85.12, 36.18))
-        bezierPath.addCurveToPoint(CGPointMake(71.1, 43.32), controlPoint1: CGPointMake(78.02, 42.69), controlPoint2: CGPointMake(74.49, 43.7))
-        bezierPath.addCurveToPoint(CGPointMake(71.1, 43.4), controlPoint1: CGPointMake(71.1, 43.37), controlPoint2: CGPointMake(71.1, 43.4))
-        bezierPath.addLineToPoint(CGPointMake(38.84, 43.4))
-        bezierPath.addLineToPoint(CGPointMake(38.84, 22.27))
-        bezierPath.addLineToPoint(CGPointMake(71.1, 22.27))
-        bezierPath.addLineToPoint(CGPointMake(71.1, 22.27))
+        bezierPath.moveToPoint(CGPointMake(81.12, 51.31))
+        bezierPath.addCurveToPoint(CGPointMake(81.12, 51.34), controlPoint1: CGPointMake(81.12, 51.31), controlPoint2: CGPointMake(81.12, 51.32))
+        bezierPath.addCurveToPoint(CGPointMake(83.72, 52.47), controlPoint1: CGPointMake(82.04, 51.2), controlPoint2: CGPointMake(83.01, 51.58))
+        bezierPath.addCurveToPoint(CGPointMake(83.72, 58.05), controlPoint1: CGPointMake(84.94, 54.01), controlPoint2: CGPointMake(84.94, 56.51))
+        bezierPath.addCurveToPoint(CGPointMake(81.12, 59.17), controlPoint1: CGPointMake(83.01, 58.94), controlPoint2: CGPointMake(82.04, 59.31))
+        bezierPath.addCurveToPoint(CGPointMake(81.12, 59.2), controlPoint1: CGPointMake(81.12, 59.19), controlPoint2: CGPointMake(81.12, 59.2))
+        bezierPath.addLineToPoint(CGPointMake(72.32, 59.2))
+        bezierPath.addLineToPoint(CGPointMake(72.32, 51.31))
+        bezierPath.addLineToPoint(CGPointMake(81.12, 51.31))
+        bezierPath.addLineToPoint(CGPointMake(81.12, 51.31))
         bezierPath.closePath()
         babbelBlueS10.setFill()
         bezierPath.fill()
@@ -3227,34 +3220,6 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfBlueMountainDark!
     }
 
-    public class var imageOfCanvasCactusBlue: UIImage {
-        if Cache.imageOfCanvasCactusBlue != nil {
-            return Cache.imageOfCanvasCactusBlue!
-        }
-
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(100, 150), false, 0)
-            AngyWordsStyleKit.drawCanvasCactusBlue()
-
-        Cache.imageOfCanvasCactusBlue = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-
-        return Cache.imageOfCanvasCactusBlue!
-    }
-
-    public class var imageOfCanvasCactusBlueDark: UIImage {
-        if Cache.imageOfCanvasCactusBlueDark != nil {
-            return Cache.imageOfCanvasCactusBlueDark!
-        }
-
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(100, 150), false, 0)
-            AngyWordsStyleKit.drawCanvasCactusBlueDark()
-
-        Cache.imageOfCanvasCactusBlueDark = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-
-        return Cache.imageOfCanvasCactusBlueDark!
-    }
-
     //// Customization Infrastructure
 
     @IBOutlet var canvasCloudTargets: [AnyObject]! {
@@ -3503,26 +3468,6 @@ public class AngyWordsStyleKit : NSObject {
             Cache.blueMountainDarkTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfBlueMountainDark)
-            }
-        }
-    }
-
-    @IBOutlet var canvasCactusBlueTargets: [AnyObject]! {
-        get { return Cache.canvasCactusBlueTargets }
-        set {
-            Cache.canvasCactusBlueTargets = newValue
-            for target: AnyObject in newValue {
-                target.setImage(AngyWordsStyleKit.imageOfCanvasCactusBlue)
-            }
-        }
-    }
-
-    @IBOutlet var canvasCactusBlueDarkTargets: [AnyObject]! {
-        get { return Cache.canvasCactusBlueDarkTargets }
-        set {
-            Cache.canvasCactusBlueDarkTargets = newValue
-            for target: AnyObject in newValue {
-                target.setImage(AngyWordsStyleKit.imageOfCanvasCactusBlueDark)
             }
         }
     }
