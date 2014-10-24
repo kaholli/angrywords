@@ -340,7 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
             let touch: AnyObject = touches.anyObject()!
             let location = touch.locationInNode(self)
-            if location.x<44  {
+            if location.x<44 {
 //                self.restart();
             }
             
@@ -459,19 +459,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bird.runAction(SKAction.removeFromParent())
         
         var emitter = SKEmitterNode()
-        emitter.numParticlesToEmit = 50
-        emitter.particleLifetime = 2
-        emitter.particleColorBlendFactor = 1
-        emitter.particleSize = CGSizeMake(10, 10)
+        emitter.particleTexture = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSmoke)
+        emitter.numParticlesToEmit = 15
+        emitter.particleLifetime = 0.5
+        emitter.particleSize = CGSizeMake(42, 32)
         emitter.particleBlendMode = SKBlendMode.Alpha
-        emitter.particleColor = SKColor.redColor()
         emitter.particleBirthRate = 1000
-        emitter.particleScale = 1
-        emitter.particleScaleRange = 1
-        emitter.particleScaleSpeed = -1
-        emitter.yAcceleration = -500
-        emitter.particleSpeed = 200
-        emitter.emissionAngleRange = CGFloat(M_PI_2)
+        emitter.particleScale = 0
+        emitter.particleScaleSpeed = 1
+        emitter.particleSpeed = 50
+        emitter.particleAlphaSpeed = -1
+        emitter.particleRotationRange = CGFloat(2*M_PI)
+        emitter.particleRotationSpeed = 1
+        emitter.emissionAngleRange = CGFloat(2*M_PI)
         emitter.position = bird.position
         emitter.runAction(SKAction.sequence([SKAction.waitForDuration(4),SKAction.removeFromParent()]))
         mapNode.addChild(emitter)
