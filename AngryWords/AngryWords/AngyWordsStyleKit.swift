@@ -101,6 +101,8 @@ public class AngyWordsStyleKit : NSObject {
         static var blueMountainTargets: [AnyObject]?
         static var imageOfBlueMountainDark: UIImage?
         static var blueMountainDarkTargets: [AnyObject]?
+        static var imageOfCanvasSmoke: UIImage?
+        static var canvasSmokeTargets: [AnyObject]?
     }
 
     //// Colors
@@ -2243,7 +2245,7 @@ public class AngyWordsStyleKit : NSObject {
         //// Color Declarations
         let sand = UIColor(red: 0.880, green: 0.754, blue: 0.335, alpha: 1.000)
         let sandS10 = sand.colorWithShadow(0.1)
-        let sandS20 = sand.colorWithShadow(0.2)
+        let sandS20 = sand.colorWithShadow(0.13)
 
         //// Rectangle 9 Drawing
         let rectangle9Path = UIBezierPath(rect: CGRectMake(0, 0, 64, 64))
@@ -2452,7 +2454,7 @@ public class AngyWordsStyleKit : NSObject {
         //// Color Declarations
         let sand = UIColor(red: 0.880, green: 0.754, blue: 0.335, alpha: 1.000)
         let sandS10 = sand.colorWithShadow(0.1)
-        let sandS20 = sand.colorWithShadow(0.2)
+        let sandS20 = sand.colorWithShadow(0.13)
 
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 64, 64))
@@ -2868,7 +2870,7 @@ public class AngyWordsStyleKit : NSObject {
         bezierPath.fill()
     }
 
-    public class func drawCanvas1() {
+    public class func drawCanvasSmoke() {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -3335,6 +3337,20 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfBlueMountainDark!
     }
 
+    public class var imageOfCanvasSmoke: UIImage {
+        if Cache.imageOfCanvasSmoke != nil {
+            return Cache.imageOfCanvasSmoke!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(42, 32), false, 0)
+            AngyWordsStyleKit.drawCanvasSmoke()
+
+        Cache.imageOfCanvasSmoke = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasSmoke!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var canvasCloudTargets: [AnyObject]! {
@@ -3583,6 +3599,16 @@ public class AngyWordsStyleKit : NSObject {
             Cache.blueMountainDarkTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfBlueMountainDark)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSmokeTargets: [AnyObject]! {
+        get { return Cache.canvasSmokeTargets }
+        set {
+            Cache.canvasSmokeTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSmoke)
             }
         }
     }
