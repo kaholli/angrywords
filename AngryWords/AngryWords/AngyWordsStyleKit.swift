@@ -2868,6 +2868,121 @@ public class AngyWordsStyleKit : NSObject {
         bezierPath.fill()
     }
 
+    public class func drawCanvas1() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Group
+        //// Oval Drawing
+        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(4, 0, 17, 12))
+        UIColor.whiteColor().setFill()
+        ovalPath.fill()
+
+
+        //// Oval 2 Drawing
+        var oval2Path = UIBezierPath(ovalInRect: CGRectMake(14, 0, 16, 14))
+        UIColor.whiteColor().setFill()
+        oval2Path.fill()
+
+
+        //// Oval 3 Drawing
+        var oval3Path = UIBezierPath(ovalInRect: CGRectMake(14, 12, 16, 16))
+        UIColor.whiteColor().setFill()
+        oval3Path.fill()
+
+
+        //// Oval 4 Drawing
+        var oval4Path = UIBezierPath(ovalInRect: CGRectMake(0, 8, 16, 14))
+        UIColor.whiteColor().setFill()
+        oval4Path.fill()
+
+
+        //// Oval 5 Drawing
+        var oval5Path = UIBezierPath(ovalInRect: CGRectMake(4, 18, 16, 14))
+        UIColor.whiteColor().setFill()
+        oval5Path.fill()
+
+
+        //// Oval 6 Drawing
+        var oval6Path = UIBezierPath(ovalInRect: CGRectMake(10, 7, 16, 16))
+        UIColor.whiteColor().setFill()
+        oval6Path.fill()
+
+
+        //// Oval 7 Drawing
+        var oval7Path = UIBezierPath(ovalInRect: CGRectMake(26, 4, 16, 14))
+        UIColor.whiteColor().setFill()
+        oval7Path.fill()
+
+
+        //// Bezier Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 11.26, 17.36)
+        CGContextRotateCTM(context, -169.69 * CGFloat(M_PI) / 180)
+
+        var bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPointMake(1.47, -4.07))
+        bezierPath.addCurveToPoint(CGPointMake(-0.25, 4.05), controlPoint1: CGPointMake(-3.92, -1.25), controlPoint2: CGPointMake(-0.25, 4.05))
+        bezierPath.lineCapStyle = kCGLineCapRound;
+
+        AngyWordsStyleKit.babbelGray50.setStroke()
+        bezierPath.lineWidth = 1
+        bezierPath.stroke()
+
+        CGContextRestoreGState(context)
+
+
+        //// Bezier 2 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 18.26, 21.36)
+        CGContextRotateCTM(context, 122.97 * CGFloat(M_PI) / 180)
+
+        var bezier2Path = UIBezierPath()
+        bezier2Path.moveToPoint(CGPointMake(1.47, -4.07))
+        bezier2Path.addCurveToPoint(CGPointMake(-0.36, 2.49), controlPoint1: CGPointMake(-1.6, -1.88), controlPoint2: CGPointMake(-0.36, 2.49))
+        bezier2Path.lineCapStyle = kCGLineCapRound;
+
+        AngyWordsStyleKit.babbelGray50.setStroke()
+        bezier2Path.lineWidth = 1
+        bezier2Path.stroke()
+
+        CGContextRestoreGState(context)
+
+
+        //// Bezier 3 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 28.26, 11.36)
+        CGContextRotateCTM(context, -12.57 * CGFloat(M_PI) / 180)
+
+        var bezier3Path = UIBezierPath()
+        bezier3Path.moveToPoint(CGPointMake(1.47, -4.07))
+        bezier3Path.addCurveToPoint(CGPointMake(-0.89, 1.92), controlPoint1: CGPointMake(-2.49, -2.08), controlPoint2: CGPointMake(-0.89, 1.92))
+        bezier3Path.lineCapStyle = kCGLineCapRound;
+
+        AngyWordsStyleKit.babbelGray50.setStroke()
+        bezier3Path.lineWidth = 1
+        bezier3Path.stroke()
+
+        CGContextRestoreGState(context)
+
+
+        //// Bezier 4 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 19.26, 8.36)
+        CGContextRotateCTM(context, -50.01 * CGFloat(M_PI) / 180)
+
+        var bezier4Path = UIBezierPath()
+        bezier4Path.moveToPoint(CGPointMake(1.47, -4.07))
+        bezier4Path.addCurveToPoint(CGPointMake(-0.89, 1.92), controlPoint1: CGPointMake(-2.49, -2.08), controlPoint2: CGPointMake(-0.89, 1.92))
+        bezier4Path.lineCapStyle = kCGLineCapRound;
+
+        AngyWordsStyleKit.babbelGray50.setStroke()
+        bezier4Path.lineWidth = 1
+        bezier4Path.stroke()
+
+        CGContextRestoreGState(context)
+    }
+
     //// Generated Images
 
     public class var imageOfCanvasCloud: UIImage {
