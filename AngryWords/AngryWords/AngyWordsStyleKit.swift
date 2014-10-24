@@ -95,6 +95,8 @@ public class AngyWordsStyleKit : NSObject {
         static var canvasLetterYTargets: [AnyObject]?
         static var imageOfCanvasLetter2: UIImage?
         static var canvasLetter2Targets: [AnyObject]?
+        static var imageOfCanvasLetter: UIImage?
+        static var canvasLetterTargets: [AnyObject]?
         static var imageOfBlueMountain: UIImage?
         static var blueMountainTargets: [AnyObject]?
         static var imageOfBlueMountainDark: UIImage?
@@ -2676,6 +2678,25 @@ public class AngyWordsStyleKit : NSObject {
         CGContextRestoreGState(context)
     }
 
+    public class func drawCanvasLetter() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(12, -5, 34, 40)
+        var textTextContent = NSString(string: "-")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
     public class func drawBlueMountain() {
         //// Color Declarations
         let babbelBlueS5 = AngyWordsStyleKit.babbelBlue.colorWithShadow(0.052)
@@ -3164,6 +3185,20 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasLetter2!
     }
 
+    public class var imageOfCanvasLetter: UIImage {
+        if Cache.imageOfCanvasLetter != nil {
+            return Cache.imageOfCanvasLetter!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(40, 40), false, 0)
+            AngyWordsStyleKit.drawCanvasLetter()
+
+        Cache.imageOfCanvasLetter = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasLetter!
+    }
+
     public class var imageOfBlueMountain: UIImage {
         if Cache.imageOfBlueMountain != nil {
             return Cache.imageOfBlueMountain!
@@ -3438,6 +3473,16 @@ public class AngyWordsStyleKit : NSObject {
             Cache.canvasLetter2Targets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfCanvasLetter2)
+            }
+        }
+    }
+
+    @IBOutlet var canvasLetterTargets: [AnyObject]! {
+        get { return Cache.canvasLetterTargets }
+        set {
+            Cache.canvasLetterTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasLetter)
             }
         }
     }
