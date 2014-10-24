@@ -67,6 +67,10 @@ public class AngyWordsStyleKit : NSObject {
         static var canvasEuleTargets: [AnyObject]?
         static var imageOfCanvasBabbelFigure: UIImage?
         static var canvasBabbelFigureTargets: [AnyObject]?
+        static var imageOfCanvasWoodBlockHorizontal: UIImage?
+        static var canvasWoodBlockHorizontalTargets: [AnyObject]?
+        static var imageOfCanvasWoodBlockVertical: UIImage?
+        static var canvasWoodBlockVerticalTargets: [AnyObject]?
     }
 
     //// Colors
@@ -1673,6 +1677,34 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasBabbelFigure!
     }
 
+    public class var imageOfCanvasWoodBlockHorizontal: UIImage {
+        if Cache.imageOfCanvasWoodBlockHorizontal != nil {
+            return Cache.imageOfCanvasWoodBlockHorizontal!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(80, 16), false, 0)
+            AngyWordsStyleKit.drawCanvasWoodBlockHorizontal()
+
+        Cache.imageOfCanvasWoodBlockHorizontal = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasWoodBlockHorizontal!
+    }
+
+    public class var imageOfCanvasWoodBlockVertical: UIImage {
+        if Cache.imageOfCanvasWoodBlockVertical != nil {
+            return Cache.imageOfCanvasWoodBlockVertical!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(16, 80), false, 0)
+            AngyWordsStyleKit.drawCanvasWoodBlockVertical()
+
+        Cache.imageOfCanvasWoodBlockVertical = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasWoodBlockVertical!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var canvasCloudTargets: [AnyObject]! {
@@ -1751,6 +1783,26 @@ public class AngyWordsStyleKit : NSObject {
             Cache.canvasBabbelFigureTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfCanvasBabbelFigure)
+            }
+        }
+    }
+
+    @IBOutlet var canvasWoodBlockHorizontalTargets: [AnyObject]! {
+        get { return Cache.canvasWoodBlockHorizontalTargets }
+        set {
+            Cache.canvasWoodBlockHorizontalTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasWoodBlockHorizontal)
+            }
+        }
+    }
+
+    @IBOutlet var canvasWoodBlockVerticalTargets: [AnyObject]! {
+        get { return Cache.canvasWoodBlockVerticalTargets }
+        set {
+            Cache.canvasWoodBlockVerticalTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasWoodBlockVertical)
             }
         }
     }
