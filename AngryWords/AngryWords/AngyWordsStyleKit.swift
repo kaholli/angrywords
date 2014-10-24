@@ -55,8 +55,18 @@ public class AngyWordsStyleKit : NSObject {
         static var canvasCloudTargets: [AnyObject]?
         static var imageOfCanvasCactus: UIImage?
         static var canvasCactusTargets: [AnyObject]?
+        static var imageOfCanvasStamm: UIImage?
+        static var canvasStammTargets: [AnyObject]?
+        static var imageOfCanvasSchleuderVorne: UIImage?
+        static var canvasSchleuderVorneTargets: [AnyObject]?
+        static var imageOfCanvasSchleuderHinten: UIImage?
+        static var canvasSchleuderHintenTargets: [AnyObject]?
+        static var imageOfCanvasSling: UIImage?
+        static var canvasSlingTargets: [AnyObject]?
         static var imageOfCanvasEule: UIImage?
         static var canvasEuleTargets: [AnyObject]?
+        static var imageOfCanvasBabbelFigure: UIImage?
+        static var canvasBabbelFigureTargets: [AnyObject]?
     }
 
     //// Colors
@@ -177,79 +187,75 @@ public class AngyWordsStyleKit : NSObject {
         bezier2Path.fill()
     }
 
-    public class func drawCanvasStamm(#frame: CGRect) {
+    public class func drawCanvasStamm() {
         //// Color Declarations
         let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
 
         //// Stamm Drawing
         var stammPath = UIBezierPath()
-        stammPath.moveToPoint(CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.72464 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.81159 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.23333 * frame.width, frame.minY + 0.79710 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.74275 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.88043 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.20000 * frame.width, frame.minY + 1.00000 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.40000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 1.00000 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 0.72464 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.56667 * frame.width, frame.minY + 0.76812 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 0.63768 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.63333 * frame.width, frame.minY + 0.68116 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.60833 * frame.width, frame.minY + 0.69203 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 0.49275 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.59167 * frame.width, frame.minY + 0.58333 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.60000 * frame.width, frame.minY + 0.49275 * frame.height))
-        stammPath.addLineToPoint(CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.49275 * frame.height))
-        stammPath.addCurveToPoint(CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.72464 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.30000 * frame.width, frame.minY + 0.49275 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.36667 * frame.width, frame.minY + 0.65217 * frame.height))
+        stammPath.moveToPoint(CGPointMake(18, 100))
+        stammPath.addCurveToPoint(CGPointMake(18, 112), controlPoint1: CGPointMake(14, 110), controlPoint2: CGPointMake(18, 102.5))
+        stammPath.addCurveToPoint(CGPointMake(18, 138), controlPoint1: CGPointMake(18, 121.5), controlPoint2: CGPointMake(12, 138))
+        stammPath.addCurveToPoint(CGPointMake(36, 138), controlPoint1: CGPointMake(24, 138), controlPoint2: CGPointMake(36, 138))
+        stammPath.addCurveToPoint(CGPointMake(36, 100), controlPoint1: CGPointMake(36, 138), controlPoint2: CGPointMake(34, 106))
+        stammPath.addCurveToPoint(CGPointMake(36, 88), controlPoint1: CGPointMake(38, 94), controlPoint2: CGPointMake(36.5, 95.5))
+        stammPath.addCurveToPoint(CGPointMake(36, 68), controlPoint1: CGPointMake(35.5, 80.5), controlPoint2: CGPointMake(36, 68))
+        stammPath.addLineToPoint(CGPointMake(18, 68))
+        stammPath.addCurveToPoint(CGPointMake(18, 100), controlPoint1: CGPointMake(18, 68), controlPoint2: CGPointMake(22, 90))
         stammPath.closePath()
         brown.setFill()
         stammPath.fill()
     }
 
-    public class func drawCanvasSchleuderVorne(#frame: CGRect) {
+    public class func drawCanvasSchleuderVorne() {
         //// Color Declarations
         let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
 
         //// SchleuderVorne 2 Drawing
         var schleuderVorne2Path = UIBezierPath()
-        schleuderVorne2Path.moveToPoint(CGPointMake(frame.minX + 0.83333 * frame.width, frame.minY + 0.00000 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.05797 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.98333 * frame.width, frame.minY + -0.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.05797 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 0.80000 * frame.width, frame.minY + 0.40580 * frame.height), controlPoint1: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.05797 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.96667 * frame.width, frame.minY + 0.26087 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 0.33333 * frame.width, frame.minY + 0.59420 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.63333 * frame.width, frame.minY + 0.55072 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.33333 * frame.width, frame.minY + 0.59420 * frame.height))
-        schleuderVorne2Path.addLineToPoint(CGPointMake(frame.minX + 0.33333 * frame.width, frame.minY + 0.40580 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 0.53333 * frame.width, frame.minY + 0.31884 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.33333 * frame.width, frame.minY + 0.40580 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.46416 * frame.width, frame.minY + 0.41508 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 0.66667 * frame.width, frame.minY + 0.05797 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.70000 * frame.width, frame.minY + 0.08696 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.66667 * frame.width, frame.minY + 0.05797 * frame.height))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(frame.minX + 0.83333 * frame.width, frame.minY + 0.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.66667 * frame.width, frame.minY + 0.05797 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.68333 * frame.width, frame.minY + 0.00000 * frame.height))
+        schleuderVorne2Path.moveToPoint(CGPointMake(50, 0))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(60, 8), controlPoint1: CGPointMake(59, -0), controlPoint2: CGPointMake(60, 8))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(48, 56), controlPoint1: CGPointMake(60, 8), controlPoint2: CGPointMake(58, 36))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(20, 82), controlPoint1: CGPointMake(38, 76), controlPoint2: CGPointMake(20, 82))
+        schleuderVorne2Path.addLineToPoint(CGPointMake(20, 56))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(32, 44), controlPoint1: CGPointMake(20, 56), controlPoint2: CGPointMake(27.85, 57.28))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(40, 8), controlPoint1: CGPointMake(42, 12), controlPoint2: CGPointMake(40, 8))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(50, 0), controlPoint1: CGPointMake(40, 8), controlPoint2: CGPointMake(41, 0))
         schleuderVorne2Path.closePath()
         brown.setFill()
         schleuderVorne2Path.fill()
     }
 
-    public class func drawCanvasSchleuderHinten(#frame: CGRect) {
+    public class func drawCanvasSchleuderHinten() {
         //// Color Declarations
         let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
 
         //// SchleuderHinten 2 Drawing
         var schleuderHinten2Path = UIBezierPath()
-        schleuderHinten2Path.moveToPoint(CGPointMake(frame.minX + 0.13334 * frame.width, frame.minY + 0.00000 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.00001 * frame.width, frame.minY + 0.04348 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.00058 * frame.width, frame.minY + -0.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.00001 * frame.width, frame.minY + 0.04348 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.14369 * frame.width, frame.minY + 0.39130 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.00001 * frame.width, frame.minY + 0.04348 * frame.height), controlPoint2: CGPointMake(frame.minX + -0.00382 * frame.width, frame.minY + 0.24638 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.46668 * frame.width, frame.minY + 0.55072 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.29120 * frame.width, frame.minY + 0.53623 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.46668 * frame.width, frame.minY + 0.55072 * frame.height))
-        schleuderHinten2Path.addLineToPoint(CGPointMake(frame.minX + 0.46668 * frame.width, frame.minY + 0.39130 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.33334 * frame.width, frame.minY + 0.31884 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.46668 * frame.width, frame.minY + 0.39130 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.36668 * frame.width, frame.minY + 0.37681 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.23334 * frame.width, frame.minY + 0.04348 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.20001 * frame.width, frame.minY + 0.08696 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.23334 * frame.width, frame.minY + 0.04348 * frame.height))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(frame.minX + 0.13334 * frame.width, frame.minY + 0.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.23334 * frame.width, frame.minY + 0.04348 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.26610 * frame.width, frame.minY + 0.00000 * frame.height))
+        schleuderHinten2Path.moveToPoint(CGPointMake(8, 0))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(0, 6), controlPoint1: CGPointMake(0.04, -0), controlPoint2: CGPointMake(0, 6))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(8.62, 54), controlPoint1: CGPointMake(0, 6), controlPoint2: CGPointMake(-0.23, 34))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(28, 76), controlPoint1: CGPointMake(17.47, 74), controlPoint2: CGPointMake(28, 76))
+        schleuderHinten2Path.addLineToPoint(CGPointMake(28, 54))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(20, 44), controlPoint1: CGPointMake(28, 54), controlPoint2: CGPointMake(22, 52))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(14, 6), controlPoint1: CGPointMake(12, 12), controlPoint2: CGPointMake(14, 6))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(8, 0), controlPoint1: CGPointMake(14, 6), controlPoint2: CGPointMake(15.97, 0))
         schleuderHinten2Path.closePath()
         brown.setFill()
         schleuderHinten2Path.fill()
     }
 
-    public class func drawCanvasSling(#size: CGSize) {
-
-        //// Frames
-        let frame = CGRectMake(0, 0, (size.width - 22), (size.height - 16))
-
+    public class func drawCanvasSling() {
 
         //// Rectangle Drawing
         var rectanglePath = UIBezierPath()
-        rectanglePath.moveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height))
-        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.48750 * frame.width, frame.minY + 0.65217 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.23750 * frame.width, frame.minY + 0.65217 * frame.height))
-        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.73750 * frame.width, frame.minY + 0.65217 * frame.height), controlPoint2: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 1.00000 * frame.height))
-        rectanglePath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.00000 * frame.height))
-        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.48750 * frame.width, frame.minY + 0.34783 * frame.height), controlPoint1: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.73750 * frame.width, frame.minY + 0.34783 * frame.height))
-        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.21739 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.23750 * frame.width, frame.minY + 0.34783 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.21739 * frame.height))
-        rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height))
+        rectanglePath.moveToPoint(CGPointMake(0, 18.78))
+        rectanglePath.addCurveToPoint(CGPointMake(3.9, 15.65), controlPoint1: CGPointMake(0, 18.78), controlPoint2: CGPointMake(1.9, 15.65))
+        rectanglePath.addCurveToPoint(CGPointMake(8, 24), controlPoint1: CGPointMake(5.9, 15.65), controlPoint2: CGPointMake(8, 24))
+        rectanglePath.addLineToPoint(CGPointMake(8, 0))
+        rectanglePath.addCurveToPoint(CGPointMake(3.9, 8.35), controlPoint1: CGPointMake(8, 0), controlPoint2: CGPointMake(5.9, 8.35))
+        rectanglePath.addCurveToPoint(CGPointMake(0, 5.22), controlPoint1: CGPointMake(1.9, 8.35), controlPoint2: CGPointMake(0, 5.22))
+        rectanglePath.addLineToPoint(CGPointMake(0, 18.78))
         rectanglePath.closePath()
         UIColor.grayColor().setFill()
         rectanglePath.fill()
@@ -509,7 +515,7 @@ public class AngyWordsStyleKit : NSObject {
         CGContextRestoreGState(context)
     }
 
-    public class func drawCanvasBabbelFigure(#frame: CGRect) {
+    public class func drawCanvasBabbelFigure() {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
@@ -520,31 +526,26 @@ public class AngyWordsStyleKit : NSObject {
         let gradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [babbelOrangeS10.CGColor, AngyWordsStyleKit.babbelOrange.CGColor], [0, 1])
         let orangeOrange2 = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [babbelOrangeS10.CGColor, AngyWordsStyleKit.babbelOrange.CGColor], [0, 1])
 
-
-        //// Subframes
-        let group: CGRect = CGRectMake(frame.minX, frame.minY + floor((frame.height - 46.34) * 0.00000 - 0.16) + 0.66, 36.61, 46.34)
-
-
         //// Group
         //// HairShadow Drawing
         var hairShadowPath = UIBezierPath()
-        hairShadowPath.moveToPoint(CGPointMake(group.minX + 11.25, group.minY + 1.1))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 13.52, group.minY + 2.38), controlPoint1: CGPointMake(group.minX + 12.16, group.minY + 1.52), controlPoint2: CGPointMake(group.minX + 12.91, group.minY + 1.91))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 13.67, group.minY + 1.44), controlPoint1: CGPointMake(group.minX + 13.63, group.minY + 2.11), controlPoint2: CGPointMake(group.minX + 13.69, group.minY + 1.8))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 15.36, group.minY + 3.32), controlPoint1: CGPointMake(group.minX + 13.56, group.minY - 1.62), controlPoint2: CGPointMake(group.minX + 15.56, group.minY + 1.76))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 15.33, group.minY + 3.57), controlPoint1: CGPointMake(group.minX + 15.35, group.minY + 3.4), controlPoint2: CGPointMake(group.minX + 15.34, group.minY + 3.49))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 15.6, group.minY + 2.54), controlPoint1: CGPointMake(group.minX + 15.49, group.minY + 3.28), controlPoint2: CGPointMake(group.minX + 15.59, group.minY + 2.94))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 17.14, group.minY + 4.47), controlPoint1: CGPointMake(group.minX + 15.73, group.minY - 0.52), controlPoint2: CGPointMake(group.minX + 17.47, group.minY + 2.92))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 14.48, group.minY + 8.29), controlPoint1: CGPointMake(group.minX + 16.82, group.minY + 6.02), controlPoint2: CGPointMake(group.minX + 16.3, group.minY + 7.09))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 12.05, group.minY + 8.3), controlPoint1: CGPointMake(group.minX + 12.82, group.minY + 9.38), controlPoint2: CGPointMake(group.minX + 12.9, group.minY + 10.18))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 11.58, group.minY + 8.39), controlPoint1: CGPointMake(group.minX + 11.9, group.minY + 8.34), controlPoint2: CGPointMake(group.minX + 11.74, group.minY + 8.36))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 11.43, group.minY + 8.41), controlPoint1: CGPointMake(group.minX + 11.53, group.minY + 8.41), controlPoint2: CGPointMake(group.minX + 11.48, group.minY + 8.42))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 9.09, group.minY + 8.25), controlPoint1: CGPointMake(group.minX + 10.62, group.minY + 8.52), controlPoint2: CGPointMake(group.minX + 9.79, group.minY + 8.48))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 4.16, group.minY + 3.67), controlPoint1: CGPointMake(group.minX + 6.62, group.minY + 7.45), controlPoint2: CGPointMake(group.minX + 9.22, group.minY + 4.13))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 9.09, group.minY + 2.48), controlPoint1: CGPointMake(group.minX - 0.9, group.minY + 3.21), controlPoint2: CGPointMake(group.minX + 6.62, group.minY + 1.67))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 10.15, group.minY + 2.84), controlPoint1: CGPointMake(group.minX + 9.47, group.minY + 2.6), controlPoint2: CGPointMake(group.minX + 9.82, group.minY + 2.72))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 7.9, group.minY + 1.08), controlPoint1: CGPointMake(group.minX + 9.86, group.minY + 2.22), controlPoint2: CGPointMake(group.minX + 9.29, group.minY + 1.59))
-        hairShadowPath.addCurveToPoint(CGPointMake(group.minX + 11.25, group.minY + 1.1), controlPoint1: CGPointMake(group.minX + 3.8, group.minY - 0.42), controlPoint2: CGPointMake(group.minX + 9.3, group.minY + 0.19))
+        hairShadowPath.moveToPoint(CGPointMake(11.25, 1.1))
+        hairShadowPath.addCurveToPoint(CGPointMake(13.52, 2.38), controlPoint1: CGPointMake(12.16, 1.52), controlPoint2: CGPointMake(12.91, 1.91))
+        hairShadowPath.addCurveToPoint(CGPointMake(13.67, 1.44), controlPoint1: CGPointMake(13.63, 2.11), controlPoint2: CGPointMake(13.69, 1.8))
+        hairShadowPath.addCurveToPoint(CGPointMake(15.36, 3.32), controlPoint1: CGPointMake(13.56, -1.62), controlPoint2: CGPointMake(15.56, 1.76))
+        hairShadowPath.addCurveToPoint(CGPointMake(15.33, 3.57), controlPoint1: CGPointMake(15.35, 3.4), controlPoint2: CGPointMake(15.34, 3.49))
+        hairShadowPath.addCurveToPoint(CGPointMake(15.6, 2.54), controlPoint1: CGPointMake(15.49, 3.28), controlPoint2: CGPointMake(15.59, 2.94))
+        hairShadowPath.addCurveToPoint(CGPointMake(17.14, 4.47), controlPoint1: CGPointMake(15.73, -0.52), controlPoint2: CGPointMake(17.47, 2.92))
+        hairShadowPath.addCurveToPoint(CGPointMake(14.48, 8.29), controlPoint1: CGPointMake(16.82, 6.02), controlPoint2: CGPointMake(16.3, 7.09))
+        hairShadowPath.addCurveToPoint(CGPointMake(12.05, 8.3), controlPoint1: CGPointMake(12.82, 9.38), controlPoint2: CGPointMake(12.9, 10.18))
+        hairShadowPath.addCurveToPoint(CGPointMake(11.58, 8.39), controlPoint1: CGPointMake(11.9, 8.34), controlPoint2: CGPointMake(11.74, 8.36))
+        hairShadowPath.addCurveToPoint(CGPointMake(11.43, 8.41), controlPoint1: CGPointMake(11.53, 8.41), controlPoint2: CGPointMake(11.48, 8.42))
+        hairShadowPath.addCurveToPoint(CGPointMake(9.09, 8.25), controlPoint1: CGPointMake(10.62, 8.52), controlPoint2: CGPointMake(9.79, 8.48))
+        hairShadowPath.addCurveToPoint(CGPointMake(4.16, 3.67), controlPoint1: CGPointMake(6.62, 7.45), controlPoint2: CGPointMake(9.22, 4.13))
+        hairShadowPath.addCurveToPoint(CGPointMake(9.09, 2.48), controlPoint1: CGPointMake(-0.9, 3.21), controlPoint2: CGPointMake(6.62, 1.67))
+        hairShadowPath.addCurveToPoint(CGPointMake(10.15, 2.84), controlPoint1: CGPointMake(9.47, 2.6), controlPoint2: CGPointMake(9.82, 2.72))
+        hairShadowPath.addCurveToPoint(CGPointMake(7.9, 1.08), controlPoint1: CGPointMake(9.86, 2.22), controlPoint2: CGPointMake(9.29, 1.59))
+        hairShadowPath.addCurveToPoint(CGPointMake(11.25, 1.1), controlPoint1: CGPointMake(3.8, -0.42), controlPoint2: CGPointMake(9.3, 0.19))
         hairShadowPath.closePath()
         babbelOrangeS10.setFill()
         hairShadowPath.fill()
@@ -552,19 +553,19 @@ public class AngyWordsStyleKit : NSObject {
 
         //// BBody Drawing
         var bBodyPath = UIBezierPath()
-        bBodyPath.moveToPoint(CGPointMake(group.minX + 21.31, group.minY + 5.31))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 28.11, group.minY + 8.31), controlPoint1: CGPointMake(group.minX + 23.78, group.minY + 5.33), controlPoint2: CGPointMake(group.minX + 26.23, group.minY + 6.33))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 30.21, group.minY + 24.48), controlPoint1: CGPointMake(group.minX + 31.89, group.minY + 12.3), controlPoint2: CGPointMake(group.minX + 35.69, group.minY + 17.79))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 21.32, group.minY + 24.48), controlPoint1: CGPointMake(group.minX + 28.81, group.minY + 26.19), controlPoint2: CGPointMake(group.minX + 23.51, group.minY + 26.09))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 17.67, group.minY + 21.13), controlPoint1: CGPointMake(group.minX + 19.28, group.minY + 22.96), controlPoint2: CGPointMake(group.minX + 17.79, group.minY + 19.95))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 21.32, group.minY + 27.3), controlPoint1: CGPointMake(group.minX + 17.67, group.minY + 23.64), controlPoint2: CGPointMake(group.minX + 19.28, group.minY + 26.23))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 28.11, group.minY + 28.76), controlPoint1: CGPointMake(group.minX + 23.8, group.minY + 28.61), controlPoint2: CGPointMake(group.minX + 26.88, group.minY + 28.17))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 28.11, group.minY + 43.21), controlPoint1: CGPointMake(group.minX + 32.65, group.minY + 30.91), controlPoint2: CGPointMake(group.minX + 31.89, group.minY + 39.22))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 19.5, group.minY + 46.34), controlPoint1: CGPointMake(group.minX + 26.23, group.minY + 45.19), controlPoint2: CGPointMake(group.minX + 21.95, group.minY + 46.32))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 1.72, group.minY + 41.71), controlPoint1: CGPointMake(group.minX + 19.5, group.minY + 46.34), controlPoint2: CGPointMake(group.minX + 6.95, group.minY + 45.95))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 6.1, group.minY + 6.73), controlPoint1: CGPointMake(group.minX - 3.52, group.minY + 37.46), controlPoint2: CGPointMake(group.minX + 4.76, group.minY + 9.3))
-        bBodyPath.addCurveToPoint(CGPointMake(group.minX + 21.32, group.minY + 5.32), controlPoint1: CGPointMake(group.minX + 7.43, group.minY + 4.19), controlPoint2: CGPointMake(group.minX + 21, group.minY + 5.29))
-        bBodyPath.addLineToPoint(CGPointMake(group.minX + 21.31, group.minY + 5.31))
+        bBodyPath.moveToPoint(CGPointMake(21.31, 5.31))
+        bBodyPath.addCurveToPoint(CGPointMake(28.11, 8.31), controlPoint1: CGPointMake(23.78, 5.33), controlPoint2: CGPointMake(26.23, 6.33))
+        bBodyPath.addCurveToPoint(CGPointMake(30.21, 24.48), controlPoint1: CGPointMake(31.89, 12.3), controlPoint2: CGPointMake(35.69, 17.79))
+        bBodyPath.addCurveToPoint(CGPointMake(21.32, 24.48), controlPoint1: CGPointMake(28.81, 26.19), controlPoint2: CGPointMake(23.51, 26.09))
+        bBodyPath.addCurveToPoint(CGPointMake(17.67, 21.13), controlPoint1: CGPointMake(19.28, 22.96), controlPoint2: CGPointMake(17.79, 19.95))
+        bBodyPath.addCurveToPoint(CGPointMake(21.32, 27.3), controlPoint1: CGPointMake(17.67, 23.64), controlPoint2: CGPointMake(19.28, 26.23))
+        bBodyPath.addCurveToPoint(CGPointMake(28.11, 28.76), controlPoint1: CGPointMake(23.8, 28.61), controlPoint2: CGPointMake(26.88, 28.17))
+        bBodyPath.addCurveToPoint(CGPointMake(28.11, 43.21), controlPoint1: CGPointMake(32.65, 30.91), controlPoint2: CGPointMake(31.89, 39.22))
+        bBodyPath.addCurveToPoint(CGPointMake(19.5, 46.34), controlPoint1: CGPointMake(26.23, 45.19), controlPoint2: CGPointMake(21.95, 46.32))
+        bBodyPath.addCurveToPoint(CGPointMake(1.72, 41.71), controlPoint1: CGPointMake(19.5, 46.34), controlPoint2: CGPointMake(6.95, 45.95))
+        bBodyPath.addCurveToPoint(CGPointMake(6.1, 6.73), controlPoint1: CGPointMake(-3.52, 37.46), controlPoint2: CGPointMake(4.76, 9.3))
+        bBodyPath.addCurveToPoint(CGPointMake(21.32, 5.32), controlPoint1: CGPointMake(7.43, 4.19), controlPoint2: CGPointMake(21, 5.29))
+        bBodyPath.addLineToPoint(CGPointMake(21.31, 5.31))
         bBodyPath.closePath()
         AngyWordsStyleKit.babbelOrange.setFill()
         bBodyPath.fill()
@@ -572,37 +573,27 @@ public class AngyWordsStyleKit : NSObject {
 
         //// NoseShadow Drawing
         var noseShadowPath = UIBezierPath()
-        noseShadowPath.moveToPoint(CGPointMake(group.minX + 30.21, group.minY + 23.32))
-        noseShadowPath.addCurveToPoint(CGPointMake(group.minX + 32.4, group.minY + 17.02), controlPoint1: CGPointMake(group.minX + 31.85, group.minY + 21.39), controlPoint2: CGPointMake(group.minX + 33.17, group.minY + 17.86))
-        noseShadowPath.addCurveToPoint(CGPointMake(group.minX + 27.29, group.minY + 21.39), controlPoint1: CGPointMake(group.minX + 32.2, group.minY + 16.79), controlPoint2: CGPointMake(group.minX + 31.19, group.minY + 20.49))
-        noseShadowPath.addCurveToPoint(CGPointMake(group.minX + 21.23, group.minY + 23.29), controlPoint1: CGPointMake(group.minX + 23.39, group.minY + 22.29), controlPoint2: CGPointMake(group.minX + 18.92, group.minY + 20.5))
-        noseShadowPath.addCurveToPoint(CGPointMake(group.minX + 30.21, group.minY + 23.32), controlPoint1: CGPointMake(group.minX + 23.53, group.minY + 26.07), controlPoint2: CGPointMake(group.minX + 28.14, group.minY + 25.76))
+        noseShadowPath.moveToPoint(CGPointMake(30.21, 23.32))
+        noseShadowPath.addCurveToPoint(CGPointMake(32.4, 17.02), controlPoint1: CGPointMake(31.85, 21.39), controlPoint2: CGPointMake(33.17, 17.86))
+        noseShadowPath.addCurveToPoint(CGPointMake(27.29, 21.39), controlPoint1: CGPointMake(32.2, 16.79), controlPoint2: CGPointMake(31.19, 20.49))
+        noseShadowPath.addCurveToPoint(CGPointMake(21.23, 23.29), controlPoint1: CGPointMake(23.39, 22.29), controlPoint2: CGPointMake(18.92, 20.5))
+        noseShadowPath.addCurveToPoint(CGPointMake(30.21, 23.32), controlPoint1: CGPointMake(23.53, 26.07), controlPoint2: CGPointMake(28.14, 25.76))
         noseShadowPath.closePath()
         CGContextSaveGState(context)
         noseShadowPath.addClip()
-        let noseShadowRotatedPath = UIBezierPath()
-        noseShadowRotatedPath.appendPath(noseShadowPath)
-        var noseShadowTransform = CGAffineTransformMakeRotation(-45*(-CGFloat(M_PI)/180))
-        noseShadowRotatedPath.applyTransform(noseShadowTransform)
-        var noseShadowBounds = CGPathGetPathBoundingBox(noseShadowRotatedPath.CGPath)
-        noseShadowTransform = CGAffineTransformInvert(noseShadowTransform)
-
-        CGContextDrawLinearGradient(context, orangeOrange2,
-            CGPointApplyAffineTransform(CGPointMake(noseShadowBounds.minX, noseShadowBounds.midY), noseShadowTransform),
-            CGPointApplyAffineTransform(CGPointMake(noseShadowBounds.maxX, noseShadowBounds.midY), noseShadowTransform),
-            0)
+        CGContextDrawLinearGradient(context, orangeOrange2, CGPointMake(22.99, 25.08), CGPointMake(31.73, 16.34), 0)
         CGContextRestoreGState(context)
 
 
         //// PlusVertical Drawing
-        let plusVerticalPath = UIBezierPath(roundedRect: CGRectMake(group.minX + 18.11, group.minY + 29.34, 2, 14), cornerRadius: 1)
+        let plusVerticalPath = UIBezierPath(roundedRect: CGRectMake(18.11, 29.34, 2, 14), cornerRadius: 1)
         UIColor.whiteColor().setFill()
         plusVerticalPath.fill()
 
 
         //// PlusHorizontal Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, group.minX + 18.9, group.minY + 36.07)
+        CGContextTranslateCTM(context, 18.9, 36.07)
         CGContextRotateCTM(context, -90.36 * CGFloat(M_PI) / 180)
 
         let plusHorizontalPath = UIBezierPath(roundedRect: CGRectMake(-1.73, -6.45, 3.47, 12.91), cornerRadius: 1.73)
@@ -613,30 +604,30 @@ public class AngyWordsStyleKit : NSObject {
 
 
         //// PlusCut Drawing
-        let plusCutPath = UIBezierPath(rect: CGRectMake(group.minX + 18.11, group.minY + 32.34, 2, 2))
+        let plusCutPath = UIBezierPath(rect: CGRectMake(18.11, 32.34, 2, 2))
         AngyWordsStyleKit.babbelOrange.setFill()
         plusCutPath.fill()
 
 
         //// Hair Drawing
         var hairPath = UIBezierPath()
-        hairPath.moveToPoint(CGPointMake(group.minX + 10.38, group.minY + 1.48))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 13.03, group.minY + 3.54), controlPoint1: CGPointMake(group.minX + 11.44, group.minY + 2.15), controlPoint2: CGPointMake(group.minX + 12.31, group.minY + 2.79))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 13.21, group.minY + 2.03), controlPoint1: CGPointMake(group.minX + 13.16, group.minY + 3.1), controlPoint2: CGPointMake(group.minX + 13.22, group.minY + 2.6))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 15.18, group.minY + 5.04), controlPoint1: CGPointMake(group.minX + 13.07, group.minY - 2.87), controlPoint2: CGPointMake(group.minX + 15.42, group.minY + 2.54))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 15.14, group.minY + 5.45), controlPoint1: CGPointMake(group.minX + 15.17, group.minY + 5.18), controlPoint2: CGPointMake(group.minX + 15.16, group.minY + 5.32))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 15.46, group.minY + 3.79), controlPoint1: CGPointMake(group.minX + 15.32, group.minY + 4.98), controlPoint2: CGPointMake(group.minX + 15.44, group.minY + 4.44))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 17.26, group.minY + 6.89), controlPoint1: CGPointMake(group.minX + 15.61, group.minY - 1.11), controlPoint2: CGPointMake(group.minX + 17.64, group.minY + 4.41))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 14.14, group.minY + 13.01), controlPoint1: CGPointMake(group.minX + 16.88, group.minY + 9.37), controlPoint2: CGPointMake(group.minX + 16.27, group.minY + 11.09))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 11.31, group.minY + 13.02), controlPoint1: CGPointMake(group.minX + 12.21, group.minY + 14.75), controlPoint2: CGPointMake(group.minX + 12.3, group.minY + 16.03))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 10.77, group.minY + 13.16), controlPoint1: CGPointMake(group.minX + 11.13, group.minY + 13.08), controlPoint2: CGPointMake(group.minX + 10.95, group.minY + 13.12))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 10.59, group.minY + 13.2), controlPoint1: CGPointMake(group.minX + 10.71, group.minY + 13.2), controlPoint2: CGPointMake(group.minX + 10.65, group.minY + 13.21))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 7.86, group.minY + 12.95), controlPoint1: CGPointMake(group.minX + 9.65, group.minY + 13.37), controlPoint2: CGPointMake(group.minX + 8.68, group.minY + 13.31))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 2.11, group.minY + 5.6), controlPoint1: CGPointMake(group.minX + 4.98, group.minY + 11.65), controlPoint2: CGPointMake(group.minX + 8.01, group.minY + 6.33))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 7.86, group.minY + 3.69), controlPoint1: CGPointMake(group.minX - 3.8, group.minY + 4.87), controlPoint2: CGPointMake(group.minX + 4.98, group.minY + 2.39))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 9.1, group.minY + 4.28), controlPoint1: CGPointMake(group.minX + 8.3, group.minY + 3.89), controlPoint2: CGPointMake(group.minX + 8.71, group.minY + 4.08))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 6.48, group.minY + 1.46), controlPoint1: CGPointMake(group.minX + 8.75, group.minY + 3.27), controlPoint2: CGPointMake(group.minX + 8.1, group.minY + 2.27))
-        hairPath.addCurveToPoint(CGPointMake(group.minX + 10.38, group.minY + 1.48), controlPoint1: CGPointMake(group.minX + 1.69, group.minY - 0.94), controlPoint2: CGPointMake(group.minX + 8.1, group.minY + 0.03))
+        hairPath.moveToPoint(CGPointMake(10.38, 1.48))
+        hairPath.addCurveToPoint(CGPointMake(13.03, 3.54), controlPoint1: CGPointMake(11.44, 2.15), controlPoint2: CGPointMake(12.31, 2.79))
+        hairPath.addCurveToPoint(CGPointMake(13.21, 2.03), controlPoint1: CGPointMake(13.16, 3.1), controlPoint2: CGPointMake(13.22, 2.6))
+        hairPath.addCurveToPoint(CGPointMake(15.18, 5.04), controlPoint1: CGPointMake(13.07, -2.87), controlPoint2: CGPointMake(15.42, 2.54))
+        hairPath.addCurveToPoint(CGPointMake(15.14, 5.45), controlPoint1: CGPointMake(15.17, 5.18), controlPoint2: CGPointMake(15.16, 5.32))
+        hairPath.addCurveToPoint(CGPointMake(15.46, 3.79), controlPoint1: CGPointMake(15.32, 4.98), controlPoint2: CGPointMake(15.44, 4.44))
+        hairPath.addCurveToPoint(CGPointMake(17.26, 6.89), controlPoint1: CGPointMake(15.61, -1.11), controlPoint2: CGPointMake(17.64, 4.41))
+        hairPath.addCurveToPoint(CGPointMake(14.14, 13.01), controlPoint1: CGPointMake(16.88, 9.37), controlPoint2: CGPointMake(16.27, 11.09))
+        hairPath.addCurveToPoint(CGPointMake(11.31, 13.02), controlPoint1: CGPointMake(12.21, 14.75), controlPoint2: CGPointMake(12.3, 16.03))
+        hairPath.addCurveToPoint(CGPointMake(10.77, 13.16), controlPoint1: CGPointMake(11.13, 13.08), controlPoint2: CGPointMake(10.95, 13.12))
+        hairPath.addCurveToPoint(CGPointMake(10.59, 13.2), controlPoint1: CGPointMake(10.71, 13.2), controlPoint2: CGPointMake(10.65, 13.21))
+        hairPath.addCurveToPoint(CGPointMake(7.86, 12.95), controlPoint1: CGPointMake(9.65, 13.37), controlPoint2: CGPointMake(8.68, 13.31))
+        hairPath.addCurveToPoint(CGPointMake(2.11, 5.6), controlPoint1: CGPointMake(4.98, 11.65), controlPoint2: CGPointMake(8.01, 6.33))
+        hairPath.addCurveToPoint(CGPointMake(7.86, 3.69), controlPoint1: CGPointMake(-3.8, 4.87), controlPoint2: CGPointMake(4.98, 2.39))
+        hairPath.addCurveToPoint(CGPointMake(9.1, 4.28), controlPoint1: CGPointMake(8.3, 3.89), controlPoint2: CGPointMake(8.71, 4.08))
+        hairPath.addCurveToPoint(CGPointMake(6.48, 1.46), controlPoint1: CGPointMake(8.75, 3.27), controlPoint2: CGPointMake(8.1, 2.27))
+        hairPath.addCurveToPoint(CGPointMake(10.38, 1.48), controlPoint1: CGPointMake(1.69, -0.94), controlPoint2: CGPointMake(8.1, 0.03))
         hairPath.closePath()
         AngyWordsStyleKit.babbelOrange.setFill()
         hairPath.fill()
@@ -644,26 +635,22 @@ public class AngyWordsStyleKit : NSObject {
 
         //// ShadowBody Drawing
         var shadowBodyPath = UIBezierPath()
-        shadowBodyPath.moveToPoint(CGPointMake(group.minX + 1.47, group.minY + 26.28))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 1.47, group.minY + 40.42), controlPoint1: CGPointMake(group.minX + 0.65, group.minY + 31.56), controlPoint2: CGPointMake(group.minX - 0.76, group.minY + 38.28))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 13.53, group.minY + 42.22), controlPoint1: CGPointMake(group.minX + 6.71, group.minY + 45.44), controlPoint2: CGPointMake(group.minX + 17.43, group.minY + 45.57))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 9.75, group.minY + 26.28), controlPoint1: CGPointMake(group.minX + 11.57, group.minY + 40.54), controlPoint2: CGPointMake(group.minX + 9.56, group.minY + 32.91))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 15.97, group.minY + 11.23), controlPoint1: CGPointMake(group.minX + 9.95, group.minY + 19.73), controlPoint2: CGPointMake(group.minX + 10.7, group.minY + 13.4))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 7.2, group.minY + 7.63), controlPoint1: CGPointMake(group.minX + 26.56, group.minY + 6.86), controlPoint2: CGPointMake(group.minX + 9.88, group.minY + 4.29))
-        shadowBodyPath.addCurveToPoint(CGPointMake(group.minX + 1.47, group.minY + 26.28), controlPoint1: CGPointMake(group.minX + 5.66, group.minY + 9.54), controlPoint2: CGPointMake(group.minX + 2.58, group.minY + 19.19))
+        shadowBodyPath.moveToPoint(CGPointMake(1.47, 26.28))
+        shadowBodyPath.addCurveToPoint(CGPointMake(1.47, 40.42), controlPoint1: CGPointMake(0.65, 31.56), controlPoint2: CGPointMake(-0.76, 38.28))
+        shadowBodyPath.addCurveToPoint(CGPointMake(13.53, 42.22), controlPoint1: CGPointMake(6.71, 45.44), controlPoint2: CGPointMake(17.43, 45.57))
+        shadowBodyPath.addCurveToPoint(CGPointMake(9.75, 26.28), controlPoint1: CGPointMake(11.57, 40.54), controlPoint2: CGPointMake(9.56, 32.91))
+        shadowBodyPath.addCurveToPoint(CGPointMake(15.97, 11.23), controlPoint1: CGPointMake(9.95, 19.73), controlPoint2: CGPointMake(10.7, 13.4))
+        shadowBodyPath.addCurveToPoint(CGPointMake(7.2, 7.63), controlPoint1: CGPointMake(26.56, 6.86), controlPoint2: CGPointMake(9.88, 4.29))
+        shadowBodyPath.addCurveToPoint(CGPointMake(1.47, 26.28), controlPoint1: CGPointMake(5.66, 9.54), controlPoint2: CGPointMake(2.58, 19.19))
         shadowBodyPath.closePath()
         CGContextSaveGState(context)
         shadowBodyPath.addClip()
-        let shadowBodyBounds = CGPathGetPathBoundingBox(shadowBodyPath.CGPath)
-        CGContextDrawLinearGradient(context, gradient,
-            CGPointMake(shadowBodyBounds.minX, shadowBodyBounds.midY),
-            CGPointMake(shadowBodyBounds.maxX, shadowBodyBounds.midY),
-            0)
+        CGContextDrawLinearGradient(context, gradient, CGPointMake(0.27, 25.3), CGPointMake(19.45, 25.3), 0)
         CGContextRestoreGState(context)
 
 
         //// EyeLeft Drawing
-        var eyeLeftPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 16.61, group.minY + 9.34, 9.5, 10))
+        var eyeLeftPath = UIBezierPath(ovalInRect: CGRectMake(16.61, 9.34, 9.5, 10))
         UIColor.whiteColor().setFill()
         eyeLeftPath.fill()
         AngyWordsStyleKit.babbelGray75.setStroke()
@@ -672,7 +659,7 @@ public class AngyWordsStyleKit : NSObject {
 
 
         //// EyeRight Drawing
-        var eyeRightPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 26.11, group.minY + 9.34, 10.5, 10))
+        var eyeRightPath = UIBezierPath(ovalInRect: CGRectMake(26.11, 9.34, 10.5, 10))
         UIColor.whiteColor().setFill()
         eyeRightPath.fill()
         AngyWordsStyleKit.babbelGray75.setStroke()
@@ -681,25 +668,25 @@ public class AngyWordsStyleKit : NSObject {
 
 
         //// PupilRight Drawing
-        var pupilRightPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 29.11, group.minY + 12.34, 6, 6))
+        var pupilRightPath = UIBezierPath(ovalInRect: CGRectMake(29.11, 12.34, 6, 6))
         AngyWordsStyleKit.babbelFontDarkGray.setFill()
         pupilRightPath.fill()
 
 
         //// PupilShineRight Drawing
-        var pupilShineRightPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 29.11, group.minY + 14.34, 2, 2))
+        var pupilShineRightPath = UIBezierPath(ovalInRect: CGRectMake(29.11, 14.34, 2, 2))
         UIColor.whiteColor().setFill()
         pupilShineRightPath.fill()
 
 
         //// PupilLeft Drawing
-        var pupilLeftPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 19.11, group.minY + 12.34, 6, 6))
+        var pupilLeftPath = UIBezierPath(ovalInRect: CGRectMake(19.11, 12.34, 6, 6))
         AngyWordsStyleKit.babbelFontDarkGray.setFill()
         pupilLeftPath.fill()
 
 
         //// PupilShineLeft Drawing
-        var pupilShineLeftPath = UIBezierPath(ovalInRect: CGRectMake(group.minX + 19.11, group.minY + 14.34, 2, 2))
+        var pupilShineLeftPath = UIBezierPath(ovalInRect: CGRectMake(19.11, 14.34, 2, 2))
         UIColor.whiteColor().setFill()
         pupilShineLeftPath.fill()
     }
@@ -737,44 +724,60 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasCactus!
     }
 
-    public class func imageOfCanvasStamm(#frame: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
-            AngyWordsStyleKit.drawCanvasStamm(frame: frame)
+    public class var imageOfCanvasStamm: UIImage {
+        if Cache.imageOfCanvasStamm != nil {
+            return Cache.imageOfCanvasStamm!
+        }
 
-        var imageOfCanvasStamm = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+            AngyWordsStyleKit.drawCanvasStamm()
+
+        Cache.imageOfCanvasStamm = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasStamm
+        return Cache.imageOfCanvasStamm!
     }
 
-    public class func imageOfCanvasSchleuderVorne(#frame: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
-            AngyWordsStyleKit.drawCanvasSchleuderVorne(frame: frame)
+    public class var imageOfCanvasSchleuderVorne: UIImage {
+        if Cache.imageOfCanvasSchleuderVorne != nil {
+            return Cache.imageOfCanvasSchleuderVorne!
+        }
 
-        var imageOfCanvasSchleuderVorne = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+            AngyWordsStyleKit.drawCanvasSchleuderVorne()
+
+        Cache.imageOfCanvasSchleuderVorne = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSchleuderVorne
+        return Cache.imageOfCanvasSchleuderVorne!
     }
 
-    public class func imageOfCanvasSchleuderHinten(#frame: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
-            AngyWordsStyleKit.drawCanvasSchleuderHinten(frame: frame)
+    public class var imageOfCanvasSchleuderHinten: UIImage {
+        if Cache.imageOfCanvasSchleuderHinten != nil {
+            return Cache.imageOfCanvasSchleuderHinten!
+        }
 
-        var imageOfCanvasSchleuderHinten = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+            AngyWordsStyleKit.drawCanvasSchleuderHinten()
+
+        Cache.imageOfCanvasSchleuderHinten = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSchleuderHinten
+        return Cache.imageOfCanvasSchleuderHinten!
     }
 
-    public class func imageOfCanvasSling(#size: CGSize) -> UIImage {
+    public class var imageOfCanvasSling: UIImage {
+        if Cache.imageOfCanvasSling != nil {
+            return Cache.imageOfCanvasSling!
+        }
+
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(8, 24), false, 0)
-            AngyWordsStyleKit.drawCanvasSling(size: size)
+            AngyWordsStyleKit.drawCanvasSling()
 
-        var imageOfCanvasSling = UIGraphicsGetImageFromCurrentImageContext()!
+        Cache.imageOfCanvasSling = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSling
+        return Cache.imageOfCanvasSling!
     }
 
     public class var imageOfCanvasEule: UIImage {
@@ -791,14 +794,18 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasEule!
     }
 
-    public class func imageOfCanvasBabbelFigure(#frame: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(37, 47), false, 0)
-            AngyWordsStyleKit.drawCanvasBabbelFigure(frame: frame)
+    public class var imageOfCanvasBabbelFigure: UIImage {
+        if Cache.imageOfCanvasBabbelFigure != nil {
+            return Cache.imageOfCanvasBabbelFigure!
+        }
 
-        var imageOfCanvasBabbelFigure = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(37, 47), false, 0)
+            AngyWordsStyleKit.drawCanvasBabbelFigure()
+
+        Cache.imageOfCanvasBabbelFigure = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasBabbelFigure!
+        return Cache.imageOfCanvasBabbelFigure!
     }
 
     //// Customization Infrastructure
@@ -823,12 +830,62 @@ public class AngyWordsStyleKit : NSObject {
         }
     }
 
+    @IBOutlet var canvasStammTargets: [AnyObject]! {
+        get { return Cache.canvasStammTargets }
+        set {
+            Cache.canvasStammTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasStamm)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSchleuderVorneTargets: [AnyObject]! {
+        get { return Cache.canvasSchleuderVorneTargets }
+        set {
+            Cache.canvasSchleuderVorneTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSchleuderVorne)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSchleuderHintenTargets: [AnyObject]! {
+        get { return Cache.canvasSchleuderHintenTargets }
+        set {
+            Cache.canvasSchleuderHintenTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSchleuderHinten)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSlingTargets: [AnyObject]! {
+        get { return Cache.canvasSlingTargets }
+        set {
+            Cache.canvasSlingTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSling)
+            }
+        }
+    }
+
     @IBOutlet var canvasEuleTargets: [AnyObject]! {
         get { return Cache.canvasEuleTargets }
         set {
             Cache.canvasEuleTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfCanvasEule)
+            }
+        }
+    }
+
+    @IBOutlet var canvasBabbelFigureTargets: [AnyObject]! {
+        get { return Cache.canvasBabbelFigureTargets }
+        set {
+            Cache.canvasBabbelFigureTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasBabbelFigure)
             }
         }
     }
