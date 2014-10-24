@@ -131,7 +131,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createBird(position: CGPoint){
         var bird = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasEule))
-        bird.size = CGSizeMake(40, 40)
         bird.name = "owl"
         bird.position = CGPointMake(position.x, position.y+bird.size.height);
         bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size);

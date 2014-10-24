@@ -29,7 +29,7 @@ public class AngyWordsStyleKit : NSObject {
         static var babbelYellow75: UIColor = UIColor(red: 1.000, green: 0.835, blue: 0.435, alpha: 1.000)
         static var babbelYellow50: UIColor = UIColor(red: 1.000, green: 0.941, blue: 0.773, alpha: 1.000)
         static var babbelYellow25: UIColor = UIColor(red: 1.000, green: 0.973, blue: 0.890, alpha: 1.000)
-        static var babbelRed: UIColor = UIColor(red: 0.890, green: 0.333, blue: 0.224, alpha: 1.000)
+        static var babbelRed: UIColor = UIColor(red: 0.806, green: 0.188, blue: 0.066, alpha: 1.000)
         static var babbelRed75: UIColor = UIColor(red: 0.949, green: 0.478, blue: 0.388, alpha: 1.000)
         static var babbelRed50: UIColor = UIColor(red: 0.965, green: 0.655, blue: 0.592, alpha: 1.000)
         static var babbelRed25: UIColor = UIColor(red: 0.980, green: 0.824, blue: 0.796, alpha: 1.000)
@@ -147,17 +147,17 @@ public class AngyWordsStyleKit : NSObject {
 
     public class func drawCanvasCactus() {
         //// Color Declarations
-        let color2 = AngyWordsStyleKit.babbelGreen.colorWithSaturation(1)
+        let babbelGreenS40 = AngyWordsStyleKit.babbelGreen.colorWithShadow(0.4)
 
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(rect: CGRectMake(58, 52, 85, 310))
-        color2.setFill()
+        babbelGreenS40.setFill()
         rectanglePath.fill()
 
 
         //// Oval Drawing
         var ovalPath = UIBezierPath(ovalInRect: CGRectMake(58, 0, 85, 102))
-        color2.setFill()
+        babbelGreenS40.setFill()
         ovalPath.fill()
 
 
@@ -174,7 +174,7 @@ public class AngyWordsStyleKit : NSObject {
         bezierPath.addLineToPoint(CGPointMake(189, 102))
         bezierPath.addLineToPoint(CGPointMake(189, 102))
         bezierPath.closePath()
-        color2.setFill()
+        babbelGreenS40.setFill()
         bezierPath.fill()
 
 
@@ -191,66 +191,601 @@ public class AngyWordsStyleKit : NSObject {
         bezier2Path.addLineToPoint(CGPointMake(98, 174))
         bezier2Path.addLineToPoint(CGPointMake(98, 174))
         bezier2Path.closePath()
-        color2.setFill()
+        babbelGreenS40.setFill()
         bezier2Path.fill()
     }
 
     public class func drawCanvasStamm() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
         //// Color Declarations
-        let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
+        let babbelOranggeS60 = AngyWordsStyleKit.babbelOrange.colorWithShadow(0.6)
+        let brown = UIColor(red: 0.565, green: 0.394, blue: 0.157, alpha: 1.000)
+        let brownS10 = brown.colorWithShadow(0.1)
+
+        //// Gradient Declarations
+        let gradient5 = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [babbelOranggeS60.CGColor, brown.CGColor], [0, 1])
 
         //// Stamm Drawing
         var stammPath = UIBezierPath()
-        stammPath.moveToPoint(CGPointMake(18, 100))
-        stammPath.addCurveToPoint(CGPointMake(18, 112), controlPoint1: CGPointMake(14, 110), controlPoint2: CGPointMake(18, 102.5))
-        stammPath.addCurveToPoint(CGPointMake(18, 138), controlPoint1: CGPointMake(18, 121.5), controlPoint2: CGPointMake(12, 138))
-        stammPath.addCurveToPoint(CGPointMake(36, 138), controlPoint1: CGPointMake(24, 138), controlPoint2: CGPointMake(36, 138))
-        stammPath.addCurveToPoint(CGPointMake(36, 100), controlPoint1: CGPointMake(36, 138), controlPoint2: CGPointMake(34, 106))
-        stammPath.addCurveToPoint(CGPointMake(36, 88), controlPoint1: CGPointMake(38, 94), controlPoint2: CGPointMake(36.5, 95.5))
-        stammPath.addCurveToPoint(CGPointMake(36, 68), controlPoint1: CGPointMake(35.5, 80.5), controlPoint2: CGPointMake(36, 68))
-        stammPath.addLineToPoint(CGPointMake(18, 68))
-        stammPath.addCurveToPoint(CGPointMake(18, 100), controlPoint1: CGPointMake(18, 68), controlPoint2: CGPointMake(22, 90))
+        stammPath.moveToPoint(CGPointMake(23, 100))
+        stammPath.addCurveToPoint(CGPointMake(23, 112), controlPoint1: CGPointMake(19, 110), controlPoint2: CGPointMake(23, 102.5))
+        stammPath.addCurveToPoint(CGPointMake(23, 138), controlPoint1: CGPointMake(23, 121.5), controlPoint2: CGPointMake(17, 138))
+        stammPath.addCurveToPoint(CGPointMake(41, 138), controlPoint1: CGPointMake(29, 138), controlPoint2: CGPointMake(41, 138))
+        stammPath.addCurveToPoint(CGPointMake(41, 100), controlPoint1: CGPointMake(41, 138), controlPoint2: CGPointMake(39, 106))
+        stammPath.addCurveToPoint(CGPointMake(41, 88), controlPoint1: CGPointMake(43, 94), controlPoint2: CGPointMake(41.5, 95.5))
+        stammPath.addCurveToPoint(CGPointMake(41, 68), controlPoint1: CGPointMake(40.5, 80.5), controlPoint2: CGPointMake(41, 68))
+        stammPath.addLineToPoint(CGPointMake(23, 68))
+        stammPath.addCurveToPoint(CGPointMake(23, 100), controlPoint1: CGPointMake(23, 68), controlPoint2: CGPointMake(27, 90))
         stammPath.closePath()
-        brown.setFill()
-        stammPath.fill()
+        CGContextSaveGState(context)
+        stammPath.addClip()
+        CGContextDrawLinearGradient(context, gradient5, CGPointMake(42.01, 103), CGPointMake(20.33, 103), 0)
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 10 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 29.95, 131.05)
+        CGContextRotateCTM(context, -1.03 * CGFloat(M_PI) / 180)
+
+        var rectangle10Path = UIBezierPath()
+        rectangle10Path.moveToPoint(CGPointMake(4.09, -1.98))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.96, 5), controlPoint1: CGPointMake(4.11, 1.42), controlPoint2: CGPointMake(2.78, 3.46))
+        rectangle10Path.addCurveToPoint(CGPointMake(5.96, 5.06), controlPoint1: CGPointMake(3.15, 6.54), controlPoint2: CGPointMake(5, 3.04))
+        rectangle10Path.addCurveToPoint(CGPointMake(5.83, -7.75), controlPoint1: CGPointMake(6.46, 6.09), controlPoint2: CGPointMake(6.63, -4.03))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.96, -14.38), controlPoint1: CGPointMake(5.08, -11.31), controlPoint2: CGPointMake(2.96, -14.38))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.48, -10.75), controlPoint1: CGPointMake(2.96, -14.38), controlPoint2: CGPointMake(2.65, -14.37))
+        rectangle10Path.addCurveToPoint(CGPointMake(4.09, -1.98), controlPoint1: CGPointMake(2.38, -8.71), controlPoint2: CGPointMake(4.06, -6.39))
+        rectangle10Path.closePath()
+        brownS10.setFill()
+        rectangle10Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 5 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 25.96, 70.77)
+        CGContextRotateCTM(context, 15.17 * CGFloat(M_PI) / 180)
+
+        var rectangle5Path = UIBezierPath()
+        rectangle5Path.moveToPoint(CGPointMake(5.17, 17.46))
+        rectangle5Path.addCurveToPoint(CGPointMake(5.58, 31.88), controlPoint1: CGPointMake(5.23, 22.15), controlPoint2: CGPointMake(7.69, 28.2))
+        rectangle5Path.addCurveToPoint(CGPointMake(9.17, 34.46), controlPoint1: CGPointMake(3.47, 35.56), controlPoint2: CGPointMake(9.26, 33.99))
+        rectangle5Path.addCurveToPoint(CGPointMake(3.6, 5.48), controlPoint1: CGPointMake(9.08, 34.92), controlPoint2: CGPointMake(3.6, 5.48))
+        rectangle5Path.addCurveToPoint(CGPointMake(0.1, 0.21), controlPoint1: CGPointMake(3.6, 5.48), controlPoint2: CGPointMake(1.77, -1.27))
+        rectangle5Path.addCurveToPoint(CGPointMake(5.17, 17.46), controlPoint1: CGPointMake(-0.84, 1.05), controlPoint2: CGPointMake(5.08, 11.37))
+        rectangle5Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle5Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 6 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 37.85, 98.41)
+        CGContextRotateCTM(context, -13.68 * CGFloat(M_PI) / 180)
+
+        var rectangle6Path = UIBezierPath()
+        rectangle6Path.moveToPoint(CGPointMake(4.82, -6.45))
+        rectangle6Path.addCurveToPoint(CGPointMake(3.63, -1.59), controlPoint1: CGPointMake(4.8, -5.61), controlPoint2: CGPointMake(3.73, -2.19))
+        rectangle6Path.addCurveToPoint(CGPointMake(-0.2, 5.71), controlPoint1: CGPointMake(3.33, 0.26), controlPoint2: CGPointMake(0.21, 4.55))
+        rectangle6Path.addCurveToPoint(CGPointMake(-2.69, 11.94), controlPoint1: CGPointMake(-0.74, 7.25), controlPoint2: CGPointMake(-0.18, 9.83))
+        rectangle6Path.addCurveToPoint(CGPointMake(1.45, -1.09), controlPoint1: CGPointMake(-3.98, 13.01), controlPoint2: CGPointMake(-0.88, 2.63))
+        rectangle6Path.addCurveToPoint(CGPointMake(2.87, -6.92), controlPoint1: CGPointMake(3.68, -4.65), controlPoint2: CGPointMake(2.87, -6.92))
+        rectangle6Path.addCurveToPoint(CGPointMake(3.31, -11.24), controlPoint1: CGPointMake(2.87, -6.92), controlPoint2: CGPointMake(2.81, -14.86))
+        rectangle6Path.addCurveToPoint(CGPointMake(4.82, -6.45), controlPoint1: CGPointMake(3.59, -9.19), controlPoint2: CGPointMake(4.9, -10.86))
+        rectangle6Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle6Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 7 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 29.25, 123.46)
+        CGContextRotateCTM(context, -1.03 * CGFloat(M_PI) / 180)
+
+        var rectangle7Path = UIBezierPath()
+        rectangle7Path.moveToPoint(CGPointMake(-2.7, 0.37))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.79, -2.75), controlPoint1: CGPointMake(-2.73, -3.03), controlPoint2: CGPointMake(-3.59, -1.21))
+        rectangle7Path.addCurveToPoint(CGPointMake(-4.15, -11.94), controlPoint1: CGPointMake(-3.99, -4.29), controlPoint2: CGPointMake(-3.43, -14.11))
+        rectangle7Path.addCurveToPoint(CGPointMake(-4.64, 4.29), controlPoint1: CGPointMake(-4.52, -10.83), controlPoint2: CGPointMake(-5.49, 0.57))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.06, 10.77), controlPoint1: CGPointMake(-3.84, 7.85), controlPoint2: CGPointMake(-3.06, 10.77))
+        rectangle7Path.addCurveToPoint(CGPointMake(-1.98, 11.24), controlPoint1: CGPointMake(-3.06, 10.77), controlPoint2: CGPointMake(-2.16, 14.86))
+        rectangle7Path.addCurveToPoint(CGPointMake(-2.7, 0.37), controlPoint1: CGPointMake(-1.88, 9.19), controlPoint2: CGPointMake(-2.67, 4.78))
+        rectangle7Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle7Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 9 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 35.68, 93.2)
+        CGContextRotateCTM(context, 15.9 * CGFloat(M_PI) / 180)
+
+        var rectangle9Path = UIBezierPath()
+        rectangle9Path.moveToPoint(CGPointMake(-1.89, 6.81))
+        rectangle9Path.addCurveToPoint(CGPointMake(-4.14, 1.92), controlPoint1: CGPointMake(-1.94, 1.48), controlPoint2: CGPointMake(-3.74, 4.32))
+        rectangle9Path.addCurveToPoint(CGPointMake(-8.51, -23.28), controlPoint1: CGPointMake(-4.55, -0.49), controlPoint2: CGPointMake(-7.01, -26.68))
+        rectangle9Path.addCurveToPoint(CGPointMake(-5.53, 1.92), controlPoint1: CGPointMake(-9.28, -21.54), controlPoint2: CGPointMake(-7.29, -3.91))
+        rectangle9Path.addCurveToPoint(CGPointMake(-2.6, 14.94), controlPoint1: CGPointMake(-3.85, 7.48), controlPoint2: CGPointMake(-2.6, 14.94))
+        rectangle9Path.addCurveToPoint(CGPointMake(0.2, 23.64), controlPoint1: CGPointMake(-2.6, 14.94), controlPoint2: CGPointMake(-0.18, 29.3))
+        rectangle9Path.addCurveToPoint(CGPointMake(-1.89, 6.81), controlPoint1: CGPointMake(0.41, 20.44), controlPoint2: CGPointMake(-1.82, 13.7))
+        rectangle9Path.closePath()
+        brownS10.setFill()
+        rectangle9Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 8 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 39.6, 76.99)
+        CGContextRotateCTM(context, 34.8 * CGFloat(M_PI) / 180)
+
+        var rectangle8Path = UIBezierPath()
+        rectangle8Path.moveToPoint(CGPointMake(-1.19, -0.18))
+        rectangle8Path.addCurveToPoint(CGPointMake(0.81, 2.66), controlPoint1: CGPointMake(-1.12, 1.15), controlPoint2: CGPointMake(0.27, 2.06))
+        rectangle8Path.addCurveToPoint(CGPointMake(2.8, 4.65), controlPoint1: CGPointMake(1.34, 3.26), controlPoint2: CGPointMake(0.81, 5.5))
+        rectangle8Path.addCurveToPoint(CGPointMake(-1.19, -3.02), controlPoint1: CGPointMake(4.79, 3.79), controlPoint2: CGPointMake(-1.19, -3.02))
+        rectangle8Path.addCurveToPoint(CGPointMake(-3.18, -4.44), controlPoint1: CGPointMake(-1.19, -3.02), controlPoint2: CGPointMake(-2.68, -5.86))
+        rectangle8Path.addCurveToPoint(CGPointMake(-1.19, -0.18), controlPoint1: CGPointMake(-3.46, -3.64), controlPoint2: CGPointMake(-1.27, -1.91))
+        rectangle8Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle8Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 35.98, 118.82)
+        CGContextRotateCTM(context, 16.04 * CGFloat(M_PI) / 180)
+
+        var rectanglePath = UIBezierPath()
+        rectanglePath.moveToPoint(CGPointMake(1.19, 0.18))
+        rectanglePath.addCurveToPoint(CGPointMake(-0.81, -2.66), controlPoint1: CGPointMake(1.12, -1.15), controlPoint2: CGPointMake(0.62, 1.44))
+        rectanglePath.addCurveToPoint(CGPointMake(-2.8, -4.65), controlPoint1: CGPointMake(-2.23, -6.76), controlPoint2: CGPointMake(-2.29, -4.5))
+        rectanglePath.addCurveToPoint(CGPointMake(1.19, 3.02), controlPoint1: CGPointMake(-3.3, -4.79), controlPoint2: CGPointMake(1.19, 3.02))
+        rectanglePath.addCurveToPoint(CGPointMake(3.18, 4.44), controlPoint1: CGPointMake(1.19, 3.02), controlPoint2: CGPointMake(2.68, 5.86))
+        rectanglePath.addCurveToPoint(CGPointMake(1.19, 0.18), controlPoint1: CGPointMake(3.46, 3.64), controlPoint2: CGPointMake(1.27, 1.91))
+        rectanglePath.closePath()
+        babbelOranggeS60.setFill()
+        rectanglePath.fill()
+
+        CGContextRestoreGState(context)
     }
 
     public class func drawCanvasSchleuderVorne() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
         //// Color Declarations
-        let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
+        let babbelOranggeS60 = AngyWordsStyleKit.babbelOrange.colorWithShadow(0.6)
+        let babbelRedS70 = AngyWordsStyleKit.babbelRed.colorWithShadow(0.3)
+        let brown = UIColor(red: 0.565, green: 0.394, blue: 0.157, alpha: 1.000)
+        let brownS10 = brown.colorWithShadow(0.1)
+
+        //// Gradient Declarations
+        let gradient5 = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [babbelOranggeS60.CGColor, brown.CGColor], [0, 1])
 
         //// SchleuderVorne 2 Drawing
         var schleuderVorne2Path = UIBezierPath()
-        schleuderVorne2Path.moveToPoint(CGPointMake(50, 0))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(60, 8), controlPoint1: CGPointMake(59, -0), controlPoint2: CGPointMake(60, 8))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(48, 56), controlPoint1: CGPointMake(60, 8), controlPoint2: CGPointMake(58, 36))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(20, 82), controlPoint1: CGPointMake(38, 76), controlPoint2: CGPointMake(20, 82))
-        schleuderVorne2Path.addLineToPoint(CGPointMake(20, 56))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(32, 44), controlPoint1: CGPointMake(20, 56), controlPoint2: CGPointMake(27.85, 57.28))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(40, 8), controlPoint1: CGPointMake(42, 12), controlPoint2: CGPointMake(40, 8))
-        schleuderVorne2Path.addCurveToPoint(CGPointMake(50, 0), controlPoint1: CGPointMake(40, 8), controlPoint2: CGPointMake(41, 0))
+        schleuderVorne2Path.moveToPoint(CGPointMake(55, 0))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(65, 8), controlPoint1: CGPointMake(64, -0), controlPoint2: CGPointMake(65, 8))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(53, 56), controlPoint1: CGPointMake(65, 8), controlPoint2: CGPointMake(63, 36))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(25, 82), controlPoint1: CGPointMake(43, 76), controlPoint2: CGPointMake(25, 82))
+        schleuderVorne2Path.addLineToPoint(CGPointMake(25, 56))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(37, 44), controlPoint1: CGPointMake(25, 56), controlPoint2: CGPointMake(32.85, 57.28))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(45, 8), controlPoint1: CGPointMake(47, 12), controlPoint2: CGPointMake(45, 8))
+        schleuderVorne2Path.addCurveToPoint(CGPointMake(55, 0), controlPoint1: CGPointMake(45, 8), controlPoint2: CGPointMake(46, 0))
         schleuderVorne2Path.closePath()
-        brown.setFill()
-        schleuderVorne2Path.fill()
+        CGContextSaveGState(context)
+        schleuderVorne2Path.addClip()
+        CGContextDrawLinearGradient(context, gradient5, CGPointMake(57.14, 55.84), CGPointMake(25.85, 24.55), 0)
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 10 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 27.2, 63.91)
+        CGContextRotateCTM(context, 48.15 * CGFloat(M_PI) / 180)
+
+        var rectangle10Path = UIBezierPath()
+        rectangle10Path.moveToPoint(CGPointMake(-0.21, -11.7))
+        rectangle10Path.addCurveToPoint(CGPointMake(0.8, -14.82), controlPoint1: CGPointMake(-0.19, -15.1), controlPoint2: CGPointMake(0.62, -13.29))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.5, -14.28), controlPoint1: CGPointMake(0.99, -16.36), controlPoint2: CGPointMake(1.82, -16.45))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.47, -3.84), controlPoint1: CGPointMake(2.84, -13.17), controlPoint2: CGPointMake(3.26, -7.56))
+        rectangle10Path.addCurveToPoint(CGPointMake(-0.41, 2.79), controlPoint1: CGPointMake(1.71, -0.28), controlPoint2: CGPointMake(-0.41, 2.79))
+        rectangle10Path.addCurveToPoint(CGPointMake(-0.89, -0.84), controlPoint1: CGPointMake(-0.41, 2.79), controlPoint2: CGPointMake(-0.72, 2.78))
+        rectangle10Path.addCurveToPoint(CGPointMake(-0.21, -11.7), controlPoint1: CGPointMake(-0.99, -2.88), controlPoint2: CGPointMake(-0.24, -7.29))
+        rectangle10Path.closePath()
+        brownS10.setFill()
+        rectangle10Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 5 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 58.19, 27.84)
+        CGContextRotateCTM(context, 8.21 * CGFloat(M_PI) / 180)
+
+        var rectangle5Path = UIBezierPath()
+        rectangle5Path.moveToPoint(CGPointMake(0.13, 9.24))
+        rectangle5Path.addCurveToPoint(CGPointMake(1.95, -6.18), controlPoint1: CGPointMake(0.2, 4.54), controlPoint2: CGPointMake(1.41, -4.06))
+        rectangle5Path.addCurveToPoint(CGPointMake(2.81, -16.36), controlPoint1: CGPointMake(2.49, -8.3), controlPoint2: CGPointMake(0.81, -19.36))
+        rectangle5Path.addCurveToPoint(CGPointMake(0.56, 12.21), controlPoint1: CGPointMake(4.81, -13.36), controlPoint2: CGPointMake(0.56, 12.21))
+        rectangle5Path.addCurveToPoint(CGPointMake(-3.19, 15.64), controlPoint1: CGPointMake(0.56, 12.21), controlPoint2: CGPointMake(-2.69, 20.64))
+        rectangle5Path.addCurveToPoint(CGPointMake(0.13, 9.24), controlPoint1: CGPointMake(-3.47, 12.81), controlPoint2: CGPointMake(0.05, 15.32))
+        rectangle5Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle5Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 6 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 44.43, 37.39)
+        CGContextRotateCTM(context, 9.23 * CGFloat(M_PI) / 180)
+
+        var rectangle6Path = UIBezierPath()
+        rectangle6Path.moveToPoint(CGPointMake(-1.31, 0.37))
+        rectangle6Path.addCurveToPoint(CGPointMake(1.69, -2.75), controlPoint1: CGPointMake(-1.24, -3.03), controlPoint2: CGPointMake(1.15, -1.21))
+        rectangle6Path.addCurveToPoint(CGPointMake(2.69, -11.94), controlPoint1: CGPointMake(2.23, -4.29), controlPoint2: CGPointMake(0.69, -14.11))
+        rectangle6Path.addCurveToPoint(CGPointMake(1.35, -1.03), controlPoint1: CGPointMake(3.71, -10.83), controlPoint2: CGPointMake(3.69, -4.75))
+        rectangle6Path.addCurveToPoint(CGPointMake(-1.31, 7.61), controlPoint1: CGPointMake(-0.88, 2.53), controlPoint2: CGPointMake(-1.31, 7.61))
+        rectangle6Path.addCurveToPoint(CGPointMake(-3.31, 11.24), controlPoint1: CGPointMake(-1.31, 7.61), controlPoint2: CGPointMake(-2.81, 14.86))
+        rectangle6Path.addCurveToPoint(CGPointMake(-1.31, 0.37), controlPoint1: CGPointMake(-3.59, 9.19), controlPoint2: CGPointMake(-1.39, 4.78))
+        rectangle6Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle6Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 7 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 43.63, 66.39)
+        CGContextRotateCTM(context, 35.25 * CGFloat(M_PI) / 180)
+
+        var rectangle7Path = UIBezierPath()
+        rectangle7Path.moveToPoint(CGPointMake(-3.58, 2.2))
+        rectangle7Path.addCurveToPoint(CGPointMake(-2.49, -0.93), controlPoint1: CGPointMake(-3.55, -1.2), controlPoint2: CGPointMake(-2.69, 0.61))
+        rectangle7Path.addCurveToPoint(CGPointMake(-2.13, -10.11), controlPoint1: CGPointMake(-2.3, -2.46), controlPoint2: CGPointMake(-2.85, -12.28))
+        rectangle7Path.addCurveToPoint(CGPointMake(-1.64, 6.11), controlPoint1: CGPointMake(-1.76, -9), controlPoint2: CGPointMake(-0.79, 2.39))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.22, 12.59), controlPoint1: CGPointMake(-2.45, 9.67), controlPoint2: CGPointMake(-3.22, 12.59))
+        rectangle7Path.addCurveToPoint(CGPointMake(-4.3, 13.06), controlPoint1: CGPointMake(-3.22, 12.59), controlPoint2: CGPointMake(-4.12, 16.68))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.58, 2.2), controlPoint1: CGPointMake(-4.4, 11.02), controlPoint2: CGPointMake(-3.61, 6.61))
+        rectangle7Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle7Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 8 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 49.53, 9.47)
+        CGContextRotateCTM(context, -19.01 * CGFloat(M_PI) / 180)
+
+        var rectangle8Path = UIBezierPath()
+        rectangle8Path.moveToPoint(CGPointMake(1.19, -0.18))
+        rectangle8Path.addCurveToPoint(CGPointMake(-0.81, 2.66), controlPoint1: CGPointMake(1.12, 1.15), controlPoint2: CGPointMake(-0.27, 2.06))
+        rectangle8Path.addCurveToPoint(CGPointMake(-2.8, 4.65), controlPoint1: CGPointMake(-1.34, 3.26), controlPoint2: CGPointMake(-0.81, 5.5))
+        rectangle8Path.addCurveToPoint(CGPointMake(1.19, -3.02), controlPoint1: CGPointMake(-4.79, 3.79), controlPoint2: CGPointMake(1.19, -3.02))
+        rectangle8Path.addCurveToPoint(CGPointMake(3.18, -4.44), controlPoint1: CGPointMake(1.19, -3.02), controlPoint2: CGPointMake(2.68, -5.86))
+        rectangle8Path.addCurveToPoint(CGPointMake(1.19, -0.18), controlPoint1: CGPointMake(3.46, -3.64), controlPoint2: CGPointMake(1.27, -1.91))
+        rectangle8Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle8Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 9 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 55.51, 26.29)
+        CGContextRotateCTM(context, 4.48 * CGFloat(M_PI) / 180)
+
+        var rectangle9Path = UIBezierPath()
+        rectangle9Path.moveToPoint(CGPointMake(-4.05, 6.05))
+        rectangle9Path.addCurveToPoint(CGPointMake(0.03, -23.38), controlPoint1: CGPointMake(-2.16, 0.48), controlPoint2: CGPointMake(-1.47, -26.78))
+        rectangle9Path.addCurveToPoint(CGPointMake(-1.37, 1.83), controlPoint1: CGPointMake(0.8, -21.64), controlPoint2: CGPointMake(0.38, -4))
+        rectangle9Path.addCurveToPoint(CGPointMake(-5.89, 14.83), controlPoint1: CGPointMake(-3.05, 7.39), controlPoint2: CGPointMake(-5.89, 14.83))
+        rectangle9Path.addCurveToPoint(CGPointMake(-8.68, 23.53), controlPoint1: CGPointMake(-5.89, 14.83), controlPoint2: CGPointMake(-8.31, 29.2))
+        rectangle9Path.addCurveToPoint(CGPointMake(-4.05, 6.05), controlPoint1: CGPointMake(-8.9, 20.33), controlPoint2: CGPointMake(-6.49, 13.26))
+        rectangle9Path.closePath()
+        brownS10.setFill()
+        rectangle9Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 11 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 53.51, 8.29)
+        CGContextRotateCTM(context, 4.48 * CGFloat(M_PI) / 180)
+
+        var rectangle11Path = UIBezierPath()
+        rectangle11Path.moveToPoint(CGPointMake(-6.24, 18.34))
+        rectangle11Path.addCurveToPoint(CGPointMake(-4.09, 8.14), controlPoint1: CGPointMake(-5.25, 16.41), controlPoint2: CGPointMake(-4.88, 6.97))
+        rectangle11Path.addCurveToPoint(CGPointMake(-4.83, 16.88), controlPoint1: CGPointMake(-3.68, 8.75), controlPoint2: CGPointMake(-3.9, 14.86))
+        rectangle11Path.addCurveToPoint(CGPointMake(-7.21, 21.38), controlPoint1: CGPointMake(-5.71, 18.8), controlPoint2: CGPointMake(-7.21, 21.38))
+        rectangle11Path.addCurveToPoint(CGPointMake(-8.69, 24.39), controlPoint1: CGPointMake(-7.21, 21.38), controlPoint2: CGPointMake(-8.49, 26.36))
+        rectangle11Path.addCurveToPoint(CGPointMake(-6.24, 18.34), controlPoint1: CGPointMake(-8.8, 23.29), controlPoint2: CGPointMake(-7.53, 20.84))
+        rectangle11Path.closePath()
+        brownS10.setFill()
+        rectangle11Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Group
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 53, 17.69)
+        CGContextRotateCTM(context, 5.15 * CGFloat(M_PI) / 180)
+
+
+
+        //// Rectangle Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, -0.14, -2.29)
+        CGContextRotateCTM(context, -1.25 * CGFloat(M_PI) / 180)
+
+        var rectanglePath = UIBezierPath()
+        rectanglePath.moveToPoint(CGPointMake(11.49, 7.84))
+        rectanglePath.addCurveToPoint(CGPointMake(-10.46, 9.33), controlPoint1: CGPointMake(10.14, 9.97), controlPoint2: CGPointMake(-9.43, 10.04))
+        rectanglePath.addCurveToPoint(CGPointMake(-9.78, 0.01), controlPoint1: CGPointMake(-11.49, 8.62), controlPoint2: CGPointMake(-10.8, 3.75))
+        rectanglePath.addCurveToPoint(CGPointMake(-8.55, -6.83), controlPoint1: CGPointMake(-8.76, -3.72), controlPoint2: CGPointMake(-9.91, -5.77))
+        rectanglePath.addCurveToPoint(CGPointMake(11.91, -7.45), controlPoint1: CGPointMake(-7.2, -7.9), controlPoint2: CGPointMake(11.91, -9.58))
+        rectanglePath.addCurveToPoint(CGPointMake(11.49, 7.84), controlPoint1: CGPointMake(11.91, -5.32), controlPoint2: CGPointMake(12.85, 5.7))
+        rectanglePath.closePath()
+        AngyWordsStyleKit.babbelRed.setFill()
+        rectanglePath.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 2 Drawing
+        var rectangle2Path = UIBezierPath()
+        rectangle2Path.moveToPoint(CGPointMake(10.42, -6.62))
+        rectangle2Path.addCurveToPoint(CGPointMake(-5.45, -6.62), controlPoint1: CGPointMake(6.76, -6.41), controlPoint2: CGPointMake(-4.23, -6.62))
+        rectangle2Path.addCurveToPoint(CGPointMake(-6.67, -7.49), controlPoint1: CGPointMake(-6.67, -6.62), controlPoint2: CGPointMake(-6.67, -7.49))
+        rectangle2Path.addLineToPoint(CGPointMake(7.98, -7.49))
+        rectangle2Path.addCurveToPoint(CGPointMake(10.42, -6.62), controlPoint1: CGPointMake(7.98, -7.49), controlPoint2: CGPointMake(14.08, -6.84))
+        rectangle2Path.closePath()
+        babbelRedS70.setFill()
+        rectangle2Path.fill()
+
+
+        //// Rectangle 3 Drawing
+        var rectangle3Path = UIBezierPath()
+        rectangle3Path.moveToPoint(CGPointMake(-4.61, 5.05))
+        rectangle3Path.addCurveToPoint(CGPointMake(9.47, 5.05), controlPoint1: CGPointMake(-1.36, 5.24), controlPoint2: CGPointMake(8.38, 5.05))
+        rectangle3Path.addCurveToPoint(CGPointMake(10.55, 4.27), controlPoint1: CGPointMake(10.55, 5.05), controlPoint2: CGPointMake(10.55, 4.27))
+        rectangle3Path.addLineToPoint(CGPointMake(-3.47, 4.55))
+        rectangle3Path.addCurveToPoint(CGPointMake(-4.61, 5.05), controlPoint1: CGPointMake(-3.47, 4.55), controlPoint2: CGPointMake(-7.86, 4.85))
+        rectangle3Path.closePath()
+        babbelRedS70.setFill()
+        rectangle3Path.fill()
+
+
+        //// Rectangle 4 Drawing
+        var rectangle4Path = UIBezierPath()
+        rectangle4Path.moveToPoint(CGPointMake(1.75, -1.49))
+        rectangle4Path.addCurveToPoint(CGPointMake(-8.67, -1.49), controlPoint1: CGPointMake(-0.65, -1.27), controlPoint2: CGPointMake(-7.87, -1.49))
+        rectangle4Path.addCurveToPoint(CGPointMake(-9.48, -2.35), controlPoint1: CGPointMake(-9.48, -1.49), controlPoint2: CGPointMake(-9.48, -2.35))
+        rectangle4Path.addLineToPoint(CGPointMake(0.15, -2.35))
+        rectangle4Path.addCurveToPoint(CGPointMake(1.75, -1.49), controlPoint1: CGPointMake(0.15, -2.35), controlPoint2: CGPointMake(4.16, -1.7))
+        rectangle4Path.closePath()
+        babbelRedS70.setFill()
+        rectangle4Path.fill()
+
+
+
+        CGContextRestoreGState(context)
     }
 
     public class func drawCanvasSchleuderHinten() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
         //// Color Declarations
-        let brown = UIColor(red: 0.670, green: 0.599, blue: 0.500, alpha: 1.000)
+        let babbelOranggeS60 = AngyWordsStyleKit.babbelOrange.colorWithShadow(0.6)
+        let babbelRedBack = AngyWordsStyleKit.babbelRed.colorWithShadow(0.05)
+        let babbelRedS50 = AngyWordsStyleKit.babbelRed.colorWithShadow(0.4)
+        let brown = UIColor(red: 0.565, green: 0.394, blue: 0.157, alpha: 1.000)
+        let brownS10 = brown.colorWithShadow(0.1)
+
+        //// Gradient Declarations
+        let gradient5 = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), [babbelOranggeS60.CGColor, brown.CGColor], [0, 1])
 
         //// SchleuderHinten 2 Drawing
         var schleuderHinten2Path = UIBezierPath()
-        schleuderHinten2Path.moveToPoint(CGPointMake(8, 0))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(0, 6), controlPoint1: CGPointMake(0.04, -0), controlPoint2: CGPointMake(0, 6))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(8.62, 54), controlPoint1: CGPointMake(0, 6), controlPoint2: CGPointMake(-0.23, 34))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(28, 76), controlPoint1: CGPointMake(17.47, 74), controlPoint2: CGPointMake(28, 76))
-        schleuderHinten2Path.addLineToPoint(CGPointMake(28, 54))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(20, 44), controlPoint1: CGPointMake(28, 54), controlPoint2: CGPointMake(22, 52))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(14, 6), controlPoint1: CGPointMake(12, 12), controlPoint2: CGPointMake(14, 6))
-        schleuderHinten2Path.addCurveToPoint(CGPointMake(8, 0), controlPoint1: CGPointMake(14, 6), controlPoint2: CGPointMake(15.97, 0))
+        schleuderHinten2Path.moveToPoint(CGPointMake(13, 0))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(5, 6), controlPoint1: CGPointMake(5.04, -0), controlPoint2: CGPointMake(5, 6))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(13.62, 54), controlPoint1: CGPointMake(5, 6), controlPoint2: CGPointMake(4.77, 34))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(33, 76), controlPoint1: CGPointMake(22.47, 74), controlPoint2: CGPointMake(33, 76))
+        schleuderHinten2Path.addLineToPoint(CGPointMake(33, 54))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(25, 44), controlPoint1: CGPointMake(33, 54), controlPoint2: CGPointMake(27, 52))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(19, 6), controlPoint1: CGPointMake(17, 12), controlPoint2: CGPointMake(19, 6))
+        schleuderHinten2Path.addCurveToPoint(CGPointMake(13, 0), controlPoint1: CGPointMake(19, 6), controlPoint2: CGPointMake(20.97, 0))
         schleuderHinten2Path.closePath()
-        brown.setFill()
-        schleuderHinten2Path.fill()
+        CGContextSaveGState(context)
+        schleuderHinten2Path.addClip()
+        CGContextDrawLinearGradient(context, gradient5, CGPointMake(9.31, 42.59), CGPointMake(30.58, 34.85), 0)
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 10 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 22.41, 59.82)
+        CGContextRotateCTM(context, -16.2 * CGFloat(M_PI) / 180)
+
+        var rectangle10Path = UIBezierPath()
+        rectangle10Path.moveToPoint(CGPointMake(3.16, 0.11))
+        rectangle10Path.addCurveToPoint(CGPointMake(4.17, 3.23), controlPoint1: CGPointMake(3.18, 3.51), controlPoint2: CGPointMake(3.99, 1.7))
+        rectangle10Path.addCurveToPoint(CGPointMake(5.86, 2.69), controlPoint1: CGPointMake(4.36, 4.77), controlPoint2: CGPointMake(5.19, 4.86))
+        rectangle10Path.addCurveToPoint(CGPointMake(5.83, -7.75), controlPoint1: CGPointMake(6.21, 1.58), controlPoint2: CGPointMake(6.63, -4.03))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.96, -14.38), controlPoint1: CGPointMake(5.08, -11.31), controlPoint2: CGPointMake(2.96, -14.38))
+        rectangle10Path.addCurveToPoint(CGPointMake(2.48, -10.75), controlPoint1: CGPointMake(2.96, -14.38), controlPoint2: CGPointMake(2.65, -14.37))
+        rectangle10Path.addCurveToPoint(CGPointMake(3.16, 0.11), controlPoint1: CGPointMake(2.38, -8.71), controlPoint2: CGPointMake(3.13, -4.3))
+        rectangle10Path.closePath()
+        brownS10.setFill()
+        rectangle10Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 5 Drawing
+        var rectangle5Path = UIBezierPath()
+        rectangle5Path.moveToPoint(CGPointMake(9, 24))
+        rectangle5Path.addCurveToPoint(CGPointMake(11, 34), controlPoint1: CGPointMake(9.07, 28.7), controlPoint2: CGPointMake(10.46, 31.88))
+        rectangle5Path.addCurveToPoint(CGPointMake(13, 41), controlPoint1: CGPointMake(11.54, 36.12), controlPoint2: CGPointMake(11, 44))
+        rectangle5Path.addCurveToPoint(CGPointMake(9, 14), controlPoint1: CGPointMake(15, 38), controlPoint2: CGPointMake(9, 14))
+        rectangle5Path.addCurveToPoint(CGPointMake(7, 9), controlPoint1: CGPointMake(9, 14), controlPoint2: CGPointMake(7.5, 4))
+        rectangle5Path.addCurveToPoint(CGPointMake(9, 24), controlPoint1: CGPointMake(6.72, 11.82), controlPoint2: CGPointMake(8.91, 17.91))
+        rectangle5Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle5Path.fill()
+
+
+        //// Rectangle 6 Drawing
+        var rectangle6Path = UIBezierPath()
+        rectangle6Path.moveToPoint(CGPointMake(22, 35.12))
+        rectangle6Path.addCurveToPoint(CGPointMake(19, 32), controlPoint1: CGPointMake(21.93, 31.72), controlPoint2: CGPointMake(19.54, 33.54))
+        rectangle6Path.addCurveToPoint(CGPointMake(18, 22.81), controlPoint1: CGPointMake(18.46, 30.46), controlPoint2: CGPointMake(20, 20.64))
+        rectangle6Path.addCurveToPoint(CGPointMake(19.34, 33.72), controlPoint1: CGPointMake(16.98, 23.93), controlPoint2: CGPointMake(17, 30))
+        rectangle6Path.addCurveToPoint(CGPointMake(22, 42.37), controlPoint1: CGPointMake(21.57, 37.28), controlPoint2: CGPointMake(22, 42.37))
+        rectangle6Path.addCurveToPoint(CGPointMake(24, 45.99), controlPoint1: CGPointMake(22, 42.37), controlPoint2: CGPointMake(23.5, 49.61))
+        rectangle6Path.addCurveToPoint(CGPointMake(22, 35.12), controlPoint1: CGPointMake(24.28, 43.94), controlPoint2: CGPointMake(22.09, 39.53))
+        rectangle6Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle6Path.fill()
+
+
+        //// Rectangle 7 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 23.69, 55.75)
+        CGContextRotateCTM(context, -16.2 * CGFloat(M_PI) / 180)
+
+        var rectangle7Path = UIBezierPath()
+        rectangle7Path.moveToPoint(CGPointMake(-2.7, 0.37))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.79, -2.75), controlPoint1: CGPointMake(-2.73, -3.03), controlPoint2: CGPointMake(-3.59, -1.21))
+        rectangle7Path.addCurveToPoint(CGPointMake(-4.15, -11.94), controlPoint1: CGPointMake(-3.99, -4.29), controlPoint2: CGPointMake(-3.43, -14.11))
+        rectangle7Path.addCurveToPoint(CGPointMake(-4.64, 4.29), controlPoint1: CGPointMake(-4.52, -10.83), controlPoint2: CGPointMake(-5.49, 0.57))
+        rectangle7Path.addCurveToPoint(CGPointMake(-3.06, 10.77), controlPoint1: CGPointMake(-3.84, 7.85), controlPoint2: CGPointMake(-3.06, 10.77))
+        rectangle7Path.addCurveToPoint(CGPointMake(-1.98, 11.24), controlPoint1: CGPointMake(-3.06, 10.77), controlPoint2: CGPointMake(-2.16, 14.86))
+        rectangle7Path.addCurveToPoint(CGPointMake(-2.7, 0.37), controlPoint1: CGPointMake(-1.88, 9.19), controlPoint2: CGPointMake(-2.67, 4.78))
+        rectangle7Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle7Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 8 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 15.2, 7.84)
+        CGContextRotateCTM(context, 34.35 * CGFloat(M_PI) / 180)
+
+        var rectangle8Path = UIBezierPath()
+        rectangle8Path.moveToPoint(CGPointMake(-1.19, -0.18))
+        rectangle8Path.addCurveToPoint(CGPointMake(0.81, 2.66), controlPoint1: CGPointMake(-1.12, 1.15), controlPoint2: CGPointMake(0.27, 2.06))
+        rectangle8Path.addCurveToPoint(CGPointMake(2.8, 4.65), controlPoint1: CGPointMake(1.34, 3.26), controlPoint2: CGPointMake(0.81, 5.5))
+        rectangle8Path.addCurveToPoint(CGPointMake(-1.19, -3.02), controlPoint1: CGPointMake(4.79, 3.79), controlPoint2: CGPointMake(-1.19, -3.02))
+        rectangle8Path.addCurveToPoint(CGPointMake(-3.18, -4.44), controlPoint1: CGPointMake(-1.19, -3.02), controlPoint2: CGPointMake(-2.68, -5.86))
+        rectangle8Path.addCurveToPoint(CGPointMake(-1.19, -0.18), controlPoint1: CGPointMake(-3.46, -3.64), controlPoint2: CGPointMake(-1.27, -1.91))
+        rectangle8Path.closePath()
+        babbelOranggeS60.setFill()
+        rectangle8Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 9 Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 19.09, 25.65)
+        CGContextRotateCTM(context, 0.73 * CGFloat(M_PI) / 180)
+
+        var rectangle9Path = UIBezierPath()
+        rectangle9Path.moveToPoint(CGPointMake(-1.89, 6.81))
+        rectangle9Path.addCurveToPoint(CGPointMake(-4.14, 1.92), controlPoint1: CGPointMake(-1.94, 1.48), controlPoint2: CGPointMake(-3.74, 4.32))
+        rectangle9Path.addCurveToPoint(CGPointMake(-8.51, -23.28), controlPoint1: CGPointMake(-4.55, -0.49), controlPoint2: CGPointMake(-7.01, -26.68))
+        rectangle9Path.addCurveToPoint(CGPointMake(-5.53, 1.92), controlPoint1: CGPointMake(-9.28, -21.54), controlPoint2: CGPointMake(-7.29, -3.91))
+        rectangle9Path.addCurveToPoint(CGPointMake(-2.6, 14.94), controlPoint1: CGPointMake(-3.85, 7.48), controlPoint2: CGPointMake(-2.6, 14.94))
+        rectangle9Path.addCurveToPoint(CGPointMake(0.2, 23.64), controlPoint1: CGPointMake(-2.6, 14.94), controlPoint2: CGPointMake(-0.18, 29.3))
+        rectangle9Path.addCurveToPoint(CGPointMake(-1.89, 6.81), controlPoint1: CGPointMake(0.41, 20.44), controlPoint2: CGPointMake(-1.82, 13.7))
+        rectangle9Path.closePath()
+        brownS10.setFill()
+        rectangle9Path.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Group
+        //// Rectangle Drawing
+        CGContextSaveGState(context)
+        CGContextTranslateCTM(context, 12.41, 14.67)
+        CGContextRotateCTM(context, 1.25 * CGFloat(M_PI) / 180)
+
+        var rectanglePath = UIBezierPath()
+        rectanglePath.moveToPoint(CGPointMake(-7, 5.96))
+        rectanglePath.addCurveToPoint(CGPointMake(8.79, 6.44), controlPoint1: CGPointMake(-6, 8.07), controlPoint2: CGPointMake(8.81, 7.3))
+        rectanglePath.addCurveToPoint(CGPointMake(8, -1.42), controlPoint1: CGPointMake(8.76, 5.58), controlPoint2: CGPointMake(8.75, 2.27))
+        rectanglePath.addCurveToPoint(CGPointMake(6.39, -8.99), controlPoint1: CGPointMake(7.25, -5.11), controlPoint2: CGPointMake(7.39, -7.94))
+        rectanglePath.addCurveToPoint(CGPointMake(-8, -8.8), controlPoint1: CGPointMake(5.39, -10.05), controlPoint2: CGPointMake(-8, -10.9))
+        rectanglePath.addCurveToPoint(CGPointMake(-7, 5.96), controlPoint1: CGPointMake(-8, -6.69), controlPoint2: CGPointMake(-8, 3.85))
+        rectanglePath.closePath()
+        babbelRedBack.setFill()
+        rectanglePath.fill()
+
+        CGContextRestoreGState(context)
+
+
+        //// Rectangle 2 Drawing
+        var rectangle2Path = UIBezierPath()
+        rectangle2Path.moveToPoint(CGPointMake(5.73, 9.83))
+        rectangle2Path.addCurveToPoint(CGPointMake(18.73, 9.83), controlPoint1: CGPointMake(8.73, 10.08), controlPoint2: CGPointMake(17.73, 9.83))
+        rectangle2Path.addCurveToPoint(CGPointMake(19.73, 8.83), controlPoint1: CGPointMake(19.73, 9.83), controlPoint2: CGPointMake(19.73, 8.83))
+        rectangle2Path.addLineToPoint(CGPointMake(7.73, 8.83))
+        rectangle2Path.addCurveToPoint(CGPointMake(5.73, 9.83), controlPoint1: CGPointMake(7.73, 8.83), controlPoint2: CGPointMake(2.73, 9.58))
+        rectangle2Path.closePath()
+        babbelRedS50.setFill()
+        rectangle2Path.fill()
+
+
+        //// Rectangle 3 Drawing
+        var rectangle3Path = UIBezierPath()
+        rectangle3Path.moveToPoint(CGPointMake(16.96, 17.73))
+        rectangle3Path.addCurveToPoint(CGPointMake(6.53, 17.73), controlPoint1: CGPointMake(14.55, 17.95), controlPoint2: CGPointMake(7.33, 17.73))
+        rectangle3Path.addCurveToPoint(CGPointMake(5.73, 16.83), controlPoint1: CGPointMake(5.73, 17.73), controlPoint2: CGPointMake(5.73, 16.83))
+        rectangle3Path.addLineToPoint(CGPointMake(15.36, 16.83))
+        rectangle3Path.addCurveToPoint(CGPointMake(16.96, 17.73), controlPoint1: CGPointMake(15.36, 16.83), controlPoint2: CGPointMake(19.37, 17.5))
+        rectangle3Path.closePath()
+        babbelRedS50.setFill()
+        rectangle3Path.fill()
+
+
+        //// Rectangle 4 Drawing
+        var rectangle4Path = UIBezierPath()
+        rectangle4Path.moveToPoint(CGPointMake(14.15, 14.83))
+        rectangle4Path.addCurveToPoint(CGPointMake(19.33, 14.83), controlPoint1: CGPointMake(15.35, 15.08), controlPoint2: CGPointMake(18.93, 14.83))
+        rectangle4Path.addCurveToPoint(CGPointMake(19.73, 13.83), controlPoint1: CGPointMake(19.73, 14.83), controlPoint2: CGPointMake(19.73, 13.83))
+        rectangle4Path.addLineToPoint(CGPointMake(14.95, 13.83))
+        rectangle4Path.addCurveToPoint(CGPointMake(14.15, 14.83), controlPoint1: CGPointMake(14.95, 13.83), controlPoint2: CGPointMake(12.96, 14.58))
+        rectangle4Path.closePath()
+        babbelRedS50.setFill()
+        rectangle4Path.fill()
     }
 
     public class func drawCanvasSling() {
@@ -265,7 +800,7 @@ public class AngyWordsStyleKit : NSObject {
         rectanglePath.addCurveToPoint(CGPointMake(0, 5.22), controlPoint1: CGPointMake(1.9, 8.35), controlPoint2: CGPointMake(0, 5.22))
         rectanglePath.addLineToPoint(CGPointMake(0, 18.78))
         rectanglePath.closePath()
-        UIColor.grayColor().setFill()
+        AngyWordsStyleKit.babbelFontGray.setFill()
         rectanglePath.fill()
     }
 
@@ -273,84 +808,89 @@ public class AngyWordsStyleKit : NSObject {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()
 
+        //// Color Declarations
+        let babbelGreenS40 = AngyWordsStyleKit.babbelGreen.colorWithShadow(0.4)
+        let sand = UIColor(red: 0.880, green: 0.754, blue: 0.335, alpha: 1.000)
+        let sandS40 = sand.colorWithShadow(0.4)
+
         //// Bezier Drawing
         var bezierPath = UIBezierPath()
-        bezierPath.moveToPoint(CGPointMake(155.61, 251.29))
-        bezierPath.addCurveToPoint(CGPointMake(146.56, 261.31), controlPoint1: CGPointMake(152.97, 254.61), controlPoint2: CGPointMake(149.92, 257.97))
-        bezierPath.addCurveToPoint(CGPointMake(158.46, 270.62), controlPoint1: CGPointMake(154.24, 261.65), controlPoint2: CGPointMake(158.35, 264.97))
-        bezierPath.addCurveToPoint(CGPointMake(172.61, 299.29), controlPoint1: CGPointMake(183.61, 265.05), controlPoint2: CGPointMake(190.12, 277.32))
-        bezierPath.addCurveToPoint(CGPointMake(87.63, 355.38), controlPoint1: CGPointMake(154.18, 322.42), controlPoint2: CGPointMake(116.14, 347.53))
-        bezierPath.addCurveToPoint(CGPointMake(59.53, 348.41), controlPoint1: CGPointMake(69.6, 360.35), controlPoint2: CGPointMake(59.71, 357.23))
-        bezierPath.addCurveToPoint(CGPointMake(45.38, 319.73), controlPoint1: CGPointMake(34.38, 353.98), controlPoint2: CGPointMake(27.87, 341.71))
-        bezierPath.addCurveToPoint(CGPointMake(54.44, 309.72), controlPoint1: CGPointMake(48.02, 316.42), controlPoint2: CGPointMake(51.07, 313.06))
-        bezierPath.addCurveToPoint(CGPointMake(52.38, 279.73), controlPoint1: CGPointMake(39.79, 309.06), controlPoint2: CGPointMake(38.14, 297.61))
-        bezierPath.addCurveToPoint(CGPointMake(137.36, 223.64), controlPoint1: CGPointMake(70.81, 256.61), controlPoint2: CGPointMake(108.85, 231.5))
-        bezierPath.addCurveToPoint(CGPointMake(155.61, 251.29), controlPoint1: CGPointMake(165.87, 215.79), controlPoint2: CGPointMake(174.04, 228.17))
+        bezierPath.moveToPoint(CGPointMake(10.03, 20.19))
+        bezierPath.addCurveToPoint(CGPointMake(9.23, 21.02), controlPoint1: CGPointMake(9.79, 20.46), controlPoint2: CGPointMake(9.53, 20.74))
+        bezierPath.addCurveToPoint(CGPointMake(10.27, 21.79), controlPoint1: CGPointMake(9.91, 21.05), controlPoint2: CGPointMake(10.26, 21.32))
+        bezierPath.addCurveToPoint(CGPointMake(11.51, 24.16), controlPoint1: CGPointMake(12.47, 21.33), controlPoint2: CGPointMake(13.04, 22.34))
+        bezierPath.addCurveToPoint(CGPointMake(4.08, 28.79), controlPoint1: CGPointMake(9.9, 26.07), controlPoint2: CGPointMake(6.57, 28.14))
+        bezierPath.addCurveToPoint(CGPointMake(1.63, 28.22), controlPoint1: CGPointMake(2.51, 29.2), controlPoint2: CGPointMake(1.64, 28.94))
+        bezierPath.addCurveToPoint(CGPointMake(0.39, 25.85), controlPoint1: CGPointMake(-0.57, 28.68), controlPoint2: CGPointMake(-1.14, 27.66))
+        bezierPath.addCurveToPoint(CGPointMake(1.18, 25.02), controlPoint1: CGPointMake(0.62, 25.57), controlPoint2: CGPointMake(0.89, 25.29))
+        bezierPath.addCurveToPoint(CGPointMake(1, 22.54), controlPoint1: CGPointMake(-0.1, 24.96), controlPoint2: CGPointMake(-0.24, 24.02))
+        bezierPath.addCurveToPoint(CGPointMake(8.43, 17.9), controlPoint1: CGPointMake(2.61, 20.63), controlPoint2: CGPointMake(5.94, 18.55))
+        bezierPath.addCurveToPoint(CGPointMake(10.03, 20.19), controlPoint1: CGPointMake(10.92, 17.26), controlPoint2: CGPointMake(11.64, 18.28))
         bezierPath.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         bezierPath.fill()
 
 
         //// Bezier 2 Drawing
         var bezier2Path = UIBezierPath()
-        bezier2Path.moveToPoint(CGPointMake(372.39, 251.29))
-        bezier2Path.addCurveToPoint(CGPointMake(381.44, 261.31), controlPoint1: CGPointMake(375.03, 254.61), controlPoint2: CGPointMake(378.08, 257.97))
-        bezier2Path.addCurveToPoint(CGPointMake(369.54, 270.62), controlPoint1: CGPointMake(373.76, 261.65), controlPoint2: CGPointMake(369.65, 264.97))
-        bezier2Path.addCurveToPoint(CGPointMake(355.39, 299.29), controlPoint1: CGPointMake(344.39, 265.05), controlPoint2: CGPointMake(337.88, 277.32))
-        bezier2Path.addCurveToPoint(CGPointMake(440.37, 355.38), controlPoint1: CGPointMake(373.82, 322.42), controlPoint2: CGPointMake(411.86, 347.53))
-        bezier2Path.addCurveToPoint(CGPointMake(468.47, 348.41), controlPoint1: CGPointMake(458.4, 360.35), controlPoint2: CGPointMake(468.29, 357.23))
-        bezier2Path.addCurveToPoint(CGPointMake(482.62, 319.73), controlPoint1: CGPointMake(493.62, 353.98), controlPoint2: CGPointMake(500.13, 341.71))
-        bezier2Path.addCurveToPoint(CGPointMake(473.56, 309.72), controlPoint1: CGPointMake(479.98, 316.42), controlPoint2: CGPointMake(476.93, 313.06))
-        bezier2Path.addCurveToPoint(CGPointMake(475.62, 279.73), controlPoint1: CGPointMake(488.21, 309.06), controlPoint2: CGPointMake(489.86, 297.61))
-        bezier2Path.addCurveToPoint(CGPointMake(390.64, 223.64), controlPoint1: CGPointMake(457.19, 256.61), controlPoint2: CGPointMake(419.15, 231.5))
-        bezier2Path.addCurveToPoint(CGPointMake(372.39, 251.29), controlPoint1: CGPointMake(362.13, 215.79), controlPoint2: CGPointMake(353.96, 228.17))
+        bezier2Path.moveToPoint(CGPointMake(28.97, 20.19))
+        bezier2Path.addCurveToPoint(CGPointMake(29.77, 21.02), controlPoint1: CGPointMake(29.21, 20.46), controlPoint2: CGPointMake(29.47, 20.74))
+        bezier2Path.addCurveToPoint(CGPointMake(28.73, 21.79), controlPoint1: CGPointMake(29.09, 21.05), controlPoint2: CGPointMake(28.74, 21.32))
+        bezier2Path.addCurveToPoint(CGPointMake(27.49, 24.16), controlPoint1: CGPointMake(26.53, 21.33), controlPoint2: CGPointMake(25.96, 22.34))
+        bezier2Path.addCurveToPoint(CGPointMake(34.92, 28.79), controlPoint1: CGPointMake(29.1, 26.07), controlPoint2: CGPointMake(32.43, 28.14))
+        bezier2Path.addCurveToPoint(CGPointMake(37.37, 28.22), controlPoint1: CGPointMake(36.49, 29.2), controlPoint2: CGPointMake(37.36, 28.94))
+        bezier2Path.addCurveToPoint(CGPointMake(38.61, 25.85), controlPoint1: CGPointMake(39.57, 28.68), controlPoint2: CGPointMake(40.14, 27.66))
+        bezier2Path.addCurveToPoint(CGPointMake(37.82, 25.02), controlPoint1: CGPointMake(38.38, 25.57), controlPoint2: CGPointMake(38.11, 25.29))
+        bezier2Path.addCurveToPoint(CGPointMake(38, 22.54), controlPoint1: CGPointMake(39.1, 24.96), controlPoint2: CGPointMake(39.24, 24.02))
+        bezier2Path.addCurveToPoint(CGPointMake(30.57, 17.9), controlPoint1: CGPointMake(36.39, 20.63), controlPoint2: CGPointMake(33.06, 18.55))
+        bezier2Path.addCurveToPoint(CGPointMake(28.97, 20.19), controlPoint1: CGPointMake(28.08, 17.26), controlPoint2: CGPointMake(27.36, 18.28))
         bezier2Path.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         bezier2Path.fill()
 
 
         //// Body Drawing
         var bodyPath = UIBezierPath()
-        bodyPath.moveToPoint(CGPointMake(399, 442))
-        bodyPath.addCurveToPoint(CGPointMake(399.09, 238.29), controlPoint1: CGPointMake(470.72, 394.94), controlPoint2: CGPointMake(451.74, 317))
-        bodyPath.addCurveToPoint(CGPointMake(139.37, 238.29), controlPoint1: CGPointMake(346.43, 159.59), controlPoint2: CGPointMake(187.49, 163.59))
-        bodyPath.addCurveToPoint(CGPointMake(139, 442), controlPoint1: CGPointMake(91.25, 313), controlPoint2: CGPointMake(67.28, 394.94))
-        bodyPath.addCurveToPoint(CGPointMake(399, 442), controlPoint1: CGPointMake(210.72, 489.06), controlPoint2: CGPointMake(327.28, 489.06))
+        bodyPath.moveToPoint(CGPointMake(31.3, 35.95))
+        bodyPath.addCurveToPoint(CGPointMake(31.31, 19.12), controlPoint1: CGPointMake(37.57, 32.06), controlPoint2: CGPointMake(35.91, 25.62))
+        bodyPath.addCurveToPoint(CGPointMake(8.61, 19.12), controlPoint1: CGPointMake(26.71, 12.61), controlPoint2: CGPointMake(12.81, 12.94))
+        bodyPath.addCurveToPoint(CGPointMake(8.57, 35.95), controlPoint1: CGPointMake(4.4, 25.29), controlPoint2: CGPointMake(2.3, 32.06))
+        bodyPath.addCurveToPoint(CGPointMake(31.3, 35.95), controlPoint1: CGPointMake(14.84, 39.84), controlPoint2: CGPointMake(25.03, 39.84))
         bodyPath.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         bodyPath.fill()
 
 
         //// Head Drawing
         var headPath = UIBezierPath()
-        headPath.moveToPoint(CGPointMake(110, 200))
-        headPath.addCurveToPoint(CGPointMake(422, 200), controlPoint1: CGPointMake(145, 244), controlPoint2: CGPointMake(395, 249))
-        headPath.addCurveToPoint(CGPointMake(422, 87), controlPoint1: CGPointMake(449, 151), controlPoint2: CGPointMake(422, 87))
-        headPath.addCurveToPoint(CGPointMake(264, 68), controlPoint1: CGPointMake(422, 87), controlPoint2: CGPointMake(342, 68))
-        headPath.addCurveToPoint(CGPointMake(110, 87), controlPoint1: CGPointMake(186, 68), controlPoint2: CGPointMake(110, 87))
-        headPath.addCurveToPoint(CGPointMake(110, 200), controlPoint1: CGPointMake(110, 87), controlPoint2: CGPointMake(75, 156))
+        headPath.moveToPoint(CGPointMake(6.04, 15.95))
+        headPath.addCurveToPoint(CGPointMake(33.31, 15.95), controlPoint1: CGPointMake(9.1, 19.59), controlPoint2: CGPointMake(30.95, 20))
+        headPath.addCurveToPoint(CGPointMake(33.31, 6.61), controlPoint1: CGPointMake(35.67, 11.9), controlPoint2: CGPointMake(33.31, 6.61))
+        headPath.addCurveToPoint(CGPointMake(19.5, 5.04), controlPoint1: CGPointMake(33.31, 6.61), controlPoint2: CGPointMake(26.32, 5.04))
+        headPath.addCurveToPoint(CGPointMake(6.04, 6.61), controlPoint1: CGPointMake(12.68, 5.04), controlPoint2: CGPointMake(6.04, 6.61))
+        headPath.addCurveToPoint(CGPointMake(6.04, 15.95), controlPoint1: CGPointMake(6.04, 6.61), controlPoint2: CGPointMake(2.98, 12.31))
         headPath.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         headPath.fill()
 
 
         //// EarLeft Drawing
         var earLeftPath = UIBezierPath()
-        earLeftPath.moveToPoint(CGPointMake(133, 13))
-        earLeftPath.addCurveToPoint(CGPointMake(196.08, 87.25), controlPoint1: CGPointMake(154.54, 13), controlPoint2: CGPointMake(196.08, 87.25))
-        earLeftPath.addLineToPoint(CGPointMake(109.92, 87.25))
-        earLeftPath.addCurveToPoint(CGPointMake(133, 13), controlPoint1: CGPointMake(109.92, 87.25), controlPoint2: CGPointMake(111.46, 13))
+        earLeftPath.moveToPoint(CGPointMake(8.05, 0.5))
+        earLeftPath.addCurveToPoint(CGPointMake(13.56, 6.63), controlPoint1: CGPointMake(9.93, 0.5), controlPoint2: CGPointMake(13.56, 6.63))
+        earLeftPath.addLineToPoint(CGPointMake(6.03, 6.63))
+        earLeftPath.addCurveToPoint(CGPointMake(8.05, 0.5), controlPoint1: CGPointMake(6.03, 6.63), controlPoint2: CGPointMake(6.17, 0.5))
         earLeftPath.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         earLeftPath.fill()
 
 
         //// Beak Drawing
         var beakPath = UIBezierPath()
-        beakPath.moveToPoint(CGPointMake(267.69, 218))
-        beakPath.addCurveToPoint(CGPointMake(225.07, 156.52), controlPoint1: CGPointMake(246.14, 217.92), controlPoint2: CGPointMake(225.07, 156.52))
-        beakPath.addLineToPoint(CGPointMake(311.24, 156.84))
-        beakPath.addCurveToPoint(CGPointMake(267.69, 218), controlPoint1: CGPointMake(311.24, 156.84), controlPoint2: CGPointMake(289.23, 218.08))
+        beakPath.moveToPoint(CGPointMake(19.82, 17.44))
+        beakPath.addCurveToPoint(CGPointMake(16.1, 12.36), controlPoint1: CGPointMake(17.94, 17.43), controlPoint2: CGPointMake(16.1, 12.36))
+        beakPath.addLineToPoint(CGPointMake(23.63, 12.38))
+        beakPath.addCurveToPoint(CGPointMake(19.82, 17.44), controlPoint1: CGPointMake(23.63, 12.38), controlPoint2: CGPointMake(21.71, 17.44))
         beakPath.closePath()
         AngyWordsStyleKit.babbelOrange.setFill()
         beakPath.fill()
@@ -358,154 +898,118 @@ public class AngyWordsStyleKit : NSObject {
 
         //// EyesBack Drawing
         var eyesBackPath = UIBezierPath()
-        eyesBackPath.moveToPoint(CGPointMake(400.62, 102.38))
-        eyesBackPath.addCurveToPoint(CGPointMake(400.62, 176.62), controlPoint1: CGPointMake(421.13, 122.88), controlPoint2: CGPointMake(421.13, 156.12))
-        eyesBackPath.addCurveToPoint(CGPointMake(326, 177), controlPoint1: CGPointMake(380.12, 197.13), controlPoint2: CGPointMake(343, 197))
-        eyesBackPath.addCurveToPoint(CGPointMake(270, 160), controlPoint1: CGPointMake(321.75, 172), controlPoint2: CGPointMake(294, 160))
-        eyesBackPath.addCurveToPoint(CGPointMake(209.77, 175.77), controlPoint1: CGPointMake(246, 160), controlPoint2: CGPointMake(213.71, 171.71))
-        eyesBackPath.addCurveToPoint(CGPointMake(136.23, 175.77), controlPoint1: CGPointMake(194, 192), controlPoint2: CGPointMake(156.54, 196.08))
-        eyesBackPath.addCurveToPoint(CGPointMake(136.23, 102.23), controlPoint1: CGPointMake(115.92, 155.46), controlPoint2: CGPointMake(115.92, 122.54))
-        eyesBackPath.addCurveToPoint(CGPointMake(209.77, 102.23), controlPoint1: CGPointMake(156.54, 81.92), controlPoint2: CGPointMake(186, 87))
-        eyesBackPath.addCurveToPoint(CGPointMake(270, 115), controlPoint1: CGPointMake(215.71, 106.04), controlPoint2: CGPointMake(248, 114))
-        eyesBackPath.addCurveToPoint(CGPointMake(326.38, 102.38), controlPoint1: CGPointMake(292, 116), controlPoint2: CGPointMake(321.22, 105.72))
-        eyesBackPath.addCurveToPoint(CGPointMake(400.62, 102.38), controlPoint1: CGPointMake(347, 89), controlPoint2: CGPointMake(380.12, 81.87))
+        eyesBackPath.moveToPoint(CGPointMake(31.44, 7.88))
+        eyesBackPath.addCurveToPoint(CGPointMake(31.44, 14.02), controlPoint1: CGPointMake(33.24, 9.58), controlPoint2: CGPointMake(33.24, 12.32))
+        eyesBackPath.addCurveToPoint(CGPointMake(24.92, 14.05), controlPoint1: CGPointMake(29.65, 15.71), controlPoint2: CGPointMake(26.41, 15.7))
+        eyesBackPath.addCurveToPoint(CGPointMake(20.02, 12.64), controlPoint1: CGPointMake(24.55, 13.64), controlPoint2: CGPointMake(22.12, 12.64))
+        eyesBackPath.addCurveToPoint(CGPointMake(14.76, 13.95), controlPoint1: CGPointMake(17.93, 12.64), controlPoint2: CGPointMake(15.1, 13.61))
+        eyesBackPath.addCurveToPoint(CGPointMake(8.33, 13.95), controlPoint1: CGPointMake(13.38, 15.29), controlPoint2: CGPointMake(10.11, 15.63))
+        eyesBackPath.addCurveToPoint(CGPointMake(8.33, 7.87), controlPoint1: CGPointMake(6.56, 12.27), controlPoint2: CGPointMake(6.56, 9.55))
+        eyesBackPath.addCurveToPoint(CGPointMake(14.76, 7.87), controlPoint1: CGPointMake(10.11, 6.19), controlPoint2: CGPointMake(12.68, 6.61))
+        eyesBackPath.addCurveToPoint(CGPointMake(20.02, 8.93), controlPoint1: CGPointMake(15.28, 8.18), controlPoint2: CGPointMake(18.1, 8.84))
+        eyesBackPath.addCurveToPoint(CGPointMake(24.95, 7.88), controlPoint1: CGPointMake(21.95, 9.01), controlPoint2: CGPointMake(24.5, 8.16))
+        eyesBackPath.addCurveToPoint(CGPointMake(31.44, 7.88), controlPoint1: CGPointMake(26.76, 6.78), controlPoint2: CGPointMake(29.65, 6.19))
         eyesBackPath.closePath()
         AngyWordsStyleKit.babbelGreen50.setFill()
         eyesBackPath.fill()
 
 
         //// PupilRight Drawing
-        var pupilRightPath = UIBezierPath(ovalInRect: CGRectMake(335, 108, 67, 67))
+        var pupilRightPath = UIBezierPath(ovalInRect: CGRectMake(25, 8, 6, 6))
         AngyWordsStyleKit.babbelFontDarkGray.setFill()
         pupilRightPath.fill()
 
 
         //// PupilLeft Drawing
-        var pupilLeftPath = UIBezierPath(ovalInRect: CGRectMake(143, 108, 64, 64))
+        var pupilLeftPath = UIBezierPath(ovalInRect: CGRectMake(9, 8, 6, 6))
         AngyWordsStyleKit.babbelFontDarkGray.setFill()
         pupilLeftPath.fill()
 
 
         //// EarRight Drawing
         var earRightPath = UIBezierPath()
-        earRightPath.moveToPoint(CGPointMake(399, 7))
-        earRightPath.addCurveToPoint(CGPointMake(334.92, 87.25), controlPoint1: CGPointMake(377.46, 7), controlPoint2: CGPointMake(334.92, 87.25))
-        earRightPath.addLineToPoint(CGPointMake(421.08, 87.25))
-        earRightPath.addCurveToPoint(CGPointMake(399, 7), controlPoint1: CGPointMake(421.08, 87.25), controlPoint2: CGPointMake(420.54, 7))
+        earRightPath.moveToPoint(CGPointMake(31.3, 0))
+        earRightPath.addCurveToPoint(CGPointMake(25.7, 6.63), controlPoint1: CGPointMake(29.42, 0), controlPoint2: CGPointMake(25.7, 6.63))
+        earRightPath.addLineToPoint(CGPointMake(33.23, 6.63))
+        earRightPath.addCurveToPoint(CGPointMake(31.3, 0), controlPoint1: CGPointMake(33.23, 6.63), controlPoint2: CGPointMake(33.18, 0))
         earRightPath.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         earRightPath.fill()
 
 
         //// Oval Drawing
-        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(153, 125, 10, 16))
+        var ovalPath = UIBezierPath(ovalInRect: CGRectMake(10, 9, 1, 2))
         UIColor.whiteColor().setFill()
         ovalPath.fill()
 
 
         //// Oval 2 Drawing
-        var oval2Path = UIBezierPath(ovalInRect: CGRectMake(346, 127, 10, 16))
+        var oval2Path = UIBezierPath(ovalInRect: CGRectMake(26, 9, 2, 3))
         UIColor.whiteColor().setFill()
         oval2Path.fill()
 
 
         //// Body 2 Drawing
         var body2Path = UIBezierPath()
-        body2Path.moveToPoint(CGPointMake(362.97, 419.5))
-        body2Path.addCurveToPoint(CGPointMake(363.04, 272.33), controlPoint1: CGPointMake(414.95, 385.5), controlPoint2: CGPointMake(401.2, 329.19))
-        body2Path.addCurveToPoint(CGPointMake(174.82, 272.33), controlPoint1: CGPointMake(324.88, 215.46), controlPoint2: CGPointMake(209.69, 218.35))
-        body2Path.addCurveToPoint(CGPointMake(174.55, 419.5), controlPoint1: CGPointMake(139.95, 326.3), controlPoint2: CGPointMake(122.58, 385.5))
-        body2Path.addCurveToPoint(CGPointMake(362.97, 419.5), controlPoint1: CGPointMake(226.53, 453.5), controlPoint2: CGPointMake(311, 453.5))
+        body2Path.moveToPoint(CGPointMake(28.15, 34.09))
+        body2Path.addCurveToPoint(CGPointMake(28.16, 21.93), controlPoint1: CGPointMake(32.7, 31.28), controlPoint2: CGPointMake(31.49, 26.63))
+        body2Path.addCurveToPoint(CGPointMake(11.7, 21.93), controlPoint1: CGPointMake(24.82, 17.23), controlPoint2: CGPointMake(14.75, 17.47))
+        body2Path.addCurveToPoint(CGPointMake(11.68, 34.09), controlPoint1: CGPointMake(8.66, 26.39), controlPoint2: CGPointMake(7.14, 31.28))
+        body2Path.addCurveToPoint(CGPointMake(28.15, 34.09), controlPoint1: CGPointMake(16.22, 36.9), controlPoint2: CGPointMake(23.61, 36.9))
         body2Path.closePath()
         AngyWordsStyleKit.babbelGreen75.setFill()
         body2Path.fill()
 
 
-        //// Oval 3 Drawing
-        var oval3Path = UIBezierPath(ovalInRect: CGRectMake(187, 453, 15, 32))
-        UIColor.grayColor().setFill()
-        oval3Path.fill()
-
-
-        //// Oval 4 Drawing
-        var oval4Path = UIBezierPath(ovalInRect: CGRectMake(199, 456, 16, 32))
-        UIColor.grayColor().setFill()
-        oval4Path.fill()
-
-
-        //// Oval 5 Drawing
-        var oval5Path = UIBezierPath(ovalInRect: CGRectMake(212, 456, 13, 32))
-        UIColor.grayColor().setFill()
-        oval5Path.fill()
-
-
-        //// Oval 6 Drawing
-        var oval6Path = UIBezierPath(ovalInRect: CGRectMake(320, 456, 15, 32))
-        UIColor.grayColor().setFill()
-        oval6Path.fill()
-
-
-        //// Oval 7 Drawing
-        var oval7Path = UIBezierPath(ovalInRect: CGRectMake(307, 459, 16, 32))
-        UIColor.grayColor().setFill()
-        oval7Path.fill()
-
-
-        //// Oval 8 Drawing
-        var oval8Path = UIBezierPath(ovalInRect: CGRectMake(297, 459, 13, 32))
-        UIColor.grayColor().setFill()
-        oval8Path.fill()
-
-
         //// Oval 9 Drawing
-        var oval9Path = UIBezierPath(ovalInRect: CGRectMake(94, 28, 48, 19))
-        AngyWordsStyleKit.babbelGreen.setFill()
+        var oval9Path = UIBezierPath(ovalInRect: CGRectMake(5, 2, 4, 2))
+        babbelGreenS40.setFill()
         oval9Path.fill()
 
 
         //// Oval 10 Drawing
-        var oval10Path = UIBezierPath(ovalInRect: CGRectMake(98, 12, 48, 19))
-        AngyWordsStyleKit.babbelGreen.setFill()
+        var oval10Path = UIBezierPath(ovalInRect: CGRectMake(5, 0, 4, 3))
+        babbelGreenS40.setFill()
         oval10Path.fill()
 
 
         //// Oval 11 Drawing
-        var oval11Path = UIBezierPath(ovalInRect: CGRectMake(103, 47, 48, 19))
-        AngyWordsStyleKit.babbelGreen.setFill()
+        var oval11Path = UIBezierPath(ovalInRect: CGRectMake(5, 4, 5, 1))
+        babbelGreenS40.setFill()
         oval11Path.fill()
 
 
         //// Bezier 3 Drawing
         var bezier3Path = UIBezierPath()
-        bezier3Path.moveToPoint(CGPointMake(424.97, 9.78))
-        bezier3Path.addCurveToPoint(CGPointMake(424.97, 23.22), controlPoint1: CGPointMake(434.34, 13.49), controlPoint2: CGPointMake(434.34, 19.51))
-        bezier3Path.addCurveToPoint(CGPointMake(422.73, 24), controlPoint1: CGPointMake(424.26, 23.5), controlPoint2: CGPointMake(423.51, 23.76))
-        bezier3Path.addCurveToPoint(CGPointMake(428.97, 25.78), controlPoint1: CGPointMake(424.98, 24.45), controlPoint2: CGPointMake(427.09, 25.04))
-        bezier3Path.addCurveToPoint(CGPointMake(428.97, 39.22), controlPoint1: CGPointMake(438.34, 29.49), controlPoint2: CGPointMake(438.34, 35.51))
-        bezier3Path.addCurveToPoint(CGPointMake(395.03, 39.22), controlPoint1: CGPointMake(419.6, 42.93), controlPoint2: CGPointMake(404.4, 42.93))
-        bezier3Path.addCurveToPoint(CGPointMake(395.03, 25.78), controlPoint1: CGPointMake(385.66, 35.51), controlPoint2: CGPointMake(385.66, 29.49))
-        bezier3Path.addCurveToPoint(CGPointMake(397.27, 25), controlPoint1: CGPointMake(395.74, 25.5), controlPoint2: CGPointMake(396.49, 25.24))
-        bezier3Path.addCurveToPoint(CGPointMake(391.03, 23.22), controlPoint1: CGPointMake(395.02, 24.55), controlPoint2: CGPointMake(392.91, 23.96))
-        bezier3Path.addCurveToPoint(CGPointMake(391.03, 9.78), controlPoint1: CGPointMake(381.66, 19.51), controlPoint2: CGPointMake(381.66, 13.49))
-        bezier3Path.addCurveToPoint(CGPointMake(424.97, 9.78), controlPoint1: CGPointMake(400.4, 6.07), controlPoint2: CGPointMake(415.6, 6.07))
+        bezier3Path.moveToPoint(CGPointMake(33.57, 0.23))
+        bezier3Path.addCurveToPoint(CGPointMake(33.57, 1.34), controlPoint1: CGPointMake(34.39, 0.54), controlPoint2: CGPointMake(34.39, 1.03))
+        bezier3Path.addCurveToPoint(CGPointMake(33.38, 1.4), controlPoint1: CGPointMake(33.51, 1.36), controlPoint2: CGPointMake(33.44, 1.39))
+        bezier3Path.addCurveToPoint(CGPointMake(33.92, 1.55), controlPoint1: CGPointMake(33.57, 1.44), controlPoint2: CGPointMake(33.76, 1.49))
+        bezier3Path.addCurveToPoint(CGPointMake(33.92, 2.66), controlPoint1: CGPointMake(34.74, 1.86), controlPoint2: CGPointMake(34.74, 2.36))
+        bezier3Path.addCurveToPoint(CGPointMake(30.95, 2.66), controlPoint1: CGPointMake(33.1, 2.97), controlPoint2: CGPointMake(31.77, 2.97))
+        bezier3Path.addCurveToPoint(CGPointMake(30.95, 1.55), controlPoint1: CGPointMake(30.13, 2.36), controlPoint2: CGPointMake(30.13, 1.86))
+        bezier3Path.addCurveToPoint(CGPointMake(31.15, 1.49), controlPoint1: CGPointMake(31.02, 1.53), controlPoint2: CGPointMake(31.08, 1.51))
+        bezier3Path.addCurveToPoint(CGPointMake(30.6, 1.34), controlPoint1: CGPointMake(30.95, 1.45), controlPoint2: CGPointMake(30.77, 1.4))
+        bezier3Path.addCurveToPoint(CGPointMake(30.6, 0.23), controlPoint1: CGPointMake(29.79, 1.03), controlPoint2: CGPointMake(29.79, 0.54))
+        bezier3Path.addCurveToPoint(CGPointMake(33.57, 0.23), controlPoint1: CGPointMake(31.42, -0.08), controlPoint2: CGPointMake(32.75, -0.08))
         bezier3Path.closePath()
-        bezier3Path.moveToPoint(CGPointMake(419.97, 44.78))
-        bezier3Path.addCurveToPoint(CGPointMake(419.97, 58.22), controlPoint1: CGPointMake(429.34, 48.49), controlPoint2: CGPointMake(429.34, 54.51))
-        bezier3Path.addCurveToPoint(CGPointMake(386.03, 58.22), controlPoint1: CGPointMake(410.6, 61.93), controlPoint2: CGPointMake(395.4, 61.93))
-        bezier3Path.addCurveToPoint(CGPointMake(386.03, 44.78), controlPoint1: CGPointMake(376.66, 54.51), controlPoint2: CGPointMake(376.66, 48.49))
-        bezier3Path.addCurveToPoint(CGPointMake(419.97, 44.78), controlPoint1: CGPointMake(395.4, 41.07), controlPoint2: CGPointMake(410.6, 41.07))
+        bezier3Path.moveToPoint(CGPointMake(33.13, 3.12))
+        bezier3Path.addCurveToPoint(CGPointMake(33.13, 4.23), controlPoint1: CGPointMake(33.95, 3.43), controlPoint2: CGPointMake(33.95, 3.93))
+        bezier3Path.addCurveToPoint(CGPointMake(30.17, 4.23), controlPoint1: CGPointMake(32.31, 4.54), controlPoint2: CGPointMake(30.99, 4.54))
+        bezier3Path.addCurveToPoint(CGPointMake(30.17, 3.12), controlPoint1: CGPointMake(29.35, 3.93), controlPoint2: CGPointMake(29.35, 3.43))
+        bezier3Path.addCurveToPoint(CGPointMake(33.13, 3.12), controlPoint1: CGPointMake(30.99, 2.82), controlPoint2: CGPointMake(32.31, 2.82))
         bezier3Path.closePath()
-        AngyWordsStyleKit.babbelGreen.setFill()
+        babbelGreenS40.setFill()
         bezier3Path.fill()
 
 
         //// Oval 12 Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 224.64, 64.01)
+        CGContextTranslateCTM(context, 16.06, 4.71)
         CGContextRotateCTM(context, -32.49 * CGFloat(M_PI) / 180)
 
-        var oval12Path = UIBezierPath(ovalInRect: CGRectMake(-8.5, -23.82, 17, 47.65))
-        AngyWordsStyleKit.babbelGreen.setFill()
+        var oval12Path = UIBezierPath(ovalInRect: CGRectMake(-0.68, -1.98, 1.36, 3.97))
+        babbelGreenS40.setFill()
         oval12Path.fill()
 
         CGContextRestoreGState(context)
@@ -513,14 +1017,50 @@ public class AngyWordsStyleKit : NSObject {
 
         //// Oval 13 Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 245.64, 70.01)
+        CGContextTranslateCTM(context, 17.9, 5.21)
         CGContextRotateCTM(context, -32.49 * CGFloat(M_PI) / 180)
 
-        var oval13Path = UIBezierPath(ovalInRect: CGRectMake(-8.5, -23.82, 17, 47.65))
-        AngyWordsStyleKit.babbelGreen.setFill()
+        var oval13Path = UIBezierPath(ovalInRect: CGRectMake(-0.68, -1.98, 1.36, 3.97))
+        babbelGreenS40.setFill()
         oval13Path.fill()
 
         CGContextRestoreGState(context)
+
+
+        //// Oval 3 Drawing
+        var oval3Path = UIBezierPath(ovalInRect: CGRectMake(13, 36, 1, 4))
+        sandS40.setFill()
+        oval3Path.fill()
+
+
+        //// Oval 4 Drawing
+        var oval4Path = UIBezierPath(ovalInRect: CGRectMake(14, 37, 1, 3))
+        sandS40.setFill()
+        oval4Path.fill()
+
+
+        //// Oval 5 Drawing
+        var oval5Path = UIBezierPath(ovalInRect: CGRectMake(15, 37, 1, 3))
+        sandS40.setFill()
+        oval5Path.fill()
+
+
+        //// Oval 6 Drawing
+        var oval6Path = UIBezierPath(ovalInRect: CGRectMake(25, 36, 1, 4))
+        sandS40.setFill()
+        oval6Path.fill()
+
+
+        //// Oval 7 Drawing
+        var oval7Path = UIBezierPath(ovalInRect: CGRectMake(24, 37, 1, 3))
+        sandS40.setFill()
+        oval7Path.fill()
+
+
+        //// Oval 8 Drawing
+        var oval8Path = UIBezierPath(ovalInRect: CGRectMake(23, 37, 1, 3))
+        sandS40.setFill()
+        oval8Path.fill()
     }
 
     public class func drawCanvasBabbelFigure() {
@@ -1917,6 +2457,196 @@ public class AngyWordsStyleKit : NSObject {
         rectangle9Path.fill()
     }
 
+    public class func drawCanvasLetterB() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(6, 0, 34, 40)
+        var textTextContent = NSString(string: "B")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterA() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text 2 Drawing
+        let text2Rect = CGRectMake(6, 0, 34, 40)
+        var text2TextContent = NSString(string: "A")
+        let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        text2Style.alignment = NSTextAlignment.Left
+
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, text2Rect);
+        text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterE() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(6, 0, 34, 40)
+        var textTextContent = NSString(string: "E")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterL() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text 2 Drawing
+        let text2Rect = CGRectMake(7, 1, 34, 40)
+        var text2TextContent = NSString(string: "L")
+        let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        text2Style.alignment = NSTextAlignment.Left
+
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, text2Rect);
+        text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterH() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(5, 0, 34, 40)
+        var textTextContent = NSString(string: "H")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterC() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text 2 Drawing
+        let text2Rect = CGRectMake(6, 0, 34, 40)
+        var text2TextContent = NSString(string: "C")
+        let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        text2Style.alignment = NSTextAlignment.Left
+
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, text2Rect);
+        text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterK() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(6, 0, 34, 40)
+        var textTextContent = NSString(string: "K")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterD() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text 2 Drawing
+        let text2Rect = CGRectMake(6, 0, 34, 40)
+        var text2TextContent = NSString(string: "D")
+        let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        text2Style.alignment = NSTextAlignment.Left
+
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, text2Rect);
+        text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetterY() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text Drawing
+        let textRect = CGRectMake(7, 0, 34, 40)
+        var textTextContent = NSString(string: "Y")
+        let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        textStyle.alignment = NSTextAlignment.Left
+
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, textRect);
+        textTextContent.drawInRect(CGRectMake(textRect.minX, textRect.minY + (textRect.height - textTextHeight) / 2, textRect.width, textTextHeight), withAttributes: textFontAttributes)
+        CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasLetter2() {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()
+
+        //// Text 2 Drawing
+        let text2Rect = CGRectMake(7, -1, 34, 40)
+        var text2TextContent = NSString(string: "2")
+        let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        text2Style.alignment = NSTextAlignment.Left
+
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
+        CGContextSaveGState(context)
+        CGContextClipToRect(context, text2Rect);
+        text2TextContent.drawInRect(CGRectMake(text2Rect.minX, text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, text2Rect.width, text2TextHeight), withAttributes: text2FontAttributes)
+        CGContextRestoreGState(context)
+    }
+
     //// Generated Images
 
     public class var imageOfCanvasCloud: UIImage {
@@ -1952,7 +2682,7 @@ public class AngyWordsStyleKit : NSObject {
             return Cache.imageOfCanvasStamm!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(70, 138), false, 0)
             AngyWordsStyleKit.drawCanvasStamm()
 
         Cache.imageOfCanvasStamm = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1966,7 +2696,7 @@ public class AngyWordsStyleKit : NSObject {
             return Cache.imageOfCanvasSchleuderVorne!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(70, 138), false, 0)
             AngyWordsStyleKit.drawCanvasSchleuderVorne()
 
         Cache.imageOfCanvasSchleuderVorne = UIGraphicsGetImageFromCurrentImageContext()!
@@ -1980,7 +2710,7 @@ public class AngyWordsStyleKit : NSObject {
             return Cache.imageOfCanvasSchleuderHinten!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 138), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(70, 138), false, 0)
             AngyWordsStyleKit.drawCanvasSchleuderHinten()
 
         Cache.imageOfCanvasSchleuderHinten = UIGraphicsGetImageFromCurrentImageContext()!
@@ -2008,7 +2738,7 @@ public class AngyWordsStyleKit : NSObject {
             return Cache.imageOfCanvasEule!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(500, 500), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(40, 40), false, 0)
             AngyWordsStyleKit.drawCanvasEule()
 
         Cache.imageOfCanvasEule = UIGraphicsGetImageFromCurrentImageContext()!
