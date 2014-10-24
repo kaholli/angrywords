@@ -454,7 +454,7 @@ public class AngyWordsStyleKit : NSObject {
         var imageOfCanvasStamm = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasStamm!
+        return imageOfCanvasStamm
     }
 
     public class func imageOfCanvasSchleuderVorne(#size: CGSize) -> UIImage {
@@ -464,7 +464,7 @@ public class AngyWordsStyleKit : NSObject {
         var imageOfCanvasSchleuderVorne = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSchleuderVorne!
+        return imageOfCanvasSchleuderVorne
     }
 
     public class func imageOfCanvasSchleuderHinten(#size: CGSize) -> UIImage {
@@ -474,7 +474,7 @@ public class AngyWordsStyleKit : NSObject {
         var imageOfCanvasSchleuderHinten = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSchleuderHinten!
+        return imageOfCanvasSchleuderHinten
     }
 
     public class func imageOfCanvasSling(#size: CGSize) -> UIImage {
@@ -484,7 +484,7 @@ public class AngyWordsStyleKit : NSObject {
         var imageOfCanvasSling = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        return imageOfCanvasSling!
+        return imageOfCanvasSling
     }
 
     public class var imageOfCanvasEule: UIImage {

@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var terrain : TerrainNode = TerrainNode()
 
@@ -29,10 +29,13 @@ class GameScene: SKScene {
     
     var isDraggingSwing :(Bool)  = false
     
+    var babbelworm : SKSpriteNode = SKSpriteNode(color: SKColor.orangeColor(), size: CGSizeMake(50, 50))
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
        
         self.backgroundColor = AngyWordsStyleKit.babbelBlue
+        self.physicsWorld.contactDelegate = self;
         
         self.addChild(mapNode)
         terrain.createTerrain(-40, length: 2000, miny: 50, maxY: 500, initialFlatLength: 700, endFlatRange: 500)
@@ -43,6 +46,8 @@ class GameScene: SKScene {
         createTarget()
         createSling()
         
+        mapNode.addChild(babbelworm);
+        babbelworm.zPosition = 15
         self.addChild(camera)
     }
     
@@ -99,9 +104,10 @@ class GameScene: SKScene {
         var xpos = CGFloat(terrain.startAreaXRange.location + terrain.startAreaXRange.length/2)
         var ypos = terrain.startAreaY
         
-        var texBack = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSchleuderHinten)
-        var texFront = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSchleuderVorne)
-        var texBase = SKTexture(image: AngyWordsStyleKit.imageOfCanvasStamm)
+        var size = CGSizeMake(30, 69)
+        var texBack = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSchleuderHinten(size:size ) )
+        var texFront = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSchleuderVorne(size:size ))
+        var texBase = SKTexture(image: AngyWordsStyleKit.imageOfCanvasStamm(size:size ))
 
         var back = SKSpriteNode(texture: texBack)
         var front = SKSpriteNode(texture: texFront)
@@ -112,9 +118,9 @@ class GameScene: SKScene {
         front.position = slingBase.position
         slingBase.name = "sling"
         
-        slingBase.zPosition = 6
-        back.zPosition = 4
-        front.zPosition = 6
+        slingBase.zPosition = 20
+        back.zPosition = 10
+        front.zPosition = 20
         
         mapNode.addChild(back)
         mapNode.addChild(front)
@@ -127,12 +133,12 @@ class GameScene: SKScene {
         
         slingfront.color = SKColor.redColor();
         slingfront.colorBlendFactor = 1;
-        slingfront.zPosition = 5;
+        slingfront.zPosition = 19;
         mapNode.addChild(slingfront);
         
         slingback.color = SKColor.redColor();
         slingback.colorBlendFactor = 1;
-        slingback.zPosition = 3
+        slingback.zPosition = 9
         mapNode.addChild(slingback);
 
     }
@@ -148,6 +154,7 @@ class GameScene: SKScene {
         let locationInMap = touch.locationInNode(mapNode)
         if(slingBase.containsPoint(locationInMap)){
             isDraggingSwing = true
+            babbelworm.physicsBody = nil
             slingDrawer.position = location
             updateSling()
         }
@@ -167,22 +174,42 @@ class GameScene: SKScene {
             let translation = location.x-touchStartPoint.x;
             
             var x = camera.position.x + translation;
-            
-            if x>0 {
-                x=0;
-            }else if x < -(terrain.length-self.size.width){
-                x = -(terrain.length-self.size.width)
-            }
-            
-            camera.position = CGPointMake(x, camera.position.y);
+            setCameraPosition(CGPointMake(x, camera.position.y))
         }
         touchStartPoint = location
     }
     
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        if isDraggingSwing {
+            var p2 = slingDrawer.position
+            var p1 = slingpos2
+            var p21  = Helper.CGPointSub(p1, b: p2)
+            var l = Helper.CGPointLength(p21);
+
+            babbelworm.physicsBody = SKPhysicsBody(rectangleOfSize: babbelworm.size)
+            babbelworm.physicsBody?.applyImpulse(CGVectorMake(p21.x, p21.y))
+        }
     }
     
+    
+    override func update(currentTime: CFTimeInterval) {
+        if let body = babbelworm.physicsBody{
+            var resting = body.resting
+            if resting {
+                babbelworm.physicsBody = nil;
+                camera.runAction(SKAction.moveTo(CGPointZero, duration: 2));
+            }else{
+                if(babbelworm.position.x>terrain.length){
+                    babbelworm.physicsBody = nil;
+                    camera.runAction(SKAction.moveTo(CGPointZero, duration: 2));
+                }
+                
+            }
+            
+            
+        }
+    }
+ 
     func updateSling() {
 //        slingback.position = slingDrawer.
         
@@ -211,9 +238,30 @@ class GameScene: SKScene {
         slingfront.size = CGSize(width: l, height: h);
         slingfront.zRotation = Helper.CGPointToAngle(p21);
 
+        babbelworm.position = slingDrawer.position
     }
     
     override func didSimulatePhysics() {
+        if babbelworm.physicsBody != nil {
+            setCameraPosition(CGPointMake(-babbelworm.position.x, camera.position.y))
+        }
+        
         mapNode.position = CGPointMake(camera.position.x, 0)
     }
+    
+    func setCameraPosition(pos : CGPoint){
+        var x = pos.x
+        if x>0 {
+            x=0;
+        }else if x < -(terrain.length-self.size.width){
+            x = -(terrain.length-self.size.width)
+        }
+        
+        camera.position = CGPointMake(x, camera.position.y);
+    }
+ 
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+    }
+    
 }
