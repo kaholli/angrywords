@@ -39,8 +39,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundColor = AngyWordsStyleKit.babbelBlue
         self.physicsWorld.contactDelegate = self;
         srandom(arc4random())
+       
+        restart()
+        self.addChild(camera)
+    }
+    
+    func restart(){
+        srandom(arc4random())
+
+        mapNode.removeFromParent();
+        mapNode = SKNode()
         self.addChild(mapNode)
-        terrain.createTerrain(-40, length: 2000, miny: 50, maxY: 500, initialFlatLength: 700, endFlatRange: 500)
+        terrain.createTerrain(-40, length: 3000, miny: 50, maxY: 500, initialFlatLength: 700, endFlatRange: 500)
         terrain.position = CGPoint(x: 0, y: 0)
         terrain.zPosition = 1
         createClouds()
@@ -51,12 +61,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         babbelworm = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasBabbelFigure))
         mapNode.addChild(babbelworm);
         babbelworm.zPosition = 15
-        self.addChild(camera)
     }
     
     func createClouds(){
         
-        for var x=50; x<Int(self.size.width); x+=200{
+        for var x=50; x<Int(terrain.length); x+=200{
             var y = (random()%Int(self.size.height/2)) + Int(self.size.height/2)
             var texture = SKTexture(image: AngyWordsStyleKit.imageOfCanvasCloud)
             var cloud = SKSpriteNode(texture: texture)
@@ -64,6 +73,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             cloud.yScale = 0.6
             cloud.position = CGPoint(x: x, y: y)
             cloud.zPosition = 0
+            cloud.color = AngyWordsStyleKit.babbelBeige50;
+            cloud.colorBlendFactor = 1
             var dx = CGFloat(random()%40)
             var dur = NSTimeInterval(random()%5)+5
             var move1 = SKAction.moveByX(dx, y: 0, duration: dur)
@@ -115,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createBird(position: CGPoint){
         var bird = SKSpriteNode(texture: SKTexture(image: AngyWordsStyleKit.imageOfCanvasEule))
-        bird.size = CGSizeMake(30, 30)
+        bird.size = CGSizeMake(40, 40)
         bird.name = "owl"
         bird.position = CGPointMake(position.x, position.y+bird.size.height);
         bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size);
@@ -197,10 +208,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         slingfront.texture = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSling)
+        slingfront.color = SKColor(red: 1, green: 0.3, blue: 0.3, alpha: 1);
+        slingfront.colorBlendFactor = 1;
         slingfront.zPosition = 19;
         mapNode.addChild(slingfront);
         
         slingback.texture = SKTexture(image: AngyWordsStyleKit.imageOfCanvasSling)
+        slingback.color = SKColor(red: 0.7, green: 0, blue: 0, alpha: 1);
+        slingback.colorBlendFactor = 1;
         slingback.zPosition = 9
         mapNode.addChild(slingback);
 
@@ -243,6 +258,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        
+        
         if isDraggingSwing {
             var p2 = slingDrawer.position
             var p1 = slingpos2
@@ -251,9 +268,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             babbelworm.physicsBody = SKPhysicsBody(rectangleOfSize: babbelworm.size)
             babbelworm.physicsBody?.dynamic = true
-            babbelworm.physicsBody?.applyImpulse(CGVectorMake(p21.x/2, p21.y/2))
+            babbelworm.physicsBody?.applyImpulse(CGVectorMake(p21.x*0.8, p21.y*0.8))
             babbelworm.physicsBody?.contactTestBitMask = 1
             slingDrawer.runAction(SKAction.moveTo(initialDrawerPos, duration: 0.4))
+        }else{
+        
+            let touch: AnyObject = touches.anyObject()!
+            let location = touch.locationInNode(self)
+            if location.x<44  {
+                self.restart();
+            }
+            
         }
     }
     
@@ -263,17 +288,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var resting = body.resting
             if resting {
                 babbelworm.physicsBody = nil;
-                camera.runAction(SKAction.moveTo(CGPointZero, duration: 2));
+                camera.runAction(SKAction.moveTo(CGPointZero, duration: 1));
             }else{
                 if(babbelworm.position.x>terrain.length){
                     babbelworm.physicsBody = nil;
-                    camera.runAction(SKAction.moveTo(CGPointZero, duration: 2));
+                    camera.runAction(SKAction.moveTo(CGPointZero, duration: 1));
                 }
                 
             }
-            
-            
         }
+        
+        self.enumerateChildNodesWithName("owl", usingBlock: {
+            (node: SKNode!, stop: UnsafeMutablePointer <ObjCBool>) -> Void in
+            if node.position.x>self.terrain.length {
+                self.killBird(node)
+            }
+            
+        })
     }
  
     func updateSling() {
@@ -305,7 +336,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slingfront.zRotation = Helper.CGPointToAngle(p21);
 
         if isDraggingSwing {
-            babbelworm.position = slingDrawer.position
+            babbelworm.position = CGPointMake(slingDrawer.position.x+babbelworm.size.width/2, slingDrawer.position.y);
         }
     }
     
@@ -336,16 +367,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(impulse>5){
             if let node = contact.bodyA.node {
                 if node.name == "owl" {
-                    node.runAction(SKAction.removeFromParent())
+                    killBird(node)
                 }
             }
             
             if let node = contact.bodyB.node {
                 if node.name == "owl" {
-                    node.runAction(SKAction.removeFromParent())
+                    killBird(node)
                 }
             }
         }
     }
     
+    func killBird(bird: SKNode){
+        bird.runAction(SKAction.removeFromParent())
+        
+        var emitter = SKEmitterNode()
+        emitter.numParticlesToEmit = 50
+        emitter.particleLifetime = 2
+        emitter.particleColorBlendFactor = 1
+        emitter.particleSize = CGSizeMake(10, 10)
+        emitter.particleBlendMode = SKBlendMode.Alpha
+        emitter.particleColor = SKColor.redColor()
+        emitter.particleBirthRate = 1000
+        emitter.particleScale = 1
+        emitter.particleScaleRange = 1
+        emitter.particleScaleSpeed = -1
+        emitter.yAcceleration = -500
+        emitter.particleSpeed = 200
+        emitter.emissionAngleRange = CGFloat(M_PI_2)
+        emitter.position = bird.position
+        emitter.runAction(SKAction.sequence([SKAction.waitForDuration(4),SKAction.removeFromParent()]))
+        mapNode.addChild(emitter)
+        
+    }
 }
