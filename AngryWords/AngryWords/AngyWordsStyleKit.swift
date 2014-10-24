@@ -2498,7 +2498,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2517,7 +2517,7 @@ public class AngyWordsStyleKit : NSObject {
         let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         text2Style.alignment = NSTextAlignment.Left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2536,7 +2536,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2555,7 +2555,7 @@ public class AngyWordsStyleKit : NSObject {
         let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         text2Style.alignment = NSTextAlignment.Left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2574,7 +2574,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2593,7 +2593,7 @@ public class AngyWordsStyleKit : NSObject {
         let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         text2Style.alignment = NSTextAlignment.Left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2612,7 +2612,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2631,7 +2631,7 @@ public class AngyWordsStyleKit : NSObject {
         let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         text2Style.alignment = NSTextAlignment.Left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2650,7 +2650,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2669,7 +2669,7 @@ public class AngyWordsStyleKit : NSObject {
         let text2Style = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         text2Style.alignment = NSTextAlignment.Left
 
-        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: text2Style]
+        let text2FontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: text2Style]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRectWithSize(CGSizeMake(text2Rect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).size.height
         CGContextSaveGState(context)
@@ -2688,7 +2688,7 @@ public class AngyWordsStyleKit : NSObject {
         let textStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
         textStyle.alignment = NSTextAlignment.Left
 
-        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.blackColor(), NSParagraphStyleAttributeName: textStyle]
+        let textFontAttributes = [NSFontAttributeName: UIFont(name: "ArialRoundedMTBold", size: 40)!, NSForegroundColorAttributeName: UIColor.whiteColor(), NSParagraphStyleAttributeName: textStyle]
 
         let textTextHeight: CGFloat = textTextContent.boundingRectWithSize(CGSizeMake(textRect.width, CGFloat.infinity), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: textFontAttributes, context: nil).size.height
         CGContextSaveGState(context)
