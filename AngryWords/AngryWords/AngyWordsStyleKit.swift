@@ -247,6 +247,26 @@ public class AngyWordsStyleKit : NSObject {
         schleuderHinten2Path.fill()
     }
 
+    public class func drawCanvasSling(#size: CGSize) {
+
+        //// Frames
+        let frame = CGRectMake(0, 0, (size.width - 22), (size.height - 16))
+
+
+        //// Rectangle Drawing
+        var rectanglePath = UIBezierPath()
+        rectanglePath.moveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height))
+        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.48750 * frame.width, frame.minY + 0.65217 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.23750 * frame.width, frame.minY + 0.65217 * frame.height))
+        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 1.00000 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.73750 * frame.width, frame.minY + 0.65217 * frame.height), controlPoint2: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 1.00000 * frame.height))
+        rectanglePath.addLineToPoint(CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.00000 * frame.height))
+        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.48750 * frame.width, frame.minY + 0.34783 * frame.height), controlPoint1: CGPointMake(frame.minX + 1.00000 * frame.width, frame.minY + 0.00000 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.73750 * frame.width, frame.minY + 0.34783 * frame.height))
+        rectanglePath.addCurveToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.21739 * frame.height), controlPoint1: CGPointMake(frame.minX + 0.23750 * frame.width, frame.minY + 0.34783 * frame.height), controlPoint2: CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.21739 * frame.height))
+        rectanglePath.addLineToPoint(CGPointMake(frame.minX + 0.00000 * frame.width, frame.minY + 0.78261 * frame.height))
+        rectanglePath.closePath()
+        UIColor.grayColor().setFill()
+        rectanglePath.fill()
+    }
+
     public class func drawCanvasEule() {
 
         //// Body Drawing
@@ -359,6 +379,42 @@ public class AngyWordsStyleKit : NSObject {
         body2Path.closePath()
         AngyWordsStyleKit.babbelGreen75.setFill()
         body2Path.fill()
+
+
+        //// Oval 3 Drawing
+        var oval3Path = UIBezierPath(ovalInRect: CGRectMake(187, 453, 15, 32))
+        UIColor.grayColor().setFill()
+        oval3Path.fill()
+
+
+        //// Oval 4 Drawing
+        var oval4Path = UIBezierPath(ovalInRect: CGRectMake(199, 456, 16, 32))
+        UIColor.grayColor().setFill()
+        oval4Path.fill()
+
+
+        //// Oval 5 Drawing
+        var oval5Path = UIBezierPath(ovalInRect: CGRectMake(212, 456, 13, 32))
+        UIColor.grayColor().setFill()
+        oval5Path.fill()
+
+
+        //// Oval 6 Drawing
+        var oval6Path = UIBezierPath(ovalInRect: CGRectMake(320, 456, 15, 32))
+        UIColor.grayColor().setFill()
+        oval6Path.fill()
+
+
+        //// Oval 7 Drawing
+        var oval7Path = UIBezierPath(ovalInRect: CGRectMake(307, 459, 16, 32))
+        UIColor.grayColor().setFill()
+        oval7Path.fill()
+
+
+        //// Oval 8 Drawing
+        var oval8Path = UIBezierPath(ovalInRect: CGRectMake(297, 459, 13, 32))
+        UIColor.grayColor().setFill()
+        oval8Path.fill()
     }
 
     //// Generated Images
@@ -419,6 +475,16 @@ public class AngyWordsStyleKit : NSObject {
         UIGraphicsEndImageContext()
 
         return imageOfCanvasSchleuderHinten!
+    }
+
+    public class func imageOfCanvasSling(#size: CGSize) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(8, 24), false, 0)
+            AngyWordsStyleKit.drawCanvasSling(size: size)
+
+        var imageOfCanvasSling = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return imageOfCanvasSling!
     }
 
     public class var imageOfCanvasEule: UIImage {
