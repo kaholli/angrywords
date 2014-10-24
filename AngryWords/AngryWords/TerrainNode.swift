@@ -21,7 +21,7 @@ class TerrainNode: SKShapeNode {
         var path = UIBezierPath()
         
         var x = fromX;
-        var y = randomBetween(miny, max: maxY)
+        var y = randomBetween(miny+60, max: maxY)
         
         startAreaY = y;
         path.moveToPoint(CGPoint(x: x, y: y))
@@ -33,7 +33,7 @@ class TerrainNode: SKShapeNode {
         
         x  = length  - endFlatRange;
         
-        y = randomBetween(miny, max: maxY)
+        y = miny + 60
         targetAreaY = y
         path.addQuadCurveToPoint(CGPoint(x: x, y: targetAreaY), controlPoint: CGPoint(x:x/2,y:randomBetween(miny, max: maxY)))
         
@@ -55,14 +55,31 @@ class TerrainNode: SKShapeNode {
         self.strokeColor = SKColor(red: 0.5, green: 0.45, blue: 0.1, alpha: 1)
 //        self.lineWidth = 20
         self.physicsBody = SKPhysicsBody(edgeChainFromPath: path.CGPath)
+        
+        makeTexture()
     }
     
     func randomBetween(min: CGFloat, max:CGFloat)->CGFloat{
-        
         let mi = Int(min);
         let ma = Int(max);
         let result = random()%(ma-mi);
         return CGFloat(mi + result);
+    }
+    
+    func makeTexture(){
+        let targetDimension = max(self.frame.size.width, self.frame.size.height)
+        let targetSize = CGSizeMake(targetDimension, targetDimension)
+        let image = AngyWordsStyleKit.imageOfCanvasWoodBlockHorizontal
+        let targetRef = image.CGImage
+        let tileSize = image.size
+        
+        UIGraphicsBeginImageContext(targetSize)
+        let contextRef = UIGraphicsGetCurrentContext()
+        CGContextDrawTiledImage(contextRef, CGRectMake(0,0,tileSize.width,tileSize.height), targetRef)
+        let tiledTexture = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.fillTexture = SKTexture(image: tiledTexture)
     }
     
 }

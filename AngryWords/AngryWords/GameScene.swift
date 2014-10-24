@@ -38,7 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
         self.backgroundColor = AngyWordsStyleKit.babbelBlue
         self.physicsWorld.contactDelegate = self;
-        
+        srandom(arc4random())
         self.addChild(mapNode)
         terrain.createTerrain(-40, length: 2000, miny: 50, maxY: 500, initialFlatLength: 700, endFlatRange: 500)
         terrain.position = CGPoint(x: 0, y: 0)
