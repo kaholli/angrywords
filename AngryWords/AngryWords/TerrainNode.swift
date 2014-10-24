@@ -31,11 +31,19 @@ class TerrainNode: SKShapeNode {
         x += initialFlatLength;
         path.addLineToPoint(CGPoint(x: x , y: y))
         
-        x  = length  - endFlatRange;
         
         y = miny + 60
         targetAreaY = y
-        path.addQuadCurveToPoint(CGPoint(x: x, y: targetAreaY), controlPoint: CGPoint(x:x/2,y:randomBetween(miny, max: maxY)))
+        
+        for var i=x+200; i<length-endFlatRange-400; i+=200 {
+            path.addQuadCurveToPoint(CGPoint(x: i, y: randomBetween(miny, max: maxY/2)), controlPoint: CGPoint(x:i-100,y:randomBetween(miny, max: maxY)))
+        }
+
+        x  = length  - endFlatRange;
+
+        path.addQuadCurveToPoint(CGPoint(x: x, y: targetAreaY), controlPoint: CGPoint(x:x-50,y:randomBetween(miny, max: maxY/2)))
+
+
         
         targetAreaXRange = NSMakeRange(Int(x), Int(endFlatRange))
         
