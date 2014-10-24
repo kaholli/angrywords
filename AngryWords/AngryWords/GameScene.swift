@@ -69,8 +69,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var y = (random()%Int(self.size.height/2)) + Int(self.size.height/2)
             var texture = SKTexture(image: AngyWordsStyleKit.imageOfCanvasCloud)
             var cloud = SKSpriteNode(texture: texture)
-            cloud.xScale = 0.6
-            cloud.yScale = 0.6
+            
+            var scale = CGFloat(random()%1000)/2000
+            
+            cloud.xScale = 0.2 + scale
+            cloud.yScale = 0.2 + scale
             cloud.position = CGPoint(x: x, y: y)
             cloud.zPosition = 0
             cloud.color = AngyWordsStyleKit.babbelBeige50;
@@ -276,7 +279,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let touch: AnyObject = touches.anyObject()!
             let location = touch.locationInNode(self)
             if location.x<44  {
-                self.restart();
+//                self.restart();
             }
             
         }
