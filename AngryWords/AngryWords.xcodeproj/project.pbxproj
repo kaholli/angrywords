@@ -15,6 +15,7 @@
 		E1C151B819FA431B00149DF5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1C151B719FA431B00149DF5 /* Images.xcassets */; };
 		E1C151BB19FA431B00149DF5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C151B919FA431B00149DF5 /* LaunchScreen.xib */; };
 		E1C151C719FA431B00149DF5 /* AngryWordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C151C619FA431B00149DF5 /* AngryWordsTests.swift */; };
+		E1C151D119FA43A400149DF5 /* TerrainNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C151D019FA43A400149DF5 /* TerrainNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		E1C151C019FA431B00149DF5 /* AngryWordsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AngryWordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C151C519FA431B00149DF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1C151C619FA431B00149DF5 /* AngryWordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngryWordsTests.swift; sourceTree = "<group>"; };
+		E1C151D019FA43A400149DF5 /* TerrainNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				E1C151AE19FA431B00149DF5 /* GameScene.sks */,
 				E1C151B019FA431B00149DF5 /* GameScene.swift */,
 				E1C151B219FA431B00149DF5 /* GameViewController.swift */,
+				E1C151D019FA43A400149DF5 /* TerrainNode.swift */,
 				E1C151B419FA431B00149DF5 /* Main.storyboard */,
 				E1C151B719FA431B00149DF5 /* Images.xcassets */,
 				E1C151B919FA431B00149DF5 /* LaunchScreen.xib */,
@@ -222,6 +225,7 @@
 				E1C151B119FA431B00149DF5 /* GameScene.swift in Sources */,
 				E1C151B319FA431B00149DF5 /* GameViewController.swift in Sources */,
 				E1C151AD19FA431B00149DF5 /* AppDelegate.swift in Sources */,
+				E1C151D119FA43A400149DF5 /* TerrainNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
