@@ -71,6 +71,10 @@ public class AngyWordsStyleKit : NSObject {
         static var canvasWoodBlockHorizontalTargets: [AnyObject]?
         static var imageOfCanvasWoodBlockVertical: UIImage?
         static var canvasWoodBlockVerticalTargets: [AnyObject]?
+        static var imageOfCanvasSand: UIImage?
+        static var canvasSandTargets: [AnyObject]?
+        static var imageOfCanvasSandLines: UIImage?
+        static var canvasSandLinesTargets: [AnyObject]?
     }
 
     //// Colors
@@ -1673,177 +1677,244 @@ public class AngyWordsStyleKit : NSObject {
         let sand = UIColor(red: 0.880, green: 0.754, blue: 0.335, alpha: 1.000)
         let sandS10 = sand.colorWithShadow(0.1)
         let sandS20 = sand.colorWithShadow(0.2)
-        let sandS30 = sand.colorWithShadow(0.3)
-        let sandS40 = sand.colorWithShadow(0.4)
 
         //// Rectangle 9 Drawing
-        let rectangle9Path = UIBezierPath(rect: CGRectMake(0, 0, 32, 32))
-        sand.setFill()
+        let rectangle9Path = UIBezierPath(rect: CGRectMake(0, 0, 64, 64))
+        sandS10.setFill()
         rectangle9Path.fill()
 
 
         //// Rectangle 4 Drawing
         var rectangle4Path = UIBezierPath()
-        rectangle4Path.moveToPoint(CGPointMake(26, 20))
-        rectangle4Path.addCurveToPoint(CGPointMake(32, 23), controlPoint1: CGPointMake(27.5, 22.75), controlPoint2: CGPointMake(32, 23))
-        rectangle4Path.addLineToPoint(CGPointMake(37, 23))
-        rectangle4Path.addLineToPoint(CGPointMake(37, 12))
-        rectangle4Path.addLineToPoint(CGPointMake(32, 12))
-        rectangle4Path.addCurveToPoint(CGPointMake(25, 16), controlPoint1: CGPointMake(32, 12), controlPoint2: CGPointMake(26.5, 13.25))
-        rectangle4Path.addCurveToPoint(CGPointMake(26, 20), controlPoint1: CGPointMake(23.5, 18.75), controlPoint2: CGPointMake(24.5, 17.25))
+        rectangle4Path.moveToPoint(CGPointMake(53, 39))
+        rectangle4Path.addCurveToPoint(CGPointMake(65, 45), controlPoint1: CGPointMake(56, 44.5), controlPoint2: CGPointMake(65, 45))
+        rectangle4Path.addLineToPoint(CGPointMake(75, 45))
+        rectangle4Path.addLineToPoint(CGPointMake(75, 23))
+        rectangle4Path.addLineToPoint(CGPointMake(65, 23))
+        rectangle4Path.addCurveToPoint(CGPointMake(51, 31), controlPoint1: CGPointMake(65, 23), controlPoint2: CGPointMake(54, 25.5))
+        rectangle4Path.addCurveToPoint(CGPointMake(53, 39), controlPoint1: CGPointMake(48, 36.5), controlPoint2: CGPointMake(50, 33.5))
         rectangle4Path.closePath()
-        sandS40.setFill()
+        sandS10.setFill()
         rectangle4Path.fill()
+        sandS20.setStroke()
+        rectangle4Path.lineWidth = 2
+        rectangle4Path.stroke()
 
 
         //// Rectangle Drawing
         var rectanglePath = UIBezierPath()
-        rectanglePath.moveToPoint(CGPointMake(-6, 23))
-        rectanglePath.addLineToPoint(CGPointMake(0, 23))
-        rectanglePath.addCurveToPoint(CGPointMake(7, 20), controlPoint1: CGPointMake(0, 23), controlPoint2: CGPointMake(4, 23))
-        rectanglePath.addCurveToPoint(CGPointMake(8, 15), controlPoint1: CGPointMake(8.73, 18.27), controlPoint2: CGPointMake(8.11, 17.36))
-        rectanglePath.addCurveToPoint(CGPointMake(5, 12), controlPoint1: CGPointMake(7.92, 13.27), controlPoint2: CGPointMake(5.53, 13.16))
-        rectanglePath.addCurveToPoint(CGPointMake(0, 12), controlPoint1: CGPointMake(3.75, 9.25), controlPoint2: CGPointMake(0, 12))
-        rectanglePath.addLineToPoint(CGPointMake(-6, 12))
-        rectanglePath.addLineToPoint(CGPointMake(-6, 23))
+        rectanglePath.moveToPoint(CGPointMake(-11, 45))
+        rectanglePath.addLineToPoint(CGPointMake(1, 45))
+        rectanglePath.addCurveToPoint(CGPointMake(15, 39), controlPoint1: CGPointMake(1, 45), controlPoint2: CGPointMake(9, 45))
+        rectanglePath.addCurveToPoint(CGPointMake(17, 29), controlPoint1: CGPointMake(18.46, 35.54), controlPoint2: CGPointMake(17.22, 33.72))
+        rectanglePath.addCurveToPoint(CGPointMake(11, 23), controlPoint1: CGPointMake(16.84, 25.53), controlPoint2: CGPointMake(12.06, 25.33))
+        rectanglePath.addCurveToPoint(CGPointMake(1, 23), controlPoint1: CGPointMake(8.5, 17.5), controlPoint2: CGPointMake(1, 23))
+        rectanglePath.addLineToPoint(CGPointMake(-11, 23))
+        rectanglePath.addLineToPoint(CGPointMake(-11, 45))
         rectanglePath.closePath()
-        sandS40.setFill()
+        sandS10.setFill()
         rectanglePath.fill()
+        sandS20.setStroke()
+        rectanglePath.lineWidth = 2
+        rectanglePath.stroke()
 
 
         //// Rectangle 2 Drawing
         var rectangle2Path = UIBezierPath()
-        rectangle2Path.moveToPoint(CGPointMake(11, 0))
-        rectangle2Path.addCurveToPoint(CGPointMake(11, 6), controlPoint1: CGPointMake(11, 0), controlPoint2: CGPointMake(8.25, 4.5))
-        rectangle2Path.addCurveToPoint(CGPointMake(22, 6), controlPoint1: CGPointMake(13.75, 7.5), controlPoint2: CGPointMake(18, 12))
-        rectangle2Path.addCurveToPoint(CGPointMake(22, 0), controlPoint1: CGPointMake(26, 0), controlPoint2: CGPointMake(22, 0))
-        rectangle2Path.addLineToPoint(CGPointMake(22, -5))
-        rectangle2Path.addLineToPoint(CGPointMake(11, -5))
-        rectangle2Path.addLineToPoint(CGPointMake(11, 0))
+        rectangle2Path.moveToPoint(CGPointMake(23, -1))
+        rectangle2Path.addCurveToPoint(CGPointMake(23, 11), controlPoint1: CGPointMake(23, -1), controlPoint2: CGPointMake(17.5, 8))
+        rectangle2Path.addCurveToPoint(CGPointMake(45, 11), controlPoint1: CGPointMake(28.5, 14), controlPoint2: CGPointMake(37, 23))
+        rectangle2Path.addCurveToPoint(CGPointMake(45, -1), controlPoint1: CGPointMake(53, -1), controlPoint2: CGPointMake(45, -1))
+        rectangle2Path.addLineToPoint(CGPointMake(45, -11))
+        rectangle2Path.addLineToPoint(CGPointMake(23, -11))
+        rectangle2Path.addLineToPoint(CGPointMake(23, -1))
         rectangle2Path.closePath()
         sandS10.setFill()
         rectangle2Path.fill()
+        sandS20.setStroke()
+        rectangle2Path.lineWidth = 2
+        rectangle2Path.stroke()
 
 
         //// Rectangle 3 Drawing
         var rectangle3Path = UIBezierPath()
-        rectangle3Path.moveToPoint(CGPointMake(11, 32))
-        rectangle3Path.addLineToPoint(CGPointMake(11, 38))
-        rectangle3Path.addLineToPoint(CGPointMake(22, 38))
-        rectangle3Path.addLineToPoint(CGPointMake(22, 32))
-        rectangle3Path.addCurveToPoint(CGPointMake(20, 30), controlPoint1: CGPointMake(22, 32), controlPoint2: CGPointMake(21, 31.25))
-        rectangle3Path.addCurveToPoint(CGPointMake(17, 28), controlPoint1: CGPointMake(19, 28.75), controlPoint2: CGPointMake(19.75, 28))
-        rectangle3Path.addCurveToPoint(CGPointMake(12, 28), controlPoint1: CGPointMake(14.25, 28), controlPoint2: CGPointMake(13, 26))
-        rectangle3Path.addCurveToPoint(CGPointMake(11, 32), controlPoint1: CGPointMake(11, 30), controlPoint2: CGPointMake(11, 32))
+        rectangle3Path.moveToPoint(CGPointMake(23, 63))
+        rectangle3Path.addLineToPoint(CGPointMake(23, 75))
+        rectangle3Path.addLineToPoint(CGPointMake(45, 75))
+        rectangle3Path.addLineToPoint(CGPointMake(45, 63))
+        rectangle3Path.addCurveToPoint(CGPointMake(41, 59), controlPoint1: CGPointMake(45, 63), controlPoint2: CGPointMake(43, 61.5))
+        rectangle3Path.addCurveToPoint(CGPointMake(35, 55), controlPoint1: CGPointMake(39, 56.5), controlPoint2: CGPointMake(40.5, 55))
+        rectangle3Path.addCurveToPoint(CGPointMake(25, 55), controlPoint1: CGPointMake(29.5, 55), controlPoint2: CGPointMake(27, 51))
+        rectangle3Path.addCurveToPoint(CGPointMake(23, 63), controlPoint1: CGPointMake(23, 59), controlPoint2: CGPointMake(23, 63))
         rectangle3Path.closePath()
         sandS10.setFill()
         rectangle3Path.fill()
+        sandS20.setStroke()
+        rectangle3Path.lineWidth = 2
+        rectangle3Path.stroke()
 
 
         //// Rectangle 5 Drawing
         var rectangle5Path = UIBezierPath()
-        rectangle5Path.moveToPoint(CGPointMake(26, 32))
-        rectangle5Path.addLineToPoint(CGPointMake(26, 37))
-        rectangle5Path.addLineToPoint(CGPointMake(37, 37))
-        rectangle5Path.addLineToPoint(CGPointMake(37, 26))
-        rectangle5Path.addLineToPoint(CGPointMake(32, 26))
-        rectangle5Path.addCurveToPoint(CGPointMake(28, 27), controlPoint1: CGPointMake(32, 26), controlPoint2: CGPointMake(30, 26))
-        rectangle5Path.addCurveToPoint(CGPointMake(26, 32), controlPoint1: CGPointMake(26, 28), controlPoint2: CGPointMake(26, 32))
+        rectangle5Path.moveToPoint(CGPointMake(53, 63))
+        rectangle5Path.addLineToPoint(CGPointMake(53, 73))
+        rectangle5Path.addLineToPoint(CGPointMake(75, 73))
+        rectangle5Path.addLineToPoint(CGPointMake(75, 51))
+        rectangle5Path.addLineToPoint(CGPointMake(65, 51))
+        rectangle5Path.addCurveToPoint(CGPointMake(57, 53), controlPoint1: CGPointMake(65, 51), controlPoint2: CGPointMake(61, 51))
+        rectangle5Path.addCurveToPoint(CGPointMake(53, 63), controlPoint1: CGPointMake(53, 55), controlPoint2: CGPointMake(53, 63))
         rectangle5Path.closePath()
-        sandS30.setFill()
+        sandS10.setFill()
         rectangle5Path.fill()
+        sandS20.setStroke()
+        rectangle5Path.lineWidth = 2
+        rectangle5Path.stroke()
 
 
         //// poly1 Drawing
         var poly1Path = UIBezierPath()
-        poly1Path.moveToPoint(CGPointMake(26, 0))
-        poly1Path.addCurveToPoint(CGPointMake(24, 7), controlPoint1: CGPointMake(26, 0), controlPoint2: CGPointMake(18, 5))
-        poly1Path.addCurveToPoint(CGPointMake(32, 6), controlPoint1: CGPointMake(30, 9), controlPoint2: CGPointMake(32, 6))
-        poly1Path.addLineToPoint(CGPointMake(37, 6))
-        poly1Path.addLineToPoint(CGPointMake(37, -5))
-        poly1Path.addLineToPoint(CGPointMake(26, -5))
-        poly1Path.addLineToPoint(CGPointMake(26, 0))
+        poly1Path.moveToPoint(CGPointMake(53, -1))
+        poly1Path.addCurveToPoint(CGPointMake(49, 13), controlPoint1: CGPointMake(53, -1), controlPoint2: CGPointMake(37, 9))
+        poly1Path.addCurveToPoint(CGPointMake(65, 11), controlPoint1: CGPointMake(61, 17), controlPoint2: CGPointMake(65, 11))
+        poly1Path.addLineToPoint(CGPointMake(75, 11))
+        poly1Path.addLineToPoint(CGPointMake(75, -11))
+        poly1Path.addLineToPoint(CGPointMake(53, -11))
+        poly1Path.addLineToPoint(CGPointMake(53, -1))
         poly1Path.closePath()
-        sandS30.setFill()
+        sandS10.setFill()
         poly1Path.fill()
+        sandS20.setStroke()
+        poly1Path.lineWidth = 2
+        poly1Path.stroke()
 
 
         //// Rectangle 7 Drawing
         var rectangle7Path = UIBezierPath()
-        rectangle7Path.moveToPoint(CGPointMake(-5, 6))
-        rectangle7Path.addLineToPoint(CGPointMake(0, 6))
-        rectangle7Path.addCurveToPoint(CGPointMake(5, 9), controlPoint1: CGPointMake(0, 6), controlPoint2: CGPointMake(1, 11))
-        rectangle7Path.addCurveToPoint(CGPointMake(10, 3), controlPoint1: CGPointMake(6.86, 8.07), controlPoint2: CGPointMake(10.15, 4.24))
-        rectangle7Path.addCurveToPoint(CGPointMake(6, 0), controlPoint1: CGPointMake(9.83, 1.57), controlPoint2: CGPointMake(6, 0))
-        rectangle7Path.addLineToPoint(CGPointMake(6, -5))
-        rectangle7Path.addLineToPoint(CGPointMake(-5, -5))
-        rectangle7Path.addLineToPoint(CGPointMake(-5, 6))
+        rectangle7Path.moveToPoint(CGPointMake(-11, 10))
+        rectangle7Path.addLineToPoint(CGPointMake(-1, 10))
+        rectangle7Path.addCurveToPoint(CGPointMake(9, 16), controlPoint1: CGPointMake(-1, 10), controlPoint2: CGPointMake(1, 20))
+        rectangle7Path.addCurveToPoint(CGPointMake(19, 4), controlPoint1: CGPointMake(12.72, 14.14), controlPoint2: CGPointMake(19.29, 6.48))
+        rectangle7Path.addCurveToPoint(CGPointMake(11, -2), controlPoint1: CGPointMake(18.66, 1.14), controlPoint2: CGPointMake(11, -2))
+        rectangle7Path.addLineToPoint(CGPointMake(11, -12))
+        rectangle7Path.addLineToPoint(CGPointMake(-11, -12))
+        rectangle7Path.addLineToPoint(CGPointMake(-11, 10))
         rectangle7Path.closePath()
-        sandS30.setFill()
+        sandS10.setFill()
         rectangle7Path.fill()
+        sandS20.setStroke()
+        rectangle7Path.lineWidth = 2
+        rectangle7Path.stroke()
 
 
         //// Rectangle 8 Drawing
         var rectangle8Path = UIBezierPath()
-        rectangle8Path.moveToPoint(CGPointMake(-5, 37))
-        rectangle8Path.addLineToPoint(CGPointMake(6, 37))
-        rectangle8Path.addLineToPoint(CGPointMake(6, 32))
-        rectangle8Path.addCurveToPoint(CGPointMake(6, 29), controlPoint1: CGPointMake(6, 32), controlPoint2: CGPointMake(5.72, 30.58))
-        rectangle8Path.addCurveToPoint(CGPointMake(7, 25), controlPoint1: CGPointMake(6.21, 27.8), controlPoint2: CGPointMake(8.29, 25.43))
-        rectangle8Path.addCurveToPoint(CGPointMake(0, 26), controlPoint1: CGPointMake(4, 24), controlPoint2: CGPointMake(0, 26))
-        rectangle8Path.addLineToPoint(CGPointMake(-5, 26))
-        rectangle8Path.addLineToPoint(CGPointMake(-5, 37))
+        rectangle8Path.moveToPoint(CGPointMake(-9, 73))
+        rectangle8Path.addLineToPoint(CGPointMake(13, 73))
+        rectangle8Path.addLineToPoint(CGPointMake(13, 63))
+        rectangle8Path.addCurveToPoint(CGPointMake(13, 57), controlPoint1: CGPointMake(13, 63), controlPoint2: CGPointMake(12.43, 60.16))
+        rectangle8Path.addCurveToPoint(CGPointMake(15, 49), controlPoint1: CGPointMake(13.43, 54.61), controlPoint2: CGPointMake(17.58, 49.86))
+        rectangle8Path.addCurveToPoint(CGPointMake(1, 51), controlPoint1: CGPointMake(9, 47), controlPoint2: CGPointMake(1, 51))
+        rectangle8Path.addLineToPoint(CGPointMake(-9, 51))
+        rectangle8Path.addLineToPoint(CGPointMake(-9, 73))
         rectangle8Path.closePath()
-        sandS30.setFill()
+        sandS10.setFill()
         rectangle8Path.fill()
+        sandS20.setStroke()
+        rectangle8Path.lineWidth = 2
+        rectangle8Path.stroke()
 
 
         //// Oval Drawing
         var ovalPath = UIBezierPath()
-        ovalPath.moveToPoint(CGPointMake(16.8, 20.94))
-        ovalPath.addCurveToPoint(CGPointMake(14.44, 8.31), controlPoint1: CGPointMake(20.11, 17.04), controlPoint2: CGPointMake(15.65, 12.76))
-        ovalPath.addCurveToPoint(CGPointMake(1.1, 8.31), controlPoint1: CGPointMake(13.22, 3.87), controlPoint2: CGPointMake(4.42, 4.41))
-        ovalPath.addCurveToPoint(CGPointMake(7.16, 18.31), controlPoint1: CGPointMake(-2.21, 12.22), controlPoint2: CGPointMake(9.59, 13.87))
-        ovalPath.addCurveToPoint(CGPointMake(16.8, 20.94), controlPoint1: CGPointMake(4.74, 22.76), controlPoint2: CGPointMake(13.49, 24.85))
+        ovalPath.moveToPoint(CGPointMake(36.6, 40.88))
+        ovalPath.addCurveToPoint(CGPointMake(31.87, 15.63), controlPoint1: CGPointMake(43.22, 33.07), controlPoint2: CGPointMake(34.3, 24.52))
+        ovalPath.addCurveToPoint(CGPointMake(5.21, 15.63), controlPoint1: CGPointMake(29.45, 6.74), controlPoint2: CGPointMake(11.83, 7.82))
+        ovalPath.addCurveToPoint(CGPointMake(17.33, 35.63), controlPoint1: CGPointMake(-1.42, 23.44), controlPoint2: CGPointMake(22.18, 26.74))
+        ovalPath.addCurveToPoint(CGPointMake(36.6, 40.88), controlPoint1: CGPointMake(12.48, 44.52), controlPoint2: CGPointMake(29.97, 48.69))
         ovalPath.closePath()
-        sandS20.setFill()
+        sandS10.setFill()
         ovalPath.fill()
+        sandS20.setStroke()
+        ovalPath.lineWidth = 2
+        ovalPath.stroke()
 
 
         //// Oval 2 Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 23.26, 18.09)
+        CGContextTranslateCTM(context, 45.51, 33.18)
         CGContextRotateCTM(context, 89.5 * CGFloat(M_PI) / 180)
 
         var oval2Path = UIBezierPath()
-        oval2Path.moveToPoint(CGPointMake(7.54, 6.85))
-        oval2Path.addCurveToPoint(CGPointMake(0.95, -4.74), controlPoint1: CGPointMake(10.86, 2.95), controlPoint2: CGPointMake(-3.08, -0.77))
-        oval2Path.addCurveToPoint(CGPointMake(-8.15, -5.78), controlPoint1: CGPointMake(4.99, -8.7), controlPoint2: CGPointMake(-4.84, -9.68))
-        oval2Path.addCurveToPoint(CGPointMake(-12.13, 4.15), controlPoint1: CGPointMake(-11.47, -1.87), controlPoint2: CGPointMake(-9.7, -0.3))
-        oval2Path.addCurveToPoint(CGPointMake(7.54, 6.85), controlPoint1: CGPointMake(-14.55, 8.59), controlPoint2: CGPointMake(4.23, 10.76))
+        oval2Path.moveToPoint(CGPointMake(15.09, 13.7))
+        oval2Path.addCurveToPoint(CGPointMake(1.9, -9.47), controlPoint1: CGPointMake(21.71, 5.89), controlPoint2: CGPointMake(-6.17, -1.54))
+        oval2Path.addCurveToPoint(CGPointMake(-16.31, -11.55), controlPoint1: CGPointMake(9.97, -17.4), controlPoint2: CGPointMake(-9.68, -19.36))
+        oval2Path.addCurveToPoint(CGPointMake(-24.25, 8.3), controlPoint1: CGPointMake(-22.93, -3.74), controlPoint2: CGPointMake(-19.4, -0.59))
+        oval2Path.addCurveToPoint(CGPointMake(15.09, 13.7), controlPoint1: CGPointMake(-29.1, 17.19), controlPoint2: CGPointMake(8.46, 21.52))
         oval2Path.closePath()
-        sandS30.setFill()
+        sandS10.setFill()
         oval2Path.fill()
+        sandS20.setStroke()
+        oval2Path.lineWidth = 2
+        oval2Path.stroke()
 
         CGContextRestoreGState(context)
 
 
         //// Oval 3 Drawing
         CGContextSaveGState(context)
-        CGContextTranslateCTM(context, 19.26, 30.09)
+        CGContextTranslateCTM(context, 39.51, 59.18)
         CGContextRotateCTM(context, 89.5 * CGFloat(M_PI) / 180)
 
         var oval3Path = UIBezierPath()
-        oval3Path.moveToPoint(CGPointMake(-6.11, 14.03))
-        oval3Path.addCurveToPoint(CGPointMake(0.17, -1.16), controlPoint1: CGPointMake(0.07, 12.93), controlPoint2: CGPointMake(-3.39, 3.49))
-        oval3Path.addCurveToPoint(CGPointMake(-8.73, -5.92), controlPoint1: CGPointMake(3.73, -5.82), controlPoint2: CGPointMake(-5.8, -10.51))
-        oval3Path.addCurveToPoint(CGPointMake(-12.24, 5.74), controlPoint1: CGPointMake(-11.65, -1.33), controlPoint2: CGPointMake(-10.1, 0.52))
-        oval3Path.addCurveToPoint(CGPointMake(-6.11, 14.03), controlPoint1: CGPointMake(-14.37, 10.96), controlPoint2: CGPointMake(-12.3, 15.13))
+        oval3Path.moveToPoint(CGPointMake(-12.22, 28.07))
+        oval3Path.addCurveToPoint(CGPointMake(0.33, -2.33), controlPoint1: CGPointMake(0.15, 25.86), controlPoint2: CGPointMake(-6.79, 6.99))
+        oval3Path.addCurveToPoint(CGPointMake(-17.46, -11.84), controlPoint1: CGPointMake(7.46, -11.64), controlPoint2: CGPointMake(-11.61, -21.01))
+        oval3Path.addCurveToPoint(CGPointMake(-24.47, 11.48), controlPoint1: CGPointMake(-23.3, -2.66), controlPoint2: CGPointMake(-20.19, 1.04))
+        oval3Path.addCurveToPoint(CGPointMake(-12.22, 28.07), controlPoint1: CGPointMake(-28.75, 21.92), controlPoint2: CGPointMake(-24.59, 30.27))
         oval3Path.closePath()
-        sandS40.setFill()
+        sandS10.setFill()
         oval3Path.fill()
+        sandS20.setStroke()
+        oval3Path.lineWidth = 2
+        oval3Path.stroke()
 
         CGContextRestoreGState(context)
+    }
+
+    public class func drawCanvasSandLines() {
+        //// Color Declarations
+        let sand = UIColor(red: 0.880, green: 0.754, blue: 0.335, alpha: 1.000)
+        let sandS10 = sand.colorWithShadow(0.1)
+        let sandS20 = sand.colorWithShadow(0.2)
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 64, 64))
+        sandS10.setFill()
+        rectanglePath.fill()
+
+
+        //// Rectangle 4 Drawing
+        let rectangle4Path = UIBezierPath(rect: CGRectMake(4, 4, 4, 4))
+        sandS20.setFill()
+        rectangle4Path.fill()
+
+
+        //// Rectangle 5 Drawing
+        let rectangle5Path = UIBezierPath(rect: CGRectMake(4, 6, 2, 2))
+        sandS20.setFill()
+        rectangle5Path.fill()
+
+
+        //// Rectangle 8 Drawing
+        let rectangle8Path = UIBezierPath(rect: CGRectMake(0, 0, 4, 4))
+        sandS20.setFill()
+        rectangle8Path.fill()
+
+
+        //// Rectangle 9 Drawing
+        let rectangle9Path = UIBezierPath(rect: CGRectMake(2, 0, 2, 2))
+        sandS20.setFill()
+        rectangle9Path.fill()
     }
 
     //// Generated Images
@@ -1988,6 +2059,34 @@ public class AngyWordsStyleKit : NSObject {
         return Cache.imageOfCanvasWoodBlockVertical!
     }
 
+    public class var imageOfCanvasSand: UIImage {
+        if Cache.imageOfCanvasSand != nil {
+            return Cache.imageOfCanvasSand!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(64, 64), false, 0)
+            AngyWordsStyleKit.drawCanvasSand()
+
+        Cache.imageOfCanvasSand = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasSand!
+    }
+
+    public class var imageOfCanvasSandLines: UIImage {
+        if Cache.imageOfCanvasSandLines != nil {
+            return Cache.imageOfCanvasSandLines!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(8, 8), false, 0)
+            AngyWordsStyleKit.drawCanvasSandLines()
+
+        Cache.imageOfCanvasSandLines = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCanvasSandLines!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var canvasCloudTargets: [AnyObject]! {
@@ -2086,6 +2185,26 @@ public class AngyWordsStyleKit : NSObject {
             Cache.canvasWoodBlockVerticalTargets = newValue
             for target: AnyObject in newValue {
                 target.setImage(AngyWordsStyleKit.imageOfCanvasWoodBlockVertical)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSandTargets: [AnyObject]! {
+        get { return Cache.canvasSandTargets }
+        set {
+            Cache.canvasSandTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSand)
+            }
+        }
+    }
+
+    @IBOutlet var canvasSandLinesTargets: [AnyObject]! {
+        get { return Cache.canvasSandLinesTargets }
+        set {
+            Cache.canvasSandLinesTargets = newValue
+            for target: AnyObject in newValue {
+                target.setImage(AngyWordsStyleKit.imageOfCanvasSandLines)
             }
         }
     }
