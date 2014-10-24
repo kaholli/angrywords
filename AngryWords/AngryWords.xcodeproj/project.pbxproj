@@ -176,6 +176,7 @@
 				TargetAttributes = {
 					E1C151A619FA431B00149DF5 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = Q2RNLK73HV;
 					};
 					E1C151BF19FA431B00149DF5 = {
 						CreatedOnToolsVersion = 6.1;
@@ -427,6 +428,7 @@
 				E1C151CC19FA431B00149DF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1C151CD19FA431B00149DF5 /* Build configuration list for PBXNativeTarget "AngryWordsTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +437,7 @@
 				E1C151CF19FA431B00149DF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

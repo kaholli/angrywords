@@ -77,7 +77,7 @@ class TerrainNode: SKShapeNode {
     func makeTexture(){
         let targetDimension = max(self.frame.size.width, self.frame.size.height)
         let targetSize = CGSizeMake(targetDimension, targetDimension)
-        let image = AngyWordsStyleKit.imageOfCanvasWoodBlockHorizontal
+        let image = AngyWordsStyleKit.imageOfCanvasSandLines
         let targetRef = image.CGImage
         let tileSize = image.size
         
